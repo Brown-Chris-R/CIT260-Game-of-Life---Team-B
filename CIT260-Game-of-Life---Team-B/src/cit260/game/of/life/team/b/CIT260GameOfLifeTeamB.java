@@ -30,6 +30,7 @@ public class CIT260GameOfLifeTeamB {
         Item  itemOne = new Item();
         Choice choiceOption =  new Choice();
         Scene gameScene = new Scene();
+        
                 
          //player class       
         playerOne.setName("Rodrigo");

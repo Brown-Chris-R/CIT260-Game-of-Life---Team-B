@@ -18,8 +18,11 @@ public class Map implements Serializable {
     private int row;
     private int column;
 
+    public Map() {
+    }
+
     public int getRow() {
-        return this.row;
+        return row;
     }
 
     public void setRow(int row) {
@@ -27,21 +30,18 @@ public class Map implements Serializable {
     }
 
     public int getColumn() {
-        return this.column;
+        return column;
     }
 
     public void setColumn(int column) {
         this.column = column;
     }
 
-    public Map() {
-    }
-
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 22 * hash + this.row;
-        hash = 22 * hash + this.column;
+        int hash = 3;
+        hash = 67 * hash + this.row;
+        hash = 67 * hash + this.column;
         return hash;
     }
 
@@ -70,4 +70,5 @@ public class Map implements Serializable {
     public String toString() {
         return "Map{" + "row=" + row + ", column=" + column + '}';
     }
+
 }

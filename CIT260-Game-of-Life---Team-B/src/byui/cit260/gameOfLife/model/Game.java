@@ -17,21 +17,21 @@ public class Game implements Serializable {
     //class instance variables    
     private int totalTurns;
 
+    public Game() {
+    }
+
     public int getTotalTurns() {
-        return this.totalTurns;
+        return totalTurns;
     }
 
     public void setTotalTurns(int totalTurns) {
         this.totalTurns = totalTurns;
     }
 
-    public Game() {
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 14 * hash + this.totalTurns;
+        hash = 53 * hash + this.totalTurns;
         return hash;
     }
 

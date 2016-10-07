@@ -70,6 +70,14 @@ public class Scene implements Serializable{
     public String toString() {
         return "Scene{" + "description=" + description + ", blockedLocations=" + blockedLocations + '}';
     }
+
+    public void setDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setBlockedLocations() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

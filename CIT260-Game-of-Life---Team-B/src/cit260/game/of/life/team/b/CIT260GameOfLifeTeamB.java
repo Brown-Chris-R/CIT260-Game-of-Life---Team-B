@@ -74,6 +74,12 @@ public class CIT260GameOfLifeTeamB {
         String locationInfo = myLocation.toString();
         System.out.println(locationInfo);
         
+        //Scene Class
+        gameScene.setDescription("New location");
+        gameScene.setBlockedLocations("Blocked area");
+        
+        String sceneInfo = gameScene.toString();
+        System.out.println(sceneInfo);
     }
     
 }

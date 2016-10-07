@@ -11,6 +11,7 @@ import byui.cit260.gameOfLife.model.Location;
 import byui.cit260.gameOfLife.model.Choice;
 import byui.cit260.gameOfLife.model.Item;
 import byui.cit260.gameOfLife.model.Player;
+import byui.cit260.gameOfLife.model.Scene;
 
 /**
  *
@@ -28,6 +29,7 @@ public class CIT260GameOfLifeTeamB {
         Player playerOne = new Player();
         Item  itemOne = new Item();
         Choice choiceOption =  new Choice();
+        Scene gameScene = new Scene();
                 
          //player class       
         playerOne.setName("Rodrigo");

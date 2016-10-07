@@ -15,12 +15,12 @@ import java.util.Objects;
  *
  * @author ferdycipriano
  */
-public class Character implements Serializable{
+public class Characters implements Serializable{
     private String name;
     private String description;
     private int coordinates;
 
-    public Character() {
+    public Characters() {
     }
     
     
@@ -69,7 +69,7 @@ public class Character implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Character other = (Character) obj;
+        final Characters other = (Characters) obj;
         if (this.coordinates != other.coordinates) {
             return false;
         }

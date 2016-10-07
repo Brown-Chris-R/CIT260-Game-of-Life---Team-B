@@ -5,6 +5,9 @@
  */
 package cit260.game.of.life.team.b;
 
+import byui.cit260.gameOfLife.model.Game;
+import byui.cit260.gameOfLife.model.Map;
+import byui.cit260.gameOfLife.model.Location;
 import byui.cit260.gameOfLife.model.Choice;
 import byui.cit260.gameOfLife.model.Item;
 import byui.cit260.gameOfLife.model.Player;
@@ -19,6 +22,9 @@ public class CIT260GameOfLifeTeamB {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Game myGame = new Game();
+        Map  myMap = new Map();
+        Location myLocation =  new Location();
         Player playerOne = new Player();
         Item  itemOne = new Item();
         Choice choiceOption =  new Choice();
@@ -48,7 +54,23 @@ public class CIT260GameOfLifeTeamB {
         String choiceResult = choiceOption.toString();
         System.out.println(choiceResult);
        
-        
+        // Game class
+        myGame.setTotalTurns(0);
+        String gameInfo = myGame.toString();
+        System.out.println(gameInfo);
+
+        // Map class
+        myMap.setRow(1);
+        myMap.setColumn(1);
+        String mapInfo = myMap.toString();
+        System.out.println(mapInfo);
+
+        // Location class
+        myLocation.setRow(1);
+        myLocation.setColumn(1);
+        myLocation.setVisited(false);
+        String locationInfo = myLocation.toString();
+        System.out.println(locationInfo);
         
     }
     

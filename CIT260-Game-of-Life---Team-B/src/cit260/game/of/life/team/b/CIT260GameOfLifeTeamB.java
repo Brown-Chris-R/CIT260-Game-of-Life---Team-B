@@ -5,6 +5,7 @@
  */
 package cit260.game.of.life.team.b;
 
+import byui.cit260.gameOfLife.model.Characters;
 import byui.cit260.gameOfLife.model.Game;
 import byui.cit260.gameOfLife.model.Map;
 import byui.cit260.gameOfLife.model.Location;
@@ -30,6 +31,7 @@ public class CIT260GameOfLifeTeamB {
         Item  itemOne = new Item();
         Choice choiceOption =  new Choice();
         Scene gameScene = new Scene();
+        Characters mainCharacter = new Characters();
         
                 
          //player class       
@@ -81,6 +83,14 @@ public class CIT260GameOfLifeTeamB {
         
         String sceneInfo = gameScene.toString();
         System.out.println(sceneInfo);
+        
+        //Character class
+        mainCharacter.setName("Parent");
+        mainCharacter.setDescription("Mom");
+        mainCharacter.setCoordinates(0);
+        
+        String charactersInfo = mainCharacter.toString();
+        System.out.println(charactersInfo);
     }
     
 }

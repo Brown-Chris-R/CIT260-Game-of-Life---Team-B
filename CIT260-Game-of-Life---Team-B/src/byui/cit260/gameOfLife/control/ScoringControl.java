@@ -11,7 +11,11 @@ package byui.cit260.gameOfLife.control;
  */
 public class ScoringControl {
     String errorText = new String();
-    
+
+/**
+ * Calculate the patient portion of a hospital surgery bill
+ * @author cbrown
+ */    
 public float calcOperation(float hospitalBillAmt, float insuranceDeductibleAmt, float insuranceCoverageAmt ) {
     float amountOwed;
     
@@ -30,12 +34,17 @@ public float calcOperation(float hospitalBillAmt, float insuranceDeductibleAmt, 
     } else if (insuranceCoverageAmt < 0) {      
         errorText = "Insurance Coverage Amount is < 0";
         return -1;
-    } else if (insuranceCoverageAmt > 100) {      
+    } else if (insuranceCoverageAmt > 1) {      
         errorText = "Insurance Coverage Amount is > 100%";
         return -1;
     }
     
+    /* amount owed by the patient is determined by reducing the amount of the bill by the portion paid by insurance,
+     * and adding in the patient's deductible. The portion paid by insurance is calculated on the bill amount minus
+     * the patient's deductible.
+     */
     amountOwed = (hospitalBillAmt - insuranceDeductibleAmt) * (1-insuranceCoverageAmt) + insuranceDeductibleAmt;
+    
     return amountOwed;
 }
 

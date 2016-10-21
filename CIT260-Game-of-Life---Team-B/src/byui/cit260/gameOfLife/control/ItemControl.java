@@ -10,5 +10,12 @@ package byui.cit260.gameOfLife.control;
  * @author cbrown
  */
 public class ItemControl {
+   
+  public static void main(String [] args)
+	{
+	
+            
+	}
+  
     
 }

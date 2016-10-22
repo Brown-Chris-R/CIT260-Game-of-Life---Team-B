@@ -18,6 +18,112 @@ public class ScoringControlTest {
     }
 
     /**
+     * Test of scoreAdolescenceSchoolChoice method, of class ScoringControl.
+     */
+    @Test
+    public void testScoreAdolescenceSchoolChoice() {
+        System.out.println("scoreAdolescenceSchoolChoice");
+
+        /**********************************************************************
+         * Test Case #1
+         *********************************************************************/
+        System.out.println("Test Case #1");
+        char choice = 'A';
+        ScoringControl instance = new ScoringControl();
+        int expResult = -10;
+        int result = instance.scoreAdolescenceSchoolChoice(choice);
+        assertEquals(expResult, result);
+        /**********************************************************************
+         * Test Case #2
+         *********************************************************************/
+        System.out.println("Test Case #2");
+        choice = 'B';
+        expResult = 5;
+        result = instance.scoreAdolescenceSchoolChoice(choice);
+        assertEquals(expResult, result);
+        /**********************************************************************
+         * Test Case #3
+         *********************************************************************/
+        System.out.println("Test Case #3");
+        choice = 'C';
+        expResult = 5;
+        result = instance.scoreAdolescenceSchoolChoice(choice);
+        assertEquals(expResult, result);
+        /**********************************************************************
+         * Test Case #4
+         *********************************************************************/
+        System.out.println("Test Case #4");
+        choice = 'D';
+        expResult = -1;
+        result = instance.scoreAdolescenceSchoolChoice(choice);
+        assertEquals(expResult, result);
+        /**********************************************************************
+         * Test Case #5
+         *********************************************************************/
+        System.out.println("Test Case #5");
+        choice = '1';
+        expResult = -1;
+        result = instance.scoreAdolescenceSchoolChoice(choice);
+        assertEquals(expResult, result);
+        /**********************************************************************
+         * Test Case #6
+         *********************************************************************/
+        System.out.println("Test Case #6");
+        choice = '@';
+        expResult = -1;
+        result = instance.scoreAdolescenceSchoolChoice(choice);
+        assertEquals(expResult, result);
+        /**********************************************************************
+         * Test Case #7
+         *********************************************************************/
+        System.out.println("Test Case #7");
+        choice = 'B';
+        expResult = 5;
+        result = instance.scoreAdolescenceSchoolChoice(choice);
+        assertEquals(expResult, result);
+        /**********************************************************************
+         * Test Case #8
+         *********************************************************************/
+        System.out.println("Test Case #8");
+        choice = 'B';
+        expResult = 5;
+        result = instance.scoreAdolescenceSchoolChoice(choice);
+        assertEquals(expResult, result);
+        /**********************************************************************
+         * Test Case #9
+         *********************************************************************/
+        System.out.println("Test Case #9");
+        choice = 'B';
+        expResult = 5;
+        result = instance.scoreAdolescenceSchoolChoice(choice);
+        assertEquals(expResult, result);
+        /**********************************************************************
+         * Test Case #10
+         *********************************************************************/
+        System.out.println("Test Case #10");
+        choice = 'C';
+        expResult = 5;
+        result = instance.scoreAdolescenceSchoolChoice(choice);
+        assertEquals(expResult, result);
+        /**********************************************************************
+         * Test Case #11
+         *********************************************************************/
+        System.out.println("Test Case #11");
+        choice = 'C';
+        expResult = 5;
+        result = instance.scoreAdolescenceSchoolChoice(choice);
+        assertEquals(expResult, result);
+        /**********************************************************************
+         * Test Case #12
+         *********************************************************************/
+        System.out.println("Test Case #12");
+        choice = 'C';
+        expResult = 5;
+        result = instance.scoreAdolescenceSchoolChoice(choice);
+        assertEquals(expResult, result);
+    }
+
+    /**
      * Test of calcOperation method, of class ScoringControl.
      */
     @Test
@@ -138,5 +244,5 @@ public class ScoringControlTest {
         assertEquals(expResult, result, 0.01);
 
     }
-    
+
 }

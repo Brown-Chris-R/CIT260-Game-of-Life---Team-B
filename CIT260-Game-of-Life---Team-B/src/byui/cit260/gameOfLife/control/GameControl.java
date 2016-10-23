@@ -37,19 +37,19 @@ public class GameControl {
                           break;
                   case 2:
                         System.out.println("You have chosen Open Map");
-                        // do something...
+                       
                         break;
                   case 3:
                         System.out.println("You have chosen Save Game");
-                        // do something...
+                        
                         break;
                   case 4:
                         System.out.println("You have chosen Select Game");
-                        // do something...
+                       
                         break;
                   case 5:
                         System.out.println("You have chosen New Player");
-                        // do something...
+                       
                         break;
                   case 0:
                         quit = true;

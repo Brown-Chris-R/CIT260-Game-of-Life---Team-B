@@ -16,8 +16,7 @@ public class GameControl {
     public static void GameControl(String[]args){
     Scanner in = new Scanner(System.in);
     
-   /*for(int i = 1; i<= 5; i++)
-        System.out.println(i + ". Menu item #" + i);*/
+  
     System.out.println("1. New Game");
     System.out.println("2. Open Map");
     System.out.println("3. Save Game");

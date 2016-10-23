@@ -5,7 +5,7 @@
  */
 package cit260.game.of.life.team.b;
 
-import byui.cit260.gameOfLife.model.Characters;
+import byui.cit260.gameOfLife.model.Character;
 import byui.cit260.gameOfLife.model.Game;
 import byui.cit260.gameOfLife.model.Map;
 import byui.cit260.gameOfLife.model.Location;
@@ -31,7 +31,7 @@ public class CIT260GameOfLifeTeamB {
         Item  itemOne = new Item();
         Choice choiceOption =  new Choice();
         Scene gameScene = new Scene();
-        Characters mainCharacter = new Characters();
+        Character mainCharacter = new Character();
         
                 
          //player class       

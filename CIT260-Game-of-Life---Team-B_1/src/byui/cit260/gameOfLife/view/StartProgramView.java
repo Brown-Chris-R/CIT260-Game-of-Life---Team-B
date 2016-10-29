@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.gameOfLife.control;
+package byui.cit260.gameOfLife.view;
 
 /**
  *
  * @author RMLOY_000
  */
-public class MapControl  {
+public class StartProgramView {
+         
     
+      
     
 }

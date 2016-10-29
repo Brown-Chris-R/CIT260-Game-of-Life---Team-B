@@ -30,7 +30,7 @@ public class RepentanceControlTest {
         double abandonmentOfSin = 5.0;
         double restitution = 5.0;
         double righteousLiving = 5.0;
-        double recieveForgiveness = 30.0;
+        double recieveForgiveness = 00.0;
         RepentanceControl instance = new RepentanceControl();
         double expResult = 30.0;
         double result = instance.repentance(faith, sorrowForSin, confession, abandonmentOfSin, restitution, righteousLiving, recieveForgiveness);
@@ -45,7 +45,7 @@ public class RepentanceControlTest {
           abandonmentOfSin = 5.0; 
          restitution = 5.0; 
           righteousLiving = 5.0; 
-          recieveForgiveness = 5.0; 
+          recieveForgiveness = 0.0; 
 
  
           expResult = -1.0; 

@@ -22,6 +22,7 @@ import byui.cit260.gameOfLife.model.Scene;
  */
 public class CIT260GameOfLifeTeamB {
 
+    private static final String GAME_VERSION = "0.10 - pre-production";
     private static Game currentGame = null;
     private static Player player = null;
     /**
@@ -48,6 +49,10 @@ public class CIT260GameOfLifeTeamB {
 
     public static void setPlayer(Player player) {
         CIT260GameOfLifeTeamB.player = player;
+    }
+
+    public static String getGameVersion() {
+        return GAME_VERSION;
     }
     
     

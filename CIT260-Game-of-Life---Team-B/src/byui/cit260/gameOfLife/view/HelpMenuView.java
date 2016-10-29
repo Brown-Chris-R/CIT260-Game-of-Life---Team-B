@@ -13,31 +13,30 @@ import java.util.Scanner;
  *
  * @author cbrown
  */
-class MainMenuView {
+public class HelpMenuView {
     private String menu;
-    public MainMenuView() {
+    public HelpMenuView() {
         this.menu = "\n"
                   + "\n----------------------------------------"
-                  + "\n| Main Menu                            |"
+                  + "\n| Help Menu                            |"
                   + "\n----------------------------------------"
-                  + "\nN - Start new game"
-                  + "\nG - Get and start saved"
-                  + "\nH - Get help on how to play the game"
-                  + "\nS - Save game"
+                  + "\nG - What is the goal of the game?"
+                  + "\nA - About the game"
+                  + "\nV - View Game/Player"
                   + "\nQ - Quit"
                   + "\n----------------------------------------";
     }
     /**
-     * displays the main menu view
+     * displays the help menu view
      */
-    void displayMainMenuView() {
+    void displayHelpMenuView() {
 
         boolean done = false; // set flag to not done
         do {
             // prompt for and get the players menu choice
             String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
+                return; // Return to previous menu
 
             // do the requested action and display the next view
             done = this.doAction(menuOption);
@@ -69,17 +68,14 @@ class MainMenuView {
         choice = choice.toUpperCase(); // need upper case for comparison
         
         switch (choice) {
-            case "N": // create and start new game
-                this.startNewGame();
+            case "G": // create and start new game
+                this.displayGameGoal();
                 break;
-            case "G": // get and start saved game
-                this.startExistingGame();
+            case "A": // get and start saved game
+                this.displayAboutGame();
                 break;
-            case "H": // display the help menu
-                this.displayHelpMenu();
-                break;
-            case "S": // create and start new game
-                this.saveGame();
+            case "V": // display the help menu
+                this.displayGamePlayer();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -88,29 +84,17 @@ class MainMenuView {
         return false;
     }
 
-    private void startNewGame() {
-        GameControl.createNewGame(CIT260GameOfLifeTeamB.getPlayer());
-        
-        // display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+    private void displayGameGoal() {
+        System.out.println("\n*** displayGameGoal function called ***");
     }
 
-    private void startExistingGame() {
-        System.out.println("\n*** startExistingGame function called ***");
+    private void displayAboutGame() {
+        System.out.println("\nGemeOfLife Version: " + CIT260GameOfLifeTeamB.getGameVersion());
     }
 
-    private void displayHelpMenu() {
-
-        // Create HelpMenuView object
-        HelpMenuView helpMenuView = new HelpMenuView();
-        
-        // Display the main menu view
-        helpMenuView.displayHelpMenuView();
+    private void displayGamePlayer() {
+        System.out.println("\n*** displayGamePlayer function called ***");
     }
-
-    private void saveGame() {
-        System.out.println("\n*** saveGame function called ***");
-    }
+    
     
 }

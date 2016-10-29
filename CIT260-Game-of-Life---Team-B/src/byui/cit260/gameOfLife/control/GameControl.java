@@ -5,6 +5,8 @@
  */
 package byui.cit260.gameOfLife.control;
 
+import byui.cit260.gameOfLife.model.Player;
+import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
 import java.util.Scanner;
 
 /**
@@ -61,5 +63,21 @@ public class GameControl {
         
     }while (!quit);
       System.out.println("Game ended!");
+    }
+
+    public static Player createPlayer(String playersName) {
+        if (playersName == null) {
+            return null;
+        }
+        
+        Player player = new Player(); // create player object
+        player.setName(playersName);  // set players name
+                
+        CIT260GameOfLifeTeamB.setPlayer(player); // save the player
+        return player;
+    }
+
+    public static void createNewGame(Player player) {
+        System.out.println("\n*** createNewGame function called ***");
     }
 }

@@ -10,38 +10,40 @@ package byui.cit260.gameOfLife.control;
  * @author cbrown
  */
 public class RepentanceControl {
+  
+    
     public double repentance (double faith 
                               , double sorrowForSin
                               , double confession
                               , double abandonmentOfSin
                               , double restitution
                               , double righteousLiving
-                              , double recieveForgiveness ) {
+                               ) {
    
     
-        if (faith <= 4 ||
+        if (faith <= 0 ||
             faith >  5 ) {
             return -1;
         }
 
-        if (sorrowForSin <= 3 ||
+        if (sorrowForSin <= 0 ||
             sorrowForSin > 5  ) {
             return -1;
         }
 
-        if (confession <= 3 || confession > 5) {
+        if (confession <= 0 || confession > 5) {
             return -1;
         }
 
-        if (abandonmentOfSin <=3 || abandonmentOfSin > 5  ) {
+        if (abandonmentOfSin <=0 || abandonmentOfSin > 5  ) {
             return -1;
         }
         
-       if (restitution <=3 || restitution > 5 ) {
+       if (restitution <=0 || restitution > 5 ) {
        return -1;
         } 
 
-       if (righteousLiving <= 3 ||
+       if (righteousLiving <= 0 ||
             righteousLiving > 5) {
            return -1;
         }
@@ -52,7 +54,7 @@ public class RepentanceControl {
 
         return receiveForgivness;
 
-    
+   
     }
-    
+   
 }

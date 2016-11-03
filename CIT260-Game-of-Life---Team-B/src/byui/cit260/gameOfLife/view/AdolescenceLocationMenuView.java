@@ -5,39 +5,35 @@
  */
 package byui.cit260.gameOfLife.view;
 
-import byui.cit260.gameOfLife.control.GameControl;
-import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
 import java.util.Scanner;
+
 
 /**
  *
  * @author cbrown
  */
-class MainMenuView {
+public class AdolescenceLocationMenuView {
     private String menu;
-    public MainMenuView() {
+    public AdolescenceLocationMenuView() {
         this.menu = "\n"
                   + "\n----------------------------------------"
-                  + "\n| Main Menu                            |"
+                  + "\n| Adolescence Menu                            |"
                   + "\n----------------------------------------"
-                  + "\nN - Start new game"
-                  + "\nG - Get and start saved"
-                  + "\nH - Get help on how to play the game"
-                  + "\nS - Save game"
-                  + "\n1 - Test AdolescenceLocationMenu"
-                  + "\n2 - Test SeniorStartView"
+                  + "\nA - School"
+                  + "\nB - Church"
+                  + "\nC - Home"
                   + "\nQ - Quit"
                   + "\n----------------------------------------";
     }
     /**
      * displays the main menu view
      */
-    void displayMainMenuView() {
+    void displayAdolescenceLocationMenuView() {
 
         boolean done = false; // set flag to not done
         do {
             // prompt for and get the players menu choice
-            String menuOption = this.getInput();
+            String menuOption = getInput();
             if (menuOption.toUpperCase().equals("Q")) // user wants to quit
                 return; // exit the game
 
@@ -71,23 +67,14 @@ class MainMenuView {
         choice = choice.toUpperCase(); // need upper case for comparison
         
         switch (choice) {
-            case "N": // create and start new game
-                this.startNewGame();
+            case "A": // Adolescence School Scenario
+                this.displayAdolescenceSchoolScenario();
                 break;
-            case "G": // get and start saved game
-                this.startExistingGame();
+            case "B": // Adolescence Church Menu
+                this.displayAdolescenceChurchMenu();
                 break;
-            case "H": // display the help menu
-                this.displayHelpMenu();
-                break;
-            case "S": // create and start new game
-                this.saveGame();
-                break;
-            case "1": // create and start new game
-                this.test1();
-                break;
-            case "2": // create and start new game
-                this.test2();
+            case "C": // Adolescence Home Menu
+                this.displayAdolescenceHomeMenu();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -96,39 +83,16 @@ class MainMenuView {
         return false;
     }
 
-    private void startNewGame() {
-        GameControl.createNewGame(CIT260GameOfLifeTeamB.getPlayer());
-        
-        // display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+    private void displayAdolescenceSchoolScenario() {
+        System.out.println("\n*** displayAdolescenceSchoolScenario() function called ***");
     }
 
-    private void startExistingGame() {
-        System.out.println("\n*** startExistingGame function called ***");
+    private void displayAdolescenceChurchMenu() {
+        System.out.println("\n*** displayAdolescenceChurchMenu() function called ***");
     }
 
-    private void displayHelpMenu() {
-
-        // Create HelpMenuView object
-        HelpMenuView helpMenuView = new HelpMenuView();
-        
-        // Display the main menu view
-        helpMenuView.displayHelpMenuView();
-    }
-
-    private void saveGame() {
-        System.out.println("\n*** saveGame function called ***");
-    }
-
-    private void test1() {
-        AdolescenceLocationMenuView almView = new AdolescenceLocationMenuView();
-        almView.displayAdolescenceLocationMenuView();
-    }
-
-    private void test2() {
-        SeniorStartView ssView = new SeniorStartView();
-        ssView.displaySeniorStartView();
+    private void displayAdolescenceHomeMenu() {
+        System.out.println("\n*** displayAdolescenceHomeMenu() function called ***");
     }
     
 }

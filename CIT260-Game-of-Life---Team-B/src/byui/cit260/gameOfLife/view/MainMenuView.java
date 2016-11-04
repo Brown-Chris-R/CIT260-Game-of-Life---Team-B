@@ -26,6 +26,9 @@ class MainMenuView {
                   + "\nS - Save game"
                   + "\n1 - Test AdolescenceLocationMenu"
                   + "\n2 - Test SeniorStartView"
+                  + "\n3 - Test ChildhoodStartView"
+                  + "\n4 - Test AdulthoodStartView"
+                  + "\n5 - Test RepentanceStartView"
                   + "\nQ - Quit"
                   + "\n----------------------------------------";
     }
@@ -88,6 +91,13 @@ class MainMenuView {
                 break;
             case "2": // create and start new game
                 this.test2();
+            case "3": // create and start new game
+                this.test3();
+                break;
+            case "4": // create and start new game
+                this.test4();
+            case "5": // create and start new game
+                this.test5();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -129,6 +139,21 @@ class MainMenuView {
     private void test2() {
         SeniorStartView ssView = new SeniorStartView();
         ssView.displaySeniorStartView();
+    }
+
+    private void test3() {
+        ChildhoodStartView childhood = new ChildhoodStartView();
+        childhood.displayChildhoodStartView();
+    }
+
+    private void test4() {
+        AdulthoodStartView adulthood = new AdulthoodStartView();
+        adulthood.displayAdulthoodStartView();
+    }
+
+    private void test5() {
+        RepentanceStartView repentance = new RepentanceStartView();
+        repentance.displayRepentanceStartView();
     }
     
 }

@@ -32,7 +32,8 @@ public class RepentanceStartView extends View {
           x++;
           System.out.println("\n");
       }
-        return true;
+        
+      return true;
     }
         
      

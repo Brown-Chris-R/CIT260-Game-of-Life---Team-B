@@ -25,14 +25,13 @@ public class RepentanceStartView extends View {
         );
 }
     @Override
-    @SuppressWarnings("empty-statement")
     public boolean doAction(String choice) {
-        int i;
-       
-        //System.out.println("***RepentanceControl () function called***");
-        for (i=0; i<5; i++);{
-        System.out.println("\nQestio"+ i );
-    }
+      int x = 0;
+      while (x < 5){
+          System.out.println("Question :"+ x);
+          x++;
+          System.out.println("\n");
+      }
         return true;
     }
         

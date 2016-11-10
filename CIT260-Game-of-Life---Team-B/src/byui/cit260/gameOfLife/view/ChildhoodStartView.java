@@ -11,10 +11,10 @@ import java.util.Scanner;
  *
  * @author RMLOY_000
  */
-class ChildhoodStartView {
- private String menu;
+public class ChildhoodStartView extends View{
+ 
     public ChildhoodStartView() {
-        this.menu = "\n"
+               super( "\n"
                   + "\n----------------------------------------"
                   + "\n| Childhood Menu                       |"
                   + "\n----------------------------------------"
@@ -22,47 +22,13 @@ class ChildhoodStartView {
                   + "\nC - Church "
                   + "\nH - Home"
                   + "\nQ - Quit"
-                  + "\n----------------------------------------";
+                  + "\n----------------------------------------");
     }
-    /**
-     * displays the main menu view
-     */
-   void displayChildhoodStartView() {
+    
+    
 
-        boolean done = false; // set flag to not done
-        do {
-            // prompt for and get the players menu choice
-            String menuOption = this.getInput();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the MENU
-
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-        
-        } while (!done);
-    }
-
-    private String getInput() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        boolean valid = false; // set flag to not valid
-        String value = null; // value to be returned
-
-        while (!valid) {// loop
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); //trim off leading
-            
-            if (value.length() < 1) {//value is blank
-                System.out.println("\n*** Invalid value *** Try again");
-                continue;
-            }
-            break; // end the loop    
-        }
-        return value; // return the value
-    }
-
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase(); // need upper case for comparison
         
         switch (choice) {

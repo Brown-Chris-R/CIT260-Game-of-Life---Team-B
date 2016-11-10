@@ -105,17 +105,17 @@ public class MainMenuView extends View {
 
     private void test3() {
         ChildhoodStartView childhood = new ChildhoodStartView();
-        childhood.displayChildhoodStartView();
+        childhood.display();
     }
 
     private void test4() {
         AdulthoodStartView adulthood = new AdulthoodStartView();
-        adulthood.displayAdulthoodStartView();
+        adulthood.display();
     }
 
     private void test5() {
         RepentanceStartView repentance = new RepentanceStartView();
-        repentance.displayRepentanceStartView();
+        repentance.display();
     }
     
 }

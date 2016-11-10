@@ -7,16 +7,14 @@ package byui.cit260.gameOfLife.view;
 
 import byui.cit260.gameOfLife.control.GameControl;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
-import java.util.Scanner;
 
 /**
  *
  * @author cbrown
  */
-class MainMenuView {
-    private String menu;
+public class MainMenuView extends View {
     public MainMenuView() {
-        this.menu = "\n"
+        super("\n"
                   + "\n----------------------------------------"
                   + "\n| Main Menu                            |"
                   + "\n----------------------------------------"
@@ -30,47 +28,11 @@ class MainMenuView {
                   + "\n4 - Test AdulthoodStartView"
                   + "\n5 - Test RepentanceStartView"
                   + "\nQ - Quit"
-                  + "\n----------------------------------------";
-    }
-    /**
-     * displays the main menu view
-     */
-    void displayMainMenuView() {
-
-        boolean done = false; // set flag to not done
-        do {
-            // prompt for and get the players menu choice
-            String menuOption = this.getInput();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
-
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-        
-        } while (!done);
+                  + "\n----------------------------------------");
     }
 
-    private String getInput() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        boolean valid = false; // set flag to not valid
-        String selection = null; // value to be returned
-
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            selection = keyboard.nextLine(); // get next line typed on keyboard
-            selection = selection.trim();
-            
-            if (selection.length() < 1) {
-                System.out.println("\n*** Invalid selection *** Try again");
-                continue;
-            }
-            break; // end the loop    
-        }
-        return selection; // return the selection
-    }
-
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase(); // need upper case for comparison
         
         switch (choice) {
@@ -124,7 +86,7 @@ class MainMenuView {
         HelpMenuView helpMenuView = new HelpMenuView();
         
         // Display the main menu view
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 
     private void saveGame() {
@@ -133,12 +95,12 @@ class MainMenuView {
 
     private void test1() {
         AdolescenceLocationMenuView almView = new AdolescenceLocationMenuView();
-        almView.displayAdolescenceLocationMenuView();
+        almView.display();
     }
 
     private void test2() {
         SeniorStartView ssView = new SeniorStartView();
-        ssView.displaySeniorStartView();
+        ssView.display();
     }
 
     private void test3() {

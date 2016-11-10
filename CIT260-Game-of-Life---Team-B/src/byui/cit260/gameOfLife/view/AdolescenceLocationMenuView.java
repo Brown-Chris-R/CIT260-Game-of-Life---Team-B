@@ -5,17 +5,13 @@
  */
 package byui.cit260.gameOfLife.view;
 
-import java.util.Scanner;
-
-
 /**
  *
  * @author cbrown
  */
-public class AdolescenceLocationMenuView {
-    private String menu;
+public class AdolescenceLocationMenuView extends View {
     public AdolescenceLocationMenuView() {
-        this.menu = "\n"
+        super("\n"
                   + "\n----------------------------------------"
                   + "\n| Adolescence Menu                            |"
                   + "\n----------------------------------------"
@@ -23,47 +19,11 @@ public class AdolescenceLocationMenuView {
                   + "\nB - Church"
                   + "\nC - Home"
                   + "\nQ - Quit"
-                  + "\n----------------------------------------";
-    }
-    /**
-     * displays the main menu view
-     */
-    void displayAdolescenceLocationMenuView() {
-
-        boolean done = false; // set flag to not done
-        do {
-            // prompt for and get the players menu choice
-            String menuOption = getInput();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
-
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-        
-        } while (!done);
+                  + "\n----------------------------------------");
     }
 
-    private String getInput() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        boolean valid = false; // set flag to not valid
-        String selection = null; // value to be returned
-
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            selection = keyboard.nextLine(); // get next line typed on keyboard
-            selection = selection.trim();
-            
-            if (selection.length() < 1) {
-                System.out.println("\n*** Invalid selection *** Try again");
-                continue;
-            }
-            break; // end the loop    
-        }
-        return selection; // return the selection
-    }
-
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase(); // need upper case for comparison
         
         switch (choice) {

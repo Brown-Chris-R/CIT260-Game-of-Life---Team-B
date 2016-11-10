@@ -6,16 +6,14 @@
 package byui.cit260.gameOfLife.view;
 
 import byui.cit260.gameOfLife.control.ScoringControl;
-import java.util.Scanner;
 
 /**
  *
  * @author cbrown
  */
-public class SeniorStartView {
-    private String scenario;
+public class SeniorStartView extends View {
     public SeniorStartView() {
-        this.scenario = "\n"
+        super("\n"
                   + "\nContratulations to acheiving Senior status!"
                   + "\nIt is your 60th birthday, and you are celebrating"
                   + "\nwith your family. You feel a pain in your lower right"
@@ -27,51 +25,17 @@ public class SeniorStartView {
                   + "\ninsurance pays 75% of expenses after a $500 deductible."
                   + "\nRound your answer to the nearest dollar."
                   + "\n--------------------------------------------------------"
+                  + "\nPress Q to quit without answering."
+                  + "\n--------------------------------------------------------"
                   + "\nHospital Bill Total: $29,400"
-                  + "\nWhat is your portion of the medical bill?";
-    }
-    /**
-     * displays the main menu view
-     */
-    void displaySeniorStartView() {
-
-        boolean done = false; // set flag to not done
-        do {
-            // prompt for and get the players menu choice
-            int userAmount = Integer.parseInt(this.getInput());
-            if (userAmount == 0) // user wants to quit
-                return; // exit the game
-
-            // evaluate the response display the result
-            done = this.evaluateResponse(userAmount);
-        
-        } while (!done);
+                  + "\nWhat is your portion of the medical bill?");
     }
 
-    private String getInput() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        boolean valid = false; // set flag to not valid
-        String selection = null; // value to be returned
-
-        while (!valid) {
-            System.out.println("\n" + this.scenario);
-            
-            selection = keyboard.nextLine(); // get next line typed on keyboard
-            selection = selection.trim();
-            
-            if (selection.length() < 1) {
-                System.out.println("\n*** Invalid entry *** Try again");
-                continue;
-            }
-            break; // end the loop    
-        }
-        return selection; // return the selection
-    }
-
-
-    private boolean evaluateResponse(int userAmount) {
+    @Override
+    public boolean doAction(String choice) {
         // System.out.println("\n*** evaluateResponse() function called ***");
-
+        int userAmount = Integer.parseInt(choice);
+        
         ScoringControl scoringControl = new ScoringControl();
 
         float answer = scoringControl.calcOperation(29400.0F, 500.0F, 0.75F);

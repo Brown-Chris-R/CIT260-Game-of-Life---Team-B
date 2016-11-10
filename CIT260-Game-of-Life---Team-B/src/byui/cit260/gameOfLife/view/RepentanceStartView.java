@@ -25,8 +25,16 @@ public class RepentanceStartView extends View {
         );
 }
     @Override
-    public boolean doAction(String menuOption) {
-        System.out.println("***RepentanceControl () function called***");
+    @SuppressWarnings("empty-statement")
+    public boolean doAction(String choice) {
+        int i;
+       
+        //System.out.println("***RepentanceControl () function called***");
+        for (i=0; i<5; i++);{
+        System.out.println("\nQestio"+ i );
+    }
         return true;
     }
+        
+     
 }

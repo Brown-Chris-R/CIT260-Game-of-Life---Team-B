@@ -44,7 +44,8 @@ public class AdolescenceLocationMenuView extends View {
     }
 
     private void displayAdolescenceSchoolScenario() {
-        System.out.println("\n*** displayAdolescenceSchoolScenario() function called ***");
+        AdolescenceSchoolScenarioView ssView = new AdolescenceSchoolScenarioView();
+        ssView.display();
     }
 
     private void displayAdolescenceChurchMenu() {

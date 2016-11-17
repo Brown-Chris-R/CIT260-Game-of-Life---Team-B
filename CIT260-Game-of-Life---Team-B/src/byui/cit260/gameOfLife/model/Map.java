@@ -17,7 +17,8 @@ public class Map implements Serializable {
     //class instances variables
     private int row;
     private int column;
-
+    private Location [] [] locations;
+    
     public Map() {
     }
 

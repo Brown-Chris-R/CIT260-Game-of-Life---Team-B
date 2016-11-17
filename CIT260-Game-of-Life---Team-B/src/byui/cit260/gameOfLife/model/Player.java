@@ -15,6 +15,7 @@ public class Player implements Serializable {
     private String name;
     private int bestScore;
     private String attribute;
+    private Character character;
 
     public Player() {
     }
@@ -41,6 +42,14 @@ public class Player implements Serializable {
 
     public void setAttribute(String attribute) {
         this.attribute = attribute;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 
     @Override

@@ -18,6 +18,12 @@ public class Item implements Serializable{
     private String inventoryType;
     private int quantityInStock;
     private double requiredAmount;
+    
+    private Location [] locations;
+    
+    private Choice choice;
+       public Item() {
+    }
 
     public String getInventoryType() {
         return inventoryType;
@@ -43,8 +49,23 @@ public class Item implements Serializable{
         this.requiredAmount = requiredAmount;
     }
 
-    public Item() {
+    public Choice getChoice() {
+        return choice;
     }
+
+    public void setChoice(Choice choice) {
+        this.choice = choice;
+    }
+
+    public Location[] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[] locations) {
+        this.locations = locations;
+    }
+    
+ 
 
     @Override
     public int hashCode() {

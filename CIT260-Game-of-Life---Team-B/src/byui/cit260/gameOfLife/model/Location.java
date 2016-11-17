@@ -6,7 +6,6 @@
 package byui.cit260.gameOfLife.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
@@ -18,6 +17,7 @@ public class Location implements Serializable {
     private int row;
     private int column;
     private boolean visited;
+  
 
     public Location() {
     }

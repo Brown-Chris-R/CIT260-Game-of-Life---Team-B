@@ -6,7 +6,6 @@
 package byui.cit260.gameOfLife.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
@@ -16,7 +15,10 @@ public class Game implements Serializable {
 
     //class instance variables    
     private int totalTurns;
-
+    private Player player;
+    private Item [] items;
+    private Map map;
+    
     public Game() {
     }
 
@@ -27,6 +29,23 @@ public class Game implements Serializable {
     public void setTotalTurns(int totalTurns) {
         this.totalTurns = totalTurns;
     }
+    
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Item[] getItems() {
+        return items;
+    }
+
+    public void setItems(Item[] items) {
+        this.items = items;
+    }
+    
 
     @Override
     public int hashCode() {

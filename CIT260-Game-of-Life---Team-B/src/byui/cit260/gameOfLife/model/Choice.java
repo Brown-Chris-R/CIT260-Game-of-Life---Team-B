@@ -17,6 +17,8 @@ public class Choice implements Serializable{
     
     private String choiceList;
     private int choicePoints;
+    private Scene scene;
+    private Item[] items;
 
     public String getChoiceList() {
         return choiceList;
@@ -35,6 +37,22 @@ public class Choice implements Serializable{
     }
 
     public Choice() {
+    }
+    
+    public void setItems(Item[] items) {
+        this.items = items;
+    }
+
+    public Item[] getItems() {
+        return items;
+    }
+    
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public Scene getScene() {
+        return scene;
     }
 
     @Override

@@ -15,6 +15,23 @@ import java.util.Objects;
 public class Scene implements Serializable{
     private String description;
     private String blockedLocations;
+    private Location[] locations;
+    private Choice[] choices;
+
+    public Location[] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[] locations) {
+        this.locations = locations;
+    }
+
+    public Choice[] getChoices() {
+        return choices;
+    }
+    public void setChoices(Choice[] choices) {
+        this.choices = choices;
+    }
 
     public Scene() {
     }

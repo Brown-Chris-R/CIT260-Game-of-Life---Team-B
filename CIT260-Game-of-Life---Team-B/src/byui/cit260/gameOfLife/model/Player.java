@@ -16,7 +16,8 @@ public class Player implements Serializable {
     private int bestScore;
     private String attribute;
     private Character character;
-
+    private Game[] games;
+    
     public Player() {
     }
 
@@ -50,6 +51,14 @@ public class Player implements Serializable {
 
     public void setCharacter(Character character) {
         this.character = character;
+    }
+
+    public void setGames(Game[] games) {
+        this.games = games;
+    }
+
+    public Game[] getGames() {
+        return games;
     }
 
     @Override

@@ -20,7 +20,8 @@ public class Item implements Serializable{
     private double requiredAmount;
     
     private Location [] locations;
-    
+    private Game game;  //cbrown
+
     private Choice choice;
        public Item() {
     }
@@ -63,6 +64,14 @@ public class Item implements Serializable{
 
     public void setLocations(Location[] locations) {
         this.locations = locations;
+    }
+    
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
     }
     
  

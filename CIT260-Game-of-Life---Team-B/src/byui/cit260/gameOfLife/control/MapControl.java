@@ -5,11 +5,18 @@
  */
 package byui.cit260.gameOfLife.control;
 
+import byui.cit260.gameOfLife.model.Map;
+
 /**
  *
  * @author cbrown
  */
 public class MapControl {
+
+    static Map createMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+ 
     String errorText = new String();
 
     /**************************************************************************

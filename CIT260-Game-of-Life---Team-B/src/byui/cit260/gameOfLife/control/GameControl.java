@@ -142,6 +142,10 @@ public class GameControl {
         //start point
         locations[0][0].setScene(scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()]);
 
+        locations[1][1].setScene(scenes[10 + AdolescenceSceneType.ChurchSacrament.ordinal()]);
+
+        locations[4][2].setScene(scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()]);
+
         locations[0][3].setScene(scenes[30 + SeniorSceneType.Hospital.ordinal()]);
     }
 }

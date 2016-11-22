@@ -14,7 +14,7 @@ public enum AdulthoodSceneType {
    MissionInvestigators,
    MissionMembers,
    MissionStreet,
-   WorkBreakRoom,
+   WorkBreakroom,
    WorkOffice,
    WorkParkingLot,
    WorkSupersOffice,

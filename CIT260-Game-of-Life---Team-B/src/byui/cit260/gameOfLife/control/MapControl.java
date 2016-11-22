@@ -53,9 +53,27 @@ public class MapControl {
         scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()] = childhoodSchoolCafeteriaScene;
 
         // Create Adolescence Scenes (use 10 + ordinal)
-
+        Scene adolescenceChurchSacramentScene = new Scene();
+        adolescenceChurchSacramentScene.setDescription(
+            "You are at sacrament meeting and notice a text message on your phone "
+          + "from your best friend. You try to ignore it but notice another text "
+          + "message. You are eager to see what they have to say. You promised "
+          + "yourself you wouldn’t use your phone at church. What do you do?");
+        adolescenceChurchSacramentScene.setMapSymbol("a2");
+        adolescenceChurchSacramentScene.setBlocked(false);
+        scenes[10 + AdolescenceSceneType.ChurchSacrament.ordinal()] = adolescenceChurchSacramentScene;
+        
         // Create Adulthood Scenes (use 20 + ordinal)
-
+        Scene adulthoodWorkBreakroomScene = new Scene();
+        adulthoodWorkBreakroomScene.setDescription(
+            "You are thirsty and go to the break room to get a snack from the "
+          + "vending machine. You put the required amount of money in for 1 "
+          + "snack. The machine takes your money, but spits out two snacks "
+          + "instead of just one. What do you do?");
+        adulthoodWorkBreakroomScene.setMapSymbol("A5");
+        adulthoodWorkBreakroomScene.setBlocked(false);
+        scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()] = adulthoodWorkBreakroomScene;
+        
         // Create Senior Scenes (use 30 + ordinal)
         Scene seniorHospitalScene = new Scene();
         seniorHospitalScene.setDescription(

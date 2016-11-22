@@ -5,10 +5,16 @@
  */
 package byui.cit260.gameOfLife.control;
 
+import byui.cit260.gameOfLife.model.ChildhoodSceneType;
+import byui.cit260.gameOfLife.model.AdolescenceSceneType;
+import byui.cit260.gameOfLife.model.AdulthoodSceneType;
+import byui.cit260.gameOfLife.model.SeniorSceneType;
 import byui.cit260.gameOfLife.model.Game;
 import byui.cit260.gameOfLife.model.Item;
+import byui.cit260.gameOfLife.model.Location;
 import byui.cit260.gameOfLife.model.Map;
 import byui.cit260.gameOfLife.model.Player;
+import byui.cit260.gameOfLife.model.Scene;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
 import java.util.Scanner;
 
@@ -127,5 +133,14 @@ public class GameControl {
         item[4]= backpack;
         
         return item;
+    }
+
+    static void assignScenesToLocations(Map map, Scene[] scenes) {
+        Location[][] locations = map.getLocations();
+        
+        //start point
+        locations[0][0].setScene(scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()]);
+
+        locations[3][0].setScene(scenes[SeniorSceneType.Hospital.ordinal()]);
     }
 }

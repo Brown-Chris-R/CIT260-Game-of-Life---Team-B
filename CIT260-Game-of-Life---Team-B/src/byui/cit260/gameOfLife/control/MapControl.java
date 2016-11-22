@@ -6,6 +6,12 @@
 package byui.cit260.gameOfLife.control;
 
 import byui.cit260.gameOfLife.model.Map;
+import byui.cit260.gameOfLife.model.Scene;
+import byui.cit260.gameOfLife.model.Phase;
+import byui.cit260.gameOfLife.model.ChildhoodSceneType;
+import byui.cit260.gameOfLife.model.AdolescenceSceneType;
+import byui.cit260.gameOfLife.model.AdulthoodSceneType;
+import byui.cit260.gameOfLife.model.SeniorSceneType;
 
 /**
  *
@@ -13,11 +19,65 @@ import byui.cit260.gameOfLife.model.Map;
  */
 public class MapControl {
 
-    static Map createMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    String errorText = new String();
+
+    public static Map createMap() {
+        // Create the map - 4 columns represent the 4 game phases
+        // 10 columns for the maximum number of locations per phase
+        // note that not all rows will have a valid location in some phases
+        Map map = new Map(10,4);
+        
+        // create the scenes for the game
+        Scene[] scenes = createScenes();
+        
+        // assigne scenes to locations
+        GameControl.assignScenesToLocations(map, scenes);
+        
+        return map;
     }
  
-    String errorText = new String();
+    private static Scene[] createScenes() {
+        // Create scenes array that will consist of scenes for the 4 phases
+        // Childhood, Adolescence, Adulthood and Senior
+        Scene[] scenes = new Scene[ChildhoodSceneType.values().length + AdolescenceSceneType.values().length + AdulthoodSceneType.values().length + SeniorSceneType.values().length];
+        
+        // Create Childhood Scenes
+        Scene childhoodSchoolCafeteriaScene = new Scene();
+        childhoodSchoolCafeteriaScene.setDescription(
+            "You are at the cafeteria and you notice that a classmate is sitting "
+          + "at the table and didn’t bring his lunch. You have some extra food "
+          + "left from your lunch and some money in your pocket. What would you "
+          + "do?");
+        childhoodSchoolCafeteriaScene.setMapSymbol("C1");
+        childhoodSchoolCafeteriaScene.setBlocked(false);
+        scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()] = childhoodSchoolCafeteriaScene;
+
+        // Create Adolescence Scenes
+
+        // Create Adulthood Scenes
+
+        // Create Senior Scenes
+        Scene seniorHospitalScene = new Scene();
+        seniorHospitalScene.setDescription(
+            "Contratulations to acheiving Senior status!"
+          + "It is your 60th birthday, and you are celebrating "
+          + "with your family. You feel a pain in your lower right "
+          + "abdomen. You are rushed to the hospital and diagnosed "
+          + "with appendicitis. After surgery you spend several "
+          + "days in the hospital. Below is the bill from the "
+          + "hospital. You need to calculate the amount you will "
+          + "pay after the insurance has paid it's portion. Your "
+          + "insurance pays 75% of expenses after a $500 deductible. "
+          + "Round your answer to the nearest dollar."
+          + "--------------------------------------------------------"
+          + "Hospital Bill Total: $29,400"
+          + "What is your portion of the medical bill?");
+        seniorHospitalScene.setMapSymbol("S1");
+        seniorHospitalScene.setBlocked(false);
+        scenes[SeniorSceneType.Hospital.ordinal()] = seniorHospitalScene;
+                
+        return scenes;
+    }
 
     /**************************************************************************
     * Enumerate the valid Locations for a valid phase

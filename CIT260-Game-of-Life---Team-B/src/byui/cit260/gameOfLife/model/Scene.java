@@ -14,9 +14,18 @@ import java.util.Objects;
  */
 public class Scene implements Serializable{
     private String description;
-    private String blockedLocations;
+    private String mapSymbol;
+    private boolean blocked;
     private Location[] locations;
     private Choice[] choices;
+
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
+    }
 
     public Location[] getLocations() {
         return locations;
@@ -46,19 +55,20 @@ public class Scene implements Serializable{
         this.description = description;
     }
 
-    public String getBlockedLocations() {
-        return blockedLocations;
+    public boolean isBlocked() {
+        return blocked;
     }
 
-    public void setBlockedLocations(String blockedLocations) {
-        this.blockedLocations = blockedLocations;
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
+        int blockedInt = (this.blocked) ? 1 : 0;
         hash = 97 * hash + Objects.hashCode(this.description);
-        hash = 97 * hash + Objects.hashCode(this.blockedLocations);
+        hash += blockedInt;
         return hash;
     }
 
@@ -77,7 +87,7 @@ public class Scene implements Serializable{
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.blockedLocations, other.blockedLocations)) {
+        if (!Objects.equals(this.blocked, other.blocked)) {
             return false;
         }
         return true;
@@ -85,7 +95,7 @@ public class Scene implements Serializable{
 
     @Override
     public String toString() {
-        return "Scene{" + "description=" + description + ", blockedLocations=" + blockedLocations + '}';
+        return "Scene{" + "description=" + description + ", blocked=" + String.valueOf(this.blocked) + '}';
     }
 
     public void setDescription() {

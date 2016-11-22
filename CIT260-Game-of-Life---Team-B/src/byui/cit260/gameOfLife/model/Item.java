@@ -23,6 +23,7 @@ public class Item implements Serializable{
     private Game game;  //cbrown
 
     private Choice choice;
+    
     public Item() {
     }
 

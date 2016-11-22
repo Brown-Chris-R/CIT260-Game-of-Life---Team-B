@@ -21,6 +21,6 @@ public enum Phase {
    }
    
    public int getNoOfLocations() {
-       return this.noOfLocations;
+       return noOfLocations;
    }
 }

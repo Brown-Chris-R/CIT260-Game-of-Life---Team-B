@@ -52,11 +52,11 @@ public class MapControl {
         childhoodSchoolCafeteriaScene.setBlocked(false);
         scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()] = childhoodSchoolCafeteriaScene;
 
-        // Create Adolescence Scenes
+        // Create Adolescence Scenes (use 10 + ordinal)
 
-        // Create Adulthood Scenes
+        // Create Adulthood Scenes (use 20 + ordinal)
 
-        // Create Senior Scenes
+        // Create Senior Scenes (use 30 + ordinal)
         Scene seniorHospitalScene = new Scene();
         seniorHospitalScene.setDescription(
             "Contratulations to acheiving Senior status!"
@@ -74,7 +74,7 @@ public class MapControl {
           + "What is your portion of the medical bill?");
         seniorHospitalScene.setMapSymbol("S1");
         seniorHospitalScene.setBlocked(false);
-        scenes[SeniorSceneType.Hospital.ordinal()] = seniorHospitalScene;
+        scenes[30 + SeniorSceneType.Hospital.ordinal()] = seniorHospitalScene;
                 
         return scenes;
     }

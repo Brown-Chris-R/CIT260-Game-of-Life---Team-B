@@ -49,7 +49,7 @@ public class Map implements Serializable {
     }    
 
     public int getNoOfRows() {
-        return this.noOfRows;
+        return noOfRows;
     }
 
     public void setNoOfRows(int noOfRows) {
@@ -57,7 +57,7 @@ public class Map implements Serializable {
     }
 
     public int getNoOfColumns() {
-        return this.noOfColumns;
+        return noOfColumns;
     }
 
     public void setNoOfColumns(int noOfColumns) {

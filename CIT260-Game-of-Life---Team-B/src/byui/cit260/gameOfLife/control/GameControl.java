@@ -92,47 +92,48 @@ public class GameControl {
      
      game.setPlayer(player);
      
-     Item[] item = GameControl.createItem();
+     Item[] items = GameControl.createItems();
+     game.setItems(items);
     
      Map map = MapControl.createMap();
-     //game.setMap(map);
+     game.setMap(map);
      
     }
-    public static Item [] createItem (){
-        Item[] item =
+    public static Item [] createItems (){
+        Item[] items =
         new Item[5];
         
         Item diploma = new Item();
         diploma.setInventoryType("Diploma");
         diploma.setQuantityInStock(0);
         diploma.setRequiredAmount(0);
-        item[0]= diploma;
+        items[0]= diploma;
         
         Item money = new Item();
         money.setInventoryType("Money");
         money.setQuantityInStock(0);
         money.setRequiredAmount(0);
-        item[1]= money;
+        items[1]= money;
         
         Item scriptures = new Item();
         scriptures.setInventoryType("Scriptures");
         scriptures.setQuantityInStock(0);
         scriptures.setRequiredAmount(0);
-        item[2]= scriptures;
+        items[2]= scriptures;
         
         Item cellphone = new Item();
         cellphone.setInventoryType("Cellphone");
         cellphone.setQuantityInStock(0);
         cellphone.setRequiredAmount(0);
-        item[3]= cellphone;
+        items[3]= cellphone;
         
         Item backpack = new Item();
         backpack.setInventoryType("Backpack");
         backpack.setQuantityInStock(0);
         backpack.setRequiredAmount(0);
-        item[4]= backpack;
+        items[4]= backpack;
         
-        return item;
+        return items;
     }
 
     static void assignScenesToLocations(Map map, Scene[] scenes) {
@@ -141,6 +142,6 @@ public class GameControl {
         //start point
         locations[0][0].setScene(scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()]);
 
-        locations[3][0].setScene(scenes[SeniorSceneType.Hospital.ordinal()]);
+        locations[0][3].setScene(scenes[30 + SeniorSceneType.Hospital.ordinal()]);
     }
 }

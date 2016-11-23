@@ -11,9 +11,9 @@ import java.util.Scanner;
  *
  * @author RMLOY_000
  */
-public class ChildhoodStartView extends View{
+public class ChildhoodMenuView extends View{
  
-    public ChildhoodStartView() {
+    public ChildhoodMenuView() {
                super( "\n"
                   + "\n----------------------------------------"
                   + "\n| Childhood Menu                       |"
@@ -50,7 +50,8 @@ public class ChildhoodStartView extends View{
     }
 
     private void displayChildhoodSchoolMenu() {
-        System.out.println("\n*** displayChildhoodSchoolMenu() function called ***");
+        ChildhoodSchoolMenuView schoolMenu = new ChildhoodSchoolMenuView();
+        schoolMenu.display();
     }
 
     private void displayChildhoodChurchMenu() {
@@ -60,8 +61,5 @@ public class ChildhoodStartView extends View{
     private void displayChildhoodHomeMenu() {
         System.out.println("\n*** displayChildhoodHomeMenu() function called ***");
     }
- 
-    
-   
     
 }

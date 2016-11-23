@@ -11,11 +11,9 @@ import java.util.Scanner;
  *
  * @author RMLOY_000
  */
-public class AdulthoodStartView extends View{
-
-    
+public class AdulthoodMenuView extends View{
  
-    public AdulthoodStartView() {
+    public AdulthoodMenuView() {
                    super("\n"
                   + "\n----------------------------------------"
                   + "\n| Adulthood Menu                       |"
@@ -59,7 +57,8 @@ public class AdulthoodStartView extends View{
     }
 
     private void displayAdulthoodWorkMenu() {
-        System.out.println("\n*** displayAdulthoodWorkMenu() function called ***");
+        AdulthoodWorkMenuView workMenu = new AdulthoodWorkMenuView();
+        workMenu.display();
     }
 
     private void displayAdulthoodUniversityScenario() {

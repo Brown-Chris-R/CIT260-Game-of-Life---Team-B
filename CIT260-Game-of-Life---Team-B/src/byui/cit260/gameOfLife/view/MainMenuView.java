@@ -22,11 +22,12 @@ public class MainMenuView extends View {
                   + "\nG - Get and start saved"
                   + "\nH - Get help on how to play the game"
                   + "\nS - Save game"
-                  + "\n1 - Test AdolescenceLocationMenu"
-                  + "\n2 - Test SeniorStartView"
-                  + "\n3 - Test ChildhoodStartView"
-                  + "\n4 - Test AdulthoodStartView"
-                  + "\n5 - Test RepentanceStartView"
+                  + "\n1 - Test Adolescence Menu"
+                  + "\n2 - Test Senior Menu"
+                  + "\n3 - Test Childhood Menu"
+                  + "\n4 - Test Adulthood Menu"
+                  + "\n5 - Test SeniorStartView"
+                  + "\n6 - Test RepentanceStartView"
                   + "\nQ - Quit"
                   + "\n----------------------------------------");
     }
@@ -53,13 +54,18 @@ public class MainMenuView extends View {
                 break;
             case "2": // create and start new game
                 this.test2();
+                break;
             case "3": // create and start new game
                 this.test3();
                 break;
             case "4": // create and start new game
                 this.test4();
+                break;
             case "5": // create and start new game
                 this.test5();
+                break;
+            case "6": // create and start new game
+                this.test6();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -77,7 +83,9 @@ public class MainMenuView extends View {
     }
 
     private void startExistingGame() {
-        System.out.println("\n*** startExistingGame function called ***");
+        // display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void displayHelpMenu() {
@@ -94,28 +102,33 @@ public class MainMenuView extends View {
     }
 
     private void test1() {
-        AdolescenceLocationMenuView almView = new AdolescenceLocationMenuView();
-        almView.display();
+        AdolescenceMenuView adolescenceMenu = new AdolescenceMenuView();
+        adolescenceMenu.display();
     }
 
     private void test2() {
-        SeniorStartView ssView = new SeniorStartView();
-        ssView.display();
+        SeniorMenuView seniorMenu = new SeniorMenuView();
+        seniorMenu.display();
     }
 
     private void test3() {
-        ChildhoodStartView childhood = new ChildhoodStartView();
-        childhood.display();
+        ChildhoodMenuView childhoodMenu = new ChildhoodMenuView();
+        childhoodMenu.display();
     }
 
     private void test4() {
-        AdulthoodStartView adulthood = new AdulthoodStartView();
-        adulthood.display();
+        AdulthoodMenuView adulthoodMenu = new AdulthoodMenuView();
+        adulthoodMenu.display();
     }
 
     private void test5() {
-        RepentanceStartView repentance = new RepentanceStartView();
-        repentance.display();
+        SeniorStartView seniorStart = new SeniorStartView();
+        seniorStart.display();
     }
     
+    private void test6() {
+        RepentanceStartView repentanceStart = new RepentanceStartView();
+        repentanceStart.display();
+    }
+
 }

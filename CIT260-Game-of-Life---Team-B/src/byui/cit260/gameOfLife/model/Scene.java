@@ -13,9 +13,11 @@ import java.util.Objects;
  * @author ferdycipriano
  */
 public class Scene implements Serializable{
+    private String name;
     private String description;
     private String mapSymbol;
     private boolean blocked;
+    private int scoreFromChoice;
     private Location[] locations;
     private Choice[] choices;
 
@@ -45,7 +47,13 @@ public class Scene implements Serializable{
     public Scene() {
     }
     
-    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getDescription() {
         return description;
@@ -61,6 +69,14 @@ public class Scene implements Serializable{
 
     public void setBlocked(boolean blocked) {
         this.blocked = blocked;
+    }
+    
+    public void setScoreFromChoice(int scoreFromChoice) {
+        this.scoreFromChoice = scoreFromChoice;
+    }
+
+    public int getScoreFromChoice() {
+        return scoreFromChoice;
     }
 
     @Override
@@ -95,18 +111,7 @@ public class Scene implements Serializable{
 
     @Override
     public String toString() {
-        return "Scene{" + "description=" + description + ", blocked=" + String.valueOf(this.blocked) + '}';
+        return "Scene{name=" + name + ", description=" + description + ", blocked=" + String.valueOf(this.blocked) + '}';
     }
-
-    public void setDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setBlockedLocations() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
     
 }

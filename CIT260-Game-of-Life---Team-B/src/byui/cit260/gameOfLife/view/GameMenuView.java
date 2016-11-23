@@ -5,18 +5,25 @@
  */
 package byui.cit260.gameOfLife.view;
 
+import static byui.cit260.gameOfLife.control.ScoringControl.summarizeChoicePoints;
+import byui.cit260.gameOfLife.model.ChoicePoints;
 import byui.cit260.gameOfLife.model.Game;
 import byui.cit260.gameOfLife.model.Map;
 import byui.cit260.gameOfLife.model.Item;
 import byui.cit260.gameOfLife.model.Location;
+import byui.cit260.gameOfLife.model.Phase;
 import byui.cit260.gameOfLife.model.Player;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
+import java.util.ArrayList;
 
 /**
  *
  * @author cbrown
  */
 public class GameMenuView extends View {
+
+    Game game = CIT260GameOfLifeTeamB.getCurrentGame(); // make the game object available throughout this class
+
     public GameMenuView() {
         super("\n"
                   + "\n----------------------------------------"
@@ -24,8 +31,8 @@ public class GameMenuView extends View {
                   + "\n----------------------------------------"
                   + "\nV - View status"
                   + "\nD - Display Map"
-                  + "\nC - Continue Current level"
-                  + "\nM - Move to next level"
+                  + "\nC - Continue Current phase"
+                  + "\nM - Move to next phase"
                   + "\nR - Repent"
                   + "\nQ - Quit"
                   + "\n----------------------------------------");
@@ -42,10 +49,11 @@ public class GameMenuView extends View {
             case "D": // display map
                 this.displayMap();
                 break;
-            case "C": // continue current level
+            case "C": // continue current phase
+                this.continuePhase();
                 break;
-            case "M": // move to next level
-                this.moveToNextLevel();
+            case "M": // move to next phase
+                this.moveToNextPhase();
                 break;
             case "R": // create and start new game
                 this.repent();
@@ -58,12 +66,17 @@ public class GameMenuView extends View {
     }
     private void viewStatus() {
         StringBuilder line;
+        ChoicePoints minChoicePoints = new ChoicePoints();
+        ChoicePoints maxChoicePoints = new ChoicePoints();
+        int points = 0;
+        int totalChoicePoints = 0;
+        int averageChoicePoints = 0;
         
-        Game game = CIT260GameOfLifeTeamB.getCurrentGame();
-        Player player = game.getPlayer();
-        Item[] items = game.getItems();
+        Player player = this.game.getPlayer();
+        Item[] items = this.game.getItems();
         System.out.println("\n--------------- Game Status ---------------");
-        System.out.println("\n" + player.toString());
+        System.out.println(player.toString());
+        System.out.println(this.game.toString());
         System.out.println("\n---------------  Item List  ---------------");
         line = new StringBuilder("                                           ");
         line.insert(0, "Type");
@@ -78,12 +91,49 @@ public class GameMenuView extends View {
             line.insert(33, item.getQuantityInStock());
             System.out.println(line.toString());
         }
-    
+        // Show choicePoint stattistics - lowest points, highest points, and average points per scenario
+        ArrayList<ChoicePoints> choicePointsList = summarizeChoicePoints();
+        if (choicePointsList.size() != 0) {
+            for (ChoicePoints choicePoints : choicePointsList) {
+                points = choicePoints.getChoicePoints();
+                totalChoicePoints += points;
+
+                if (points < minChoicePoints.getChoicePoints()) {
+                    minChoicePoints.setChoicePoints(points);
+                    minChoicePoints.setName(choicePoints.getName());
+                }
+                if (points > maxChoicePoints.getChoicePoints()) {
+                    maxChoicePoints.setChoicePoints(points);
+                    maxChoicePoints.setName(choicePoints.getName());
+                }
+            }
+            averageChoicePoints = totalChoicePoints / choicePointsList.size();
+
+            System.out.println("\n----------- Summary of points from choices -----------");
+            line = new StringBuilder("                                           ");
+            line.insert(10, "Scenario");
+            line.insert(40, "Points");
+            System.out.println(line.toString());
+            line = new StringBuilder("                                           ");
+            line.insert(0, "Lowest:");
+            line.insert(10, minChoicePoints.getName());
+            line.insert(43, minChoicePoints.getChoicePoints());
+            System.out.println(line.toString());
+            line = new StringBuilder("                                           ");
+            line.insert(0, "Highest:");
+            line.insert(10, maxChoicePoints.getName());
+            line.insert(43, maxChoicePoints.getChoicePoints());
+            System.out.println(line.toString());
+            line = new StringBuilder("                                           ");
+            line.insert(0, "Average:");
+            line.insert(10, choicePointsList.size() + " scenarios");
+            line.insert(43, averageChoicePoints);
+            System.out.println(line.toString());
+        }
     }
 
     private void displayMap() {
-        Game game = CIT260GameOfLifeTeamB.getCurrentGame();
-        Map map = game.getMap();
+        Map map = this.game.getMap();
         int rows = map.getNoOfRows();
         int columns = map.getNoOfColumns();
         Location[][] locations = map.getLocations();
@@ -107,8 +157,33 @@ public class GameMenuView extends View {
             System.out.print("\n");
         }
     }
-    private void moveToNextLevel() {
+
+    private void continuePhase() {
+        
+        switch (this.game.getPhase()) {
+            case "Childhood":
+                ChildhoodMenuView childhoodMenu = new ChildhoodMenuView();
+                childhoodMenu.display();
+                break;
+            case "Adolescence":
+                AdolescenceMenuView adolescenceMenu = new AdolescenceMenuView();
+                adolescenceMenu.display();
+                break;
+            case "Adulthood":
+                AdulthoodMenuView adulthoodMenu = new AdulthoodMenuView();
+                adulthoodMenu.display();
+                break;
+            case "Senior":
+                SeniorMenuView seniorMenu = new SeniorMenuView();
+                seniorMenu.display();
+                break;
+        }
         System.out.println("\n*** moveToNextLevel function called ***");
+    }
+
+    private void moveToNextPhase() {
+        game.nextPhase(game.getPhase());
+        System.out.println("\n*** Phase is now: " + game.getPhase() + " ***");
     }
 
     private void repent() {

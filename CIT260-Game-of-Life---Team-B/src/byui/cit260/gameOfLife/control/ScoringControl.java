@@ -5,25 +5,33 @@
  */
 package byui.cit260.gameOfLife.control;
 
+import byui.cit260.gameOfLife.model.AdolescenceSceneType;
+import byui.cit260.gameOfLife.model.AdulthoodSceneType;
+import byui.cit260.gameOfLife.model.ChildhoodSceneType;
+import byui.cit260.gameOfLife.model.ChoicePoints;
+import byui.cit260.gameOfLife.model.Game;
+import byui.cit260.gameOfLife.model.Map;
+import byui.cit260.gameOfLife.model.Scene;
+import byui.cit260.gameOfLife.model.SeniorSceneType;
+import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
+import java.util.ArrayList;
+
 /**
  *
  * @author cbrown
  */
 public class ScoringControl {
     String errorText = new String();
-
+    static Game game = CIT260GameOfLifeTeamB.getCurrentGame();
+    static Map map = game.getMap();
+    static Scene[] scenes = map.getScenes();
+    
     /**************************************************************************
-    * Score the players choice in the Childhood School scenario
+    * Score the players choice in the Childhood School Cafeteria scenario
     * @author cbrown
     **************************************************************************/
-public int scoreChildhoodSchoolChoice(char choice, char location) {
+public int scoreChildhoodSchoolCafeteriaChoice(char choice) {
     int choicePoints = 0;
-
-    // validate that the location is a valid choice - A, B or C
-    if (location != 'C' && choice != 'G' && choice != 'P' && choice != 'R') {
-        errorText = "Location " + location + " is not a valid choice.";
-        return -1;
-    }
 
     // validate that the choice is a valid choice - A, B, C or D
     if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
@@ -31,7 +39,84 @@ public int scoreChildhoodSchoolChoice(char choice, char location) {
         return -1;
     }
 
-    System.out.println("Points Awarded: " + choicePoints); // DEBUG
+    switch (choice) {
+        case 'A':
+            break;
+        case 'B':
+            choicePoints = -5;
+            break;
+        case 'C':
+            choicePoints = 2;
+            break;
+        case 'D':
+            choicePoints = 5;
+            break;
+    }
+    
+    recordChoicePoints(scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()], choicePoints);
+        
+    return choicePoints;
+}    
+    /**************************************************************************
+    * Score the players choice in the Childhood School Gym scenario
+    * @author cbrown
+    **************************************************************************/
+public int scoreChildhoodSchoolGymChoice(char choice) {
+    int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B, C or D
+    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
+        errorText = "Choice " + choice + " is not a valid choice.";
+        return -1;
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = -5;
+            break;
+        case 'B':
+            choicePoints = -2;
+            break;
+        case 'C':
+            choicePoints = 2;
+            break;
+        case 'D':
+            choicePoints = 5;
+            break;
+    }
+    
+    recordChoicePoints(scenes[ChildhoodSceneType.SchoolGym.ordinal()], choicePoints);
+        
+    return choicePoints;
+}    
+    /**************************************************************************
+    * Score the players choice in the Childhood School Playground scenario
+    * @author cbrown
+    **************************************************************************/
+public int scoreChildhoodSchoolPlaygroundChoice(char choice) {
+    int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B, C or D
+    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
+        errorText = "Choice " + choice + " is not a valid choice.";
+        return -1;
+    }
+
+    switch (choice) {
+        case 'A':
+            break;
+        case 'B':
+            choicePoints = -5;
+            break;
+        case 'C':
+            choicePoints = 2;
+            break;
+        case 'D':
+            choicePoints = 5;
+            break;
+    }
+    
+    recordChoicePoints(this.scenes[ChildhoodSceneType.SchoolPlayground.ordinal()], choicePoints);
         
     return choicePoints;
 }    
@@ -88,6 +173,7 @@ public int scoreChildhoodHomeChoice(char choice, char location) {
     **************************************************************************/
 public int scoreAdolescenceSchoolChoice(char choice) {
     int choicePoints = 0;
+    boolean giveScholarship = false;
     String grade = "B+";
     int die1Roll;
     Die die1 = new Die();
@@ -126,21 +212,55 @@ public int scoreAdolescenceSchoolChoice(char choice) {
      */
     if ("A".equals(grade)) {
         // some function in the ItemControl class to award scholarship
+            giveScholarship = true;
             System.out.println("Scholarship Awarded!"); // DEBUG
     } else {
             die1Roll = die1.roll();
             System.out.println("Die roll is " + die1Roll); // DEBUG
             if (die1Roll > 3) {
                 // some function in the ItemControl class to award scholarship
-                    System.out.println("Scholarship Awarded!"); // DEBUG
+                giveScholarship = true;
             }
     }
-    System.out.println("Points Awarded: " + choicePoints); // DEBUG
+    if (giveScholarship) {
+        ItemControl.changeToItemQuantityInStock("Scholarship", 1);
+    }
+    recordChoicePoints(scenes[10 + AdolescenceSceneType.School.ordinal()], choicePoints);
         
     return choicePoints;
 }    
 
     /**************************************************************************
+    * Score the players choice in the Adolescence Church Sacrament scenario
+    * @author cbrown
+    **************************************************************************/
+public int scoreAdolescenceChurchSacramentChoice(char choice) {
+    int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B, C 
+    if (choice != 'A' && choice != 'B' && choice != 'C') {
+        errorText = "Choice " + choice + " is not a valid choice.";
+        return -1;
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = 5;
+            break;
+        case 'B':
+            choicePoints = -2;
+            break;
+        case 'C':
+            choicePoints = 2;
+            break;
+    }
+    
+    recordChoicePoints(scenes[10 + AdolescenceSceneType.ChurchSacrament.ordinal()], choicePoints);
+        
+    return choicePoints;
+}    
+
+/**************************************************************************
     * Score the players choice in the Adolescence Church scenario
     * @author cbrown
     **************************************************************************/
@@ -199,13 +319,34 @@ public int scoreAdulthoodMissionChoice(char choice) {
     return choicePoints;
 }    
 /**************************************************************************
-    * Score the players choice in the Adulthood Work scenario
+    * Score the players choice in the Adulthood Work Breakroom scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdulthoodWorkChoice(char choice) {
+public int scoreAdulthoodWorkBreakroomChoice(char choice) {
     int choicePoints = 0;
 
-    System.out.println("Points Awarded: " + choicePoints); // DEBUG
+    // validate that the choice is a valid choice - A, B, C or D
+    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
+        errorText = "Choice " + choice + " is not a valid choice.";
+        return -1;
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = -5;
+            break;
+        case 'B':
+            choicePoints = 5;
+            break;
+        case 'C':
+            choicePoints = -5;
+            break;
+        case 'D':
+            choicePoints = -5;
+            break;
+    }
+    
+    recordChoicePoints(scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()], choicePoints);
         
     return choicePoints;
 }    
@@ -290,4 +431,39 @@ public float calcOperation(float hospitalBillAmt, float insuranceDeductibleAmt, 
     
     return amountOwed;
 }
+
+    public int scoreSeniorHospitalChoice(boolean correctChoice) {
+        int choicePoints = 0;
+    
+        if (correctChoice) {
+            choicePoints = 5;
+        }
+        recordChoicePoints(scenes[30 + SeniorSceneType.Hospital.ordinal()], choicePoints);
+        return choicePoints;
+    }
+
+    private void recordChoicePoints(Scene scene, int choicePoints) {
+        scene.setScoreFromChoice(choicePoints);
+        this.game.addToScore(choicePoints);
+    }
+
+    public static ArrayList<ChoicePoints> summarizeChoicePoints() {
+        ArrayList<ChoicePoints> choicePointsList = new ArrayList<ChoicePoints>();
+        ChoicePoints choicePoints;
+        int points;
+        
+        for (Scene scene : scenes) {
+            if (scene != null) {
+                points = scene.getScoreFromChoice();
+                if (points != 0) {
+                    choicePoints = new ChoicePoints();
+                    choicePoints.setName(scene.getName());
+                    choicePoints.setChoicePoints(points);
+                    choicePointsList.add(choicePoints);
+                }
+            }
+        }
+        
+        return choicePointsList;
+    }
 }

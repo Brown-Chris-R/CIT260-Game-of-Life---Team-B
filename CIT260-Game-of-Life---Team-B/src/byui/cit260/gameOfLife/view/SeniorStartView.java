@@ -6,6 +6,8 @@
 package byui.cit260.gameOfLife.view;
 
 import byui.cit260.gameOfLife.control.ScoringControl;
+import byui.cit260.gameOfLife.model.Game;
+import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
 
 /**
  *
@@ -35,6 +37,8 @@ public class SeniorStartView extends View {
     public boolean doAction(String choice) {
         // System.out.println("\n*** evaluateResponse() function called ***");
         int userAmount = Integer.parseInt(choice);
+        int choicePoints;
+        boolean correctChoice = false;
         
         ScoringControl scoringControl = new ScoringControl();
 
@@ -44,13 +48,15 @@ public class SeniorStartView extends View {
         
         if (userAmount == answer) {
             System.out.println("\nCongratulations!! You nailed it!");
-            // TODO: call method to award points
+            correctChoice = true;
         } else if (userAmount > answer) {
             System.out.println("\nOH NO!! You OVERPAID!!!");           
         } else if (userAmount < answer) {
             System.out.println("\nSorry, but you owe more than that.");                       
         }
-              
+        choicePoints = scoringControl.scoreSeniorHospitalChoice(correctChoice);
+        System.out.println("Points Awarded: " + choicePoints); // DEBUG
+      
         return true;
     }
     

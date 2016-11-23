@@ -40,7 +40,7 @@ public class Location implements Serializable {
         this.column = column;
     }
     
-    public boolean getVisited() {
+    public boolean wasVisited() {
         return visited;
     }
 

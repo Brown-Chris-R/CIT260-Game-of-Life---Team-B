@@ -33,7 +33,7 @@ public class AdolescenceSchoolScenarioView extends View {
         + "\n   you get a scholarship."
         + "\nC) Report your classmate to the teacher. Receive thanks from the teacher, "
         + "\n   but also anger from other classmates who were planning on cheating. A "
-        + "\n   dice roll will determine your grade and scholarshipA - School"
+        + "\n   dice roll will determine your grade and scholarship."
         + "\n<) Previous Menu"
         + "\n-------------------------------------------------------------------------");
     }
@@ -42,13 +42,14 @@ public class AdolescenceSchoolScenarioView extends View {
     public boolean doAction(String choice) {
         choice = choice.toUpperCase(); // need upper case for comparison
         ScoringControl sc = null;
-        int score;
+        int choicePoints;
         
         if (sc == null)
             sc = new ScoringControl();
         
         if (choice.equals("A") || choice.equals("B") || choice.equals(("C"))) {
-            score = sc.scoreAdolescenceSchoolChoice(choice.charAt(0));
+            choicePoints = sc.scoreAdolescenceSchoolChoice(choice.charAt(0));
+            System.out.println("Points Awarded: " + choicePoints); // DEBUG
             return true;
         } else if (choice.equals("<")) {
             return true;

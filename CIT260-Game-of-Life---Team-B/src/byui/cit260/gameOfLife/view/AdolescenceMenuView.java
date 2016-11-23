@@ -9,31 +9,33 @@ package byui.cit260.gameOfLife.view;
  *
  * @author cbrown
  */
-public class AdolescenceLocationMenuView extends View {
-    public AdolescenceLocationMenuView() {
-        super("\n"
+public class AdolescenceMenuView extends View {
+        public AdolescenceMenuView() {
+                   super("\n"
                   + "\n----------------------------------------"
-                  + "\n| Adolescence Menu                            |"
+                  + "\n| Adolescence Menu                       |"
                   + "\n----------------------------------------"
-                  + "\nA - School"
-                  + "\nB - Church"
-                  + "\nC - Home"
+                  + "\nS - School "
+                  + "\nC - Church "
+                  + "\nH - Home"
                   + "\nQ - Quit"
                   + "\n----------------------------------------");
     }
+      
+
 
     @Override
     public boolean doAction(String choice) {
         choice = choice.toUpperCase(); // need upper case for comparison
         
         switch (choice) {
-            case "A": // Adolescence School Scenario
+            case "S": // Adolescence School Menu
                 this.displayAdolescenceSchoolScenario();
                 break;
-            case "B": // Adolescence Church Menu
+            case "C": // Adolescence Church Menu
                 this.displayAdolescenceChurchMenu();
                 break;
-            case "C": // Adolescence Home Menu
+            case "U": // Adolescence Home Menu
                 this.displayAdolescenceHomeMenu();
                 break;
             default:
@@ -44,16 +46,17 @@ public class AdolescenceLocationMenuView extends View {
     }
 
     private void displayAdolescenceSchoolScenario() {
-        AdolescenceSchoolScenarioView ssView = new AdolescenceSchoolScenarioView();
-        ssView.display();
+        AdolescenceSchoolScenarioView school = new AdolescenceSchoolScenarioView();
+        school.display();
     }
 
     private void displayAdolescenceChurchMenu() {
-        System.out.println("\n*** displayAdolescenceChurchMenu() function called ***");
+        AdolescenceChurchMenuView churchMenu = new AdolescenceChurchMenuView();
+        churchMenu.display();
     }
 
     private void displayAdolescenceHomeMenu() {
         System.out.println("\n*** displayAdolescenceHomeMenu() function called ***");
     }
-    
+
 }

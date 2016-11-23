@@ -7,7 +7,6 @@ package byui.cit260.gameOfLife.control;
 
 import byui.cit260.gameOfLife.model.Map;
 import byui.cit260.gameOfLife.model.Scene;
-import byui.cit260.gameOfLife.model.Phase;
 import byui.cit260.gameOfLife.model.ChildhoodSceneType;
 import byui.cit260.gameOfLife.model.AdolescenceSceneType;
 import byui.cit260.gameOfLife.model.AdulthoodSceneType;
@@ -29,6 +28,7 @@ public class MapControl {
         
         // create the scenes for the game
         Scene[] scenes = createScenes();
+        map.setScenes(scenes);
         
         // assigne scenes to locations
         GameControl.assignScenesToLocations(map, scenes);
@@ -43,6 +43,7 @@ public class MapControl {
         
         // Create Childhood Scenes
         Scene childhoodSchoolCafeteriaScene = new Scene();
+        childhoodSchoolCafeteriaScene.setName("Childhood | School | Cafeteria");
         childhoodSchoolCafeteriaScene.setDescription(
             "You are at the cafeteria and you notice that a classmate is sitting "
           + "at the table and didn’t bring his lunch. You have some extra food "
@@ -53,7 +54,34 @@ public class MapControl {
         scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()] = childhoodSchoolCafeteriaScene;
 
         // Create Adolescence Scenes (use 10 + ordinal)
+        Scene adolescenceSchoolScene = new Scene();
+        adolescenceSchoolScene.setName("Adolescence | School");        
+        adolescenceSchoolScene.setDescription(
+            "In this scenario, achieving a college scholarship allows you to pay for " 
+        + "your mission and launch into adulthood. Not achieving it means you have to "
+        + "go through a few more adolescent scenarios to accumulate enough points to "
+        + "launch into adulthood."
+        + "-------------------------------------------------------------------------"
+        + "You are only one A away from achieving your goal of a 4.0 grade point "
+        + "average. You are currently getting a B+ in one class and only have the "
+        + "final exam left. You know if you do well on the exam, you’ll get an A in"
+        + "the class. A classmate has somehow obtained a copy of the exam answer key, "
+        + "and has offered to share it with you. What do you do?"
+        + "-------------------------------------------------------------------------"
+        + "A) Take the answer key, achieve a 4.0 and get a college scholarship."
+        + "B) Tell your classmate no thanks. A “dice roll” of 5 or 6 will result in"
+        + "   acing the exam and getting an A and a scholarship. Any other roll will "
+        + "   result in a B+ in the class. Another roll of the dice will determine if "
+        + "   you get a scholarship."
+        + "C) Report your classmate to the teacher. Receive thanks from the teacher, "
+        + "   but also anger from other classmates who were planning on cheating. A "
+        + "   dice roll will determine your grade and scholarship.");
+        adolescenceSchoolScene.setMapSymbol("a1");
+        adolescenceSchoolScene.setBlocked(false);
+        scenes[10 + AdolescenceSceneType.School.ordinal()] = adolescenceSchoolScene;
+        
         Scene adolescenceChurchSacramentScene = new Scene();
+        adolescenceChurchSacramentScene.setName("Adolescence | Church | Sacrament");        
         adolescenceChurchSacramentScene.setDescription(
             "You are at sacrament meeting and notice a text message on your phone "
           + "from your best friend. You try to ignore it but notice another text "
@@ -65,6 +93,7 @@ public class MapControl {
         
         // Create Adulthood Scenes (use 20 + ordinal)
         Scene adulthoodWorkBreakroomScene = new Scene();
+        adulthoodWorkBreakroomScene.setName("Adulthood | Work | Breakroom");
         adulthoodWorkBreakroomScene.setDescription(
             "You are thirsty and go to the break room to get a snack from the "
           + "vending machine. You put the required amount of money in for 1 "
@@ -76,6 +105,7 @@ public class MapControl {
         
         // Create Senior Scenes (use 30 + ordinal)
         Scene seniorHospitalScene = new Scene();
+        seniorHospitalScene.setName("Senior | Hospital");
         seniorHospitalScene.setDescription(
             "Contratulations to acheiving Senior status!"
           + "It is your 60th birthday, and you are celebrating "
@@ -266,5 +296,5 @@ public String[] getScenarios(String phase, String location) {
     
     return validScenarios;
 }    
-    
+   
 }

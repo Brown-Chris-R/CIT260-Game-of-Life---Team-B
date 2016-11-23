@@ -15,10 +15,12 @@ public class Game implements Serializable {
 
     //class instance variables    
     private int totalTurns;
+    private int score;
     private Player player;
     private Map map;
     private Item [] items;
     private Character [] characters;
+    private String phase;
 
     public Game() {
     }
@@ -29,6 +31,20 @@ public class Game implements Serializable {
 
     public void setTotalTurns(int totalTurns) {
         this.totalTurns = totalTurns;
+    }
+    
+    public int getScore() {
+        
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+    
+    public int addToScore(int points) {
+        this.score += points;
+        return score;
     }
     
     public Player getPlayer() {
@@ -63,6 +79,29 @@ public class Game implements Serializable {
         this.characters = characters;
     }
 
+    public String getPhase() {
+        return phase;
+    }
+
+    public void nextPhase(String phase) {
+        if (phase == null) {
+            phase = Phase.Childhood.toString();
+        } else {
+            switch (phase) {
+                case "Childhood":
+                    phase = Phase.Adolescence.toString();
+                    break;
+                case "Adolescence":
+                    phase = Phase.Adulthood.toString();
+                    break;
+                case "Adulthood":
+                    phase = Phase.Senior.toString();
+                    break;
+            }
+        }
+        this.phase = phase;
+    }
+
 
     @Override
     public int hashCode() {
@@ -91,6 +130,6 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return "Game{" + "totalTurns=" + totalTurns + '}';
+        return "Game{score=" + score + ", totalTurns=" + totalTurns + ", phase=" + phase + '}';
     }
 }

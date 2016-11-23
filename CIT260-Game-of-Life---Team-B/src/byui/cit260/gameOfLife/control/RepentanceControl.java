@@ -12,7 +12,7 @@ package byui.cit260.gameOfLife.control;
 public class RepentanceControl { 
 
    
- public double repentance (double faith  
+public double repentance(double faith  
                                , double sorrowForSin 
                             , double confession 
                             , double abandonmentOfSin 
@@ -58,4 +58,6 @@ public class RepentanceControl {
  
          return receiveForgivness; 
     } 
+ 
+    
 }

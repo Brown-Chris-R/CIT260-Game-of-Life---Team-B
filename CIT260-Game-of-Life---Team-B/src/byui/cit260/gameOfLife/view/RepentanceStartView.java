@@ -26,15 +26,31 @@ public class RepentanceStartView extends View {
 }
     @Override
     public boolean doAction(String choice) {
-      int x = 0;
-      while (x < 5){
-          System.out.println("Question :"+ x);
-          x++;
-          System.out.println("\n");
-      }
-        
-      return true;
-    }
-        
      
+           int userAmount = Integer.parseInt(choice);
+        
+       RepentanceControl repentanceControlControl = new RepentanceControl();
+
+       double answer = repentanceControlControl.repentance( 5  
+                               ,  5 
+                            ,  5 
+                            , 5 
+                            , 5 
+                              , 5
+                                );
+
+        int answerInt = (int) Math.round(answer);
+        
+        if (userAmount == answer) {
+            System.out.println("\nCongratulations!!!");
+            // TODO: call method to award points
+        } else if (userAmount > answer) {
+            System.out.println("\nOH NO!! !!!");           
+        } else if (userAmount < answer) {
+            System.out.println("\nSorry, ");                       
+        }
+              
+        return true;
+    }
+    
 }

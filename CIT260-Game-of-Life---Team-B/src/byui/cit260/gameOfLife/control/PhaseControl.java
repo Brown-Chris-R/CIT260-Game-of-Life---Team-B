@@ -5,10 +5,16 @@
  */
 package byui.cit260.gameOfLife.control;
 
+import byui.cit260.gameOfLife.view.AdolescenceMenuView;
+
 /**
  *
  * @author cbrown
  */
-public class PhaseControl {
+public enum PhaseControl {
+    childhood,
+    Adolescence,
+    Adulthood,
+    Senior;
     
 }

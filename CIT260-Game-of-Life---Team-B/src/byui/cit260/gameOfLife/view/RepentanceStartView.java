@@ -5,8 +5,11 @@
  */
 package byui.cit260.gameOfLife.view;
 
+import byucit260.gameOfLife.exceptions.RepentanceControlException;
 import byui.cit260.gameOfLife.control.RepentanceControl;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,33 +27,24 @@ public class RepentanceStartView extends View {
                 + "\n========================================================="
         );
 }
-    @Override
-    public boolean doAction(String choice) {
-     
-           int userAmount = Integer.parseInt(choice);
-        
-       RepentanceControl repentanceControlControl = new RepentanceControl();
-
-       double answer = repentanceControlControl.repentance( 5  
-                               ,  5 
-                            ,  5 
-                            , 5 
-                            , 5 
-                              , 5
-                                );
-
-        int answerInt = (int) Math.round(answer);
-        
-        if (userAmount == answer) {
-            System.out.println("\nCongratulations!!!");
-            // TODO: call method to award points
-        } else if (userAmount > answer) {
-            System.out.println("\nOH NO!! !!!");           
-        } else if (userAmount < answer) {
-            System.out.println("\nSorry, ");                       
-        }
-              
-        return true;
-    }
+   
     
+         @Override
+    public boolean doAction(String choice) {
+        choice = choice.toUpperCase(); // need upper case for comparison
+        
+        if  ("Y".equals(choice)) {
+            
+                this.test();
+            
+                 
+        }
+        return false;
+    }
+
+    private void test() {
+        System.out.println("\n*** SelfAssessment() function called ***\"");
+    }
+
+   
 }

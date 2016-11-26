@@ -5,11 +5,12 @@
  */
 package byui.cit260.gameOfLife.view;
 
-import byucit260.gameOfLife.exceptions.RepentanceControlException;
+import byucit260.gameOfLife.exception.RepentanceControlException;
 import byui.cit260.gameOfLife.control.RepentanceControl;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.ws.Response;
 
 /**
  *
@@ -21,9 +22,14 @@ public class RepentanceStartView extends View {
         
         super("\n==========================================================="
                 + "\nYour are about to take a self-assessment about repantance"
-                + "\nfor the response key 1    = never,   2    =   sometimes, "
-                + "\n 3 = often 4 = almost always, 5 = always"
-                + "Or enter 'Q' to return Game Menu"
+                + "\ndo you like to continue press Y "
+                + "\nfor the response key"
+                + "\n1 = never"
+                + "\n2 = sometimes"
+                + "\n3 = often "
+                + "\n4 = almost always"
+                + "\n5 = always"
+                + "Or you may enter 'Q' to return Game Menu"
                 + "\n========================================================="
         );
 }
@@ -35,16 +41,90 @@ public class RepentanceStartView extends View {
         
         if  ("Y".equals(choice)) {
             
-                this.test();
+                this.SelfAssessment();
             
                  
         }
         return false;
     }
 
-    private void test() {
-        System.out.println("\n*** SelfAssessment() function called ***\"");
+    private void SelfAssessment() {
+    //System.out.println("\n*** SelfAssessment() function called ***\"");
+    Scanner SelfAssesmentScanner = new Scanner(System.in);
+    boolean validInput = false;
+    int reponse = 0;
+    while (!validInput) {
+        System.out.println("\nI firmly believe that through the Atonement of "
+                         + "\nJesus Christ I can be forgiven of all my sins. "
+                         + "\n(Enos 1:5–8)");
+        try {
+            reponse = SelfAssesmentScanner.nextInt();
+            validInput = true;
+        } 
+        catch (Exception e) {
+        validInput= false;
+        SelfAssesmentScanner.nextLine();
+        }
+       }
+        validInput = false;
+        while (!validInput){
+            System.out.println("Question about sorrowForSin");
+            try {
+                reponse =SelfAssesmentScanner.nextInt();
+                validInput = true;          
+            } catch (Exception e) {
+                validInput = false;
+                SelfAssesmentScanner.nextLine();
+                
+            }
+        }
+         validInput = false;
+         while (!validInput){
+             System.out.println("\nI keep the required commandments to be worthy of"
+                               +"\na temple recommend. (D&C 97:8)  ");
+            try {
+            reponse = SelfAssesmentScanner.nextInt();
+            validInput = true;
+        } catch (Exception e) {
+            validInput = false;
+            SelfAssesmentScanner.nextLine();
+        }
+         }
+         validInput = false;
+         while (!validInput){
+            System.out.println("Question about abandonmentOfSin "); 
+         try {
+             reponse = SelfAssesmentScanner.nextInt();
+             validInput = true;
+            
+        } catch (Exception e) {
+            validInput = false;
+            SelfAssesmentScanner.nextLine();
+        }
+         }
+         validInput = false;
+         while (!validInput){
+             System.out.println("Question about restitution");
+        try {
+            reponse = SelfAssesmentScanner.nextInt();
+            validInput = true;
+        } catch (Exception e) {
+             validInput = false;
+             SelfAssesmentScanner.nextLine();
+        }
+         }
+        validInput = false;
+        while (!validInput){
+            System.out.println("Question about righteousLiving ");
+        try {
+            reponse = SelfAssesmentScanner.nextInt();
+            validInput = true;
+                       
+          } catch (Exception e) {
+              validInput = false;
+              SelfAssesmentScanner.nextLine();
+        }
+        }
     }
-
-   
+                   
 }

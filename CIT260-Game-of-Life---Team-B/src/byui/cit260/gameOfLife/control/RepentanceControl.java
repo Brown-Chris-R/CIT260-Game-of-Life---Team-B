@@ -5,7 +5,7 @@
  */
 package byui.cit260.gameOfLife.control;
 
-import byucit260.gameOfLife.exceptions.RepentanceControlException;
+import byucit260.gameOfLife.exception.RepentanceControlException;
 
 /**
  *

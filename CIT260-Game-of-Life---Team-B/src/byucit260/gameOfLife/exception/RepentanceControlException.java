@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byucit260.gameOfLife.exceptions;
+package byucit260.gameOfLife.exception;
 
 /**
  *

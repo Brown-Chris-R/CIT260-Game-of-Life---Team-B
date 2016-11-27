@@ -6,6 +6,7 @@
 package byui.cit260.gameOfLife.view;
 
 import byui.cit260.gameOfLife.control.ScoringControl;
+import byui.cit260.gameOfLife.exceptions.ScoringControlException;
 
 /**
  *
@@ -36,15 +37,16 @@ public class ChildhoodSchoolCafeteriaScenarioView extends View {
         if (sc == null)
             sc = new ScoringControl();
         
-        if (choice.equals("A") || choice.equals("B") || choice.equals(("C"))
-         || choice.equals("D")) {
-            choicePoints = sc.scoreChildhoodSchoolCafeteriaChoice(choice.charAt(0));
-            System.out.println("Points Awarded: " + choicePoints); // DEBUG
+        if (choice.equals("<")) {
             return true;
-        } else if (choice.equals("<")) {
-            return true;
-        } else {    
-            System.out.println("\n*** Invalid selection *** Try again");
+        } else {
+            try {
+                choicePoints = sc.scoreChildhoodSchoolCafeteriaChoice(choice.charAt(0));
+                System.out.println("Points Awarded: " + choicePoints); // DEBUG
+                return true;
+            } catch (ScoringControlException se) {
+                System.out.println(se.getMessage());
+            }
         }
         return false;
     }

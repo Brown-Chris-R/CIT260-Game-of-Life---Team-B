@@ -32,9 +32,9 @@ public class ItemControl {
         items[0]= diploma;
 
         Item scholarship = new Item();
-        diploma.setInventoryType("Scholarship");
-        diploma.setQuantityInStock(0);
-        diploma.setRequiredAmount(0);
+        scholarship.setInventoryType("Scholarship");
+        scholarship.setQuantityInStock(0);
+        scholarship.setRequiredAmount(0);
         items[1]= scholarship;
 
         Item money = new Item();

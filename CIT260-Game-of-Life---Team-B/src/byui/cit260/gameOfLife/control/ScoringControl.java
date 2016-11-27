@@ -5,6 +5,7 @@
  */
 package byui.cit260.gameOfLife.control;
 
+import byui.cit260.gameOfLife.exceptions.ScoringControlException;
 import byui.cit260.gameOfLife.model.AdolescenceSceneType;
 import byui.cit260.gameOfLife.model.AdulthoodSceneType;
 import byui.cit260.gameOfLife.model.ChildhoodSceneType;
@@ -21,7 +22,6 @@ import java.util.ArrayList;
  * @author cbrown
  */
 public class ScoringControl {
-    String errorText = new String();
     static Game game = CIT260GameOfLifeTeamB.getCurrentGame();
     static Map map = game.getMap();
     static Scene[] scenes = map.getScenes();
@@ -30,13 +30,13 @@ public class ScoringControl {
     * Score the players choice in the Childhood School Cafeteria scenario
     * @author cbrown
     **************************************************************************/
-public int scoreChildhoodSchoolCafeteriaChoice(char choice) {
+public int scoreChildhoodSchoolCafeteriaChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
     // validate that the choice is a valid choice - A, B, C or D
     if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
-        errorText = "Choice " + choice + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
     }
 
     switch (choice) {
@@ -61,13 +61,13 @@ public int scoreChildhoodSchoolCafeteriaChoice(char choice) {
     * Score the players choice in the Childhood School Gym scenario
     * @author cbrown
     **************************************************************************/
-public int scoreChildhoodSchoolGymChoice(char choice) {
+public int scoreChildhoodSchoolGymChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
     // validate that the choice is a valid choice - A, B, C or D
     if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
-        errorText = "Choice " + choice + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
     }
 
     switch (choice) {
@@ -93,13 +93,13 @@ public int scoreChildhoodSchoolGymChoice(char choice) {
     * Score the players choice in the Childhood School Playground scenario
     * @author cbrown
     **************************************************************************/
-public int scoreChildhoodSchoolPlaygroundChoice(char choice) {
+public int scoreChildhoodSchoolPlaygroundChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
     // validate that the choice is a valid choice - A, B, C or D
     if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
-        errorText = "Choice " + choice + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
     }
 
     switch (choice) {
@@ -124,19 +124,19 @@ public int scoreChildhoodSchoolPlaygroundChoice(char choice) {
     * Score the players choice in the Childhood Church scenario
     * @author cbrown
     **************************************************************************/
-public int scoreChildhoodChurchChoice(char choice, char location) {
+public int scoreChildhoodChurchChoice(char choice, char location) throws ScoringControlException {
     int choicePoints = 0;
 
-    // validate that the location is a valid choice - A, B or C
-    if (location != 'S' && choice != 'P' && choice != 'P' && choice != 'B') {
-        errorText = "Location " + location + " is not a valid choice.";
-        return -1;
+    // validate that the location is a valid choice - S, P or B
+    if (location != 'S' && choice != 'P' && choice != 'B') {
+        throw new ScoringControlException("Location " + location + " is not a valid "
+                  + "location. Must be an 'S', 'P' or 'B'.");
     }
 
     // validate that the choice is a valid choice - A, B, C or D
     if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
-        errorText = "Choice " + choice + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
     }
 
     System.out.println("Points Awarded: " + choicePoints); // DEBUG
@@ -147,19 +147,19 @@ public int scoreChildhoodChurchChoice(char choice, char location) {
     * Score the players choice in the Childhood Home scenario
     * @author cbrown
     **************************************************************************/
-public int scoreChildhoodHomeChoice(char choice, char location) {
+public int scoreChildhoodHomeChoice(char choice, char location) throws ScoringControlException {
     int choicePoints = 0;
 
         // validate that the location is a valid choice - A, B or C
     if (location != 'K' && choice != 'L' && choice != 'Y') {
-        errorText = "Location " + location + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Location " + location + " is not a valid "
+                  + "location. Must be an 'K', 'L' or 'Y'.");
     }
 
     // validate that the choice is a valid choice - A, B, C or D
     if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
-        errorText = "Choice " + choice + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
     }
 
     System.out.println("Points Awarded: " + choicePoints); // DEBUG
@@ -171,7 +171,7 @@ public int scoreChildhoodHomeChoice(char choice, char location) {
     * Score the players choice in the Adolescence School scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdolescenceSchoolChoice(char choice) {
+public int scoreAdolescenceSchoolChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
     boolean giveScholarship = false;
     String grade = "B+";
@@ -182,8 +182,8 @@ public int scoreAdolescenceSchoolChoice(char choice) {
 
     // validate that the choice is a valid choice - A, B or C
     if (choice != 'A' && choice != 'B' && choice != 'C') {
-        errorText = "Choice " + choice + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
     }
     
     switch (choice) {
@@ -234,13 +234,13 @@ public int scoreAdolescenceSchoolChoice(char choice) {
     * Score the players choice in the Adolescence Church Sacrament scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdolescenceChurchSacramentChoice(char choice) {
+public int scoreAdolescenceChurchSacramentChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
     // validate that the choice is a valid choice - A, B, C 
     if (choice != 'A' && choice != 'B' && choice != 'C') {
-        errorText = "Choice " + choice + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
     }
 
     switch (choice) {
@@ -264,19 +264,19 @@ public int scoreAdolescenceChurchSacramentChoice(char choice) {
     * Score the players choice in the Adolescence Church scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdolescenceChurchChoice(char choice, char location) {
+public int scoreAdolescenceChurchChoice(char choice, char location) throws ScoringControlException {
     int choicePoints = 0;
 
     // validate that the location is a valid choice - S, P or A
     if (location != 'S' && choice != 'P' && choice != 'A') {
-        errorText = "Location " + location + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Location " + location + " is not a valid "
+                  + "location. Must be an 'S', 'P' or 'A'.");
     }
 
     // validate that the choice is a valid choice - A, B or C
     if (choice != 'A' && choice != 'B' && choice != 'C') {
-        errorText = "Choice " + choice + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
     }
 
     System.out.println("Points Awarded: " + choicePoints); // DEBUG
@@ -287,19 +287,19 @@ public int scoreAdolescenceChurchChoice(char choice, char location) {
     * Score the players choice in the Adolescence Home scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdolescenceHomeChoice(char choice, char location) {
+public int scoreAdolescenceHomeChoice(char choice, char location) throws ScoringControlException {
     int choicePoints = 0;
 
     // validate that the location is a valid choice - Y or B
     if (location != 'Y' && choice != 'B') {
-        errorText = "Location " + location + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Location " + location + " is not a valid "
+                  + "location. Must be a 'Y' or 'B'.");
     }
 
     // validate that the choice is a valid choice - A, B or C
     if (choice != 'A' && choice != 'B' && choice != 'C') {
-        errorText = "Choice " + choice + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
     }
 
     System.out.println("Points Awarded: " + choicePoints); // DEBUG
@@ -311,7 +311,7 @@ public int scoreAdolescenceHomeChoice(char choice, char location) {
     * Score the players choice in the Adulthood Mission scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdulthoodMissionChoice(char choice) {
+public int scoreAdulthoodMissionChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
     System.out.println("Points Awarded: " + choicePoints); // DEBUG
@@ -322,13 +322,13 @@ public int scoreAdulthoodMissionChoice(char choice) {
     * Score the players choice in the Adulthood Work Breakroom scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdulthoodWorkBreakroomChoice(char choice) {
+public int scoreAdulthoodWorkBreakroomChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
     // validate that the choice is a valid choice - A, B, C or D
     if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
-        errorText = "Choice " + choice + " is not a valid choice.";
-        return -1;
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
     }
 
     switch (choice) {
@@ -354,7 +354,7 @@ public int scoreAdulthoodWorkBreakroomChoice(char choice) {
     * Score the players choice in the Adulthood University scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdulthoodUniversityChoice(char choice) {
+public int scoreAdulthoodUniversityChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
     System.out.println("Points Awarded: " + choicePoints); // DEBUG
@@ -365,7 +365,7 @@ public int scoreAdulthoodUniversityChoice(char choice) {
     * Score the players choice in the Adulthood Family scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdulthoodFamilyChoice(char choice) {
+public int scoreAdulthoodFamilyChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
     System.out.println("Points Awarded: " + choicePoints); // DEBUG
@@ -377,7 +377,7 @@ public int scoreAdulthoodFamilyChoice(char choice) {
     * Score the players choice in the Senior Church scenario
     * @author cbrown
     **************************************************************************/
-public int scoreSeniorChurchChoice(char choice) {
+public int scoreSeniorChurchChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
     System.out.println("Points Awarded: " + choicePoints); // DEBUG
@@ -388,7 +388,7 @@ public int scoreSeniorChurchChoice(char choice) {
     * Score the players choice in the Senior Home scenario
     * @author cbrown
     **************************************************************************/
-public int scoreSeniorHomeChoice(char choice) {
+public int scoreSeniorHomeChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
     System.out.println("Points Awarded: " + choicePoints); // DEBUG
@@ -400,27 +400,27 @@ public int scoreSeniorHomeChoice(char choice) {
  * Calculate the patient portion of a hospital surgery bill
  * @author cbrown
  */    
-public float calcOperation(float hospitalBillAmt, float insuranceDeductibleAmt, float insuranceCoverageAmt ) {
+public float calcOperation(float hospitalBillAmt, float insuranceDeductibleAmt, float insuranceCoverageAmt ) throws ScoringControlException {
     float amountOwed;
     
     if (hospitalBillAmt <= 0) {
-        errorText = "Hospital Bill Amount is <= Zero";
-        return -1;
+        throw new ScoringControlException("Hospital Bill Amount must be greater "
+                  + "than zero.");
     } else if (hospitalBillAmt > 30000) {
-        errorText = "Hospital Bill Amount is > 30,000";
-        return -1;
+        throw new ScoringControlException("Hospital Bill Amount must be less "
+                  + "than $30,000.");
     } else if (insuranceDeductibleAmt < 0) {      
-        errorText = "Insurance Deductible Amount is < 0";
-        return -1;
+        throw new ScoringControlException("Insurance Deductible Amount cannot "
+                  + "be less than zero");
     } else if (insuranceDeductibleAmt > 500) {      
-        errorText = "Insurance Deductible Amount is > 500";
-        return -1;
+        throw new ScoringControlException("Insurance Deductible Amount cannot "
+                  + "be greater than %500");
     } else if (insuranceCoverageAmt < 0) {      
-        errorText = "Insurance Coverage Amount is < 0";
-        return -1;
+        throw new ScoringControlException("Insurance Coverage Amount cannot "
+                  + "be less than zero");
     } else if (insuranceCoverageAmt > 1) {      
-        errorText = "Insurance Coverage Amount is > 100%";
-        return -1;
+        throw new ScoringControlException("Insurance Coverage Amount cannot "
+                  + "be greater than 100%");
     }
     
     /* amount owed by the patient is determined by reducing the amount of the bill by the portion paid by insurance,

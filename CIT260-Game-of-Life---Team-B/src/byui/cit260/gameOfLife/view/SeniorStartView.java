@@ -6,6 +6,7 @@
 package byui.cit260.gameOfLife.view;
 
 import byui.cit260.gameOfLife.control.ScoringControl;
+import byui.cit260.gameOfLife.exceptions.ScoringControlException;
 import byui.cit260.gameOfLife.model.Game;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
 
@@ -36,13 +37,26 @@ public class SeniorStartView extends View {
     @Override
     public boolean doAction(String choice) {
         // System.out.println("\n*** evaluateResponse() function called ***");
-        int userAmount = Integer.parseInt(choice);
+        int userAmount = 0;
+        
+        try {
+            userAmount = Integer.parseInt(choice);
+        } catch (NumberFormatException nf) {
+            System.out.println("/nYou must enter a valid number."
+                + " Try again or enter Q to quit.");
+        }
+        
         int choicePoints;
         boolean correctChoice = false;
-        
+        float answer = 0.0F;
+                
         ScoringControl scoringControl = new ScoringControl();
 
-        float answer = scoringControl.calcOperation(29400.0F, 500.0F, 0.75F);
+        try {
+            answer = scoringControl.calcOperation(29400.0F, 500.0F, 0.75F);
+        } catch (ScoringControlException se) {
+            System.out.println(se.getMessage());
+        }
 
         int answerInt = (int) Math.round(answer);
         

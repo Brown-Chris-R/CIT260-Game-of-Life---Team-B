@@ -5,6 +5,7 @@
  */
 package byui.cit260.gameOfLife.control;
 
+import byui.cit260.gameOfLife.exceptions.GameControlException;
 import byui.cit260.gameOfLife.model.ChildhoodSceneType;
 import byui.cit260.gameOfLife.model.AdolescenceSceneType;
 import byui.cit260.gameOfLife.model.AdulthoodSceneType;
@@ -74,9 +75,10 @@ public class GameControl {
       System.out.println("Game ended!");
     }
 
-    public static Player createPlayer(String playersName) {
+    public static Player createPlayer(String playersName) throws GameControlException {
         if (playersName == null) {
-            return null;
+            throw new GameControlException("Players name does not have a value. "
+                + "Please enter a player name.");
         }
         
         Player player = new Player(); // create player object
@@ -86,24 +88,34 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) {
-     Game game = new Game();// create a new game
-     CIT260GameOfLifeTeamB.setCurrentGame(game); // save the game into CIT260GameOflife
-     
-     game.setPlayer(player);
-     game.setScore(0);
-     game.setTotalTurns(0);
-     game.nextPhase(null); //will initialize phase to "Childhood"
-     
-     Item[] items = ItemControl.createItems();
-     game.setItems(items);
-    
-     Map map = MapControl.createMap();
-     game.setMap(map);
-     
+    public static void createNewGame(Player player) throws GameControlException {
+        if (player == null) {
+            throw new GameControlException("Player object does not exist.");
+        }
+
+        Game game = new Game();// create a new game
+        CIT260GameOfLifeTeamB.setCurrentGame(game); // save the game into CIT260GameOflife
+
+        game.setPlayer(player);
+        game.setScore(0);
+        game.setTotalTurns(0);
+        game.nextPhase(null); //will initialize phase to "Childhood"
+
+        Item[] items = ItemControl.createItems();
+        game.setItems(items);
+
+        Map map = MapControl.createMap();
+        game.setMap(map);
+
     }
 
-    static void assignScenesToLocations(Map map, Scene[] scenes) {
+    static void assignScenesToLocations(Map map, Scene[] scenes) throws GameControlException {
+        if (map == null) {
+            throw new GameControlException("Map object does not exist.");
+        } else if (scenes == null) {
+            throw new GameControlException("Scenes object does not exist.");            
+        }
+
         Location[][] locations = map.getLocations();
         
         //start point

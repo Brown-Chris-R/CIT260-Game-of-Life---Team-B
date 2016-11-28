@@ -6,6 +6,7 @@
 package byui.cit260.gameOfLife.view;
 
 import byui.cit260.gameOfLife.control.GameControl;
+import byui.cit260.gameOfLife.exceptions.GameControlException;
 import byui.cit260.gameOfLife.model.Player;
 import java.util.Scanner;
 
@@ -85,16 +86,18 @@ public class StartProgramView {
     }
 
     private boolean doAction(String playersName) {
+        Player player;
+        
         if (playersName.length() < 2) {
             System.out.println("\nInvalid players name: "
                     + "The name must be greater than one character in length");
             return false;
         }
         // create player object
-        Player player = GameControl.createPlayer(playersName);
-
-        if (player == null) { //if unsucessful
-            System.out.println("\nError creating the player.");
+        try {
+            player = GameControl.createPlayer(playersName);
+        } catch (GameControlException ge) {
+            System.out.println(ge.getMessage());
             return false;
         }
 

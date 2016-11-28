@@ -5,6 +5,7 @@
  */
 package byui.cit260.gameOfLife.control;
 
+import byui.cit260.gameOfLife.exceptions.ItemControlException;
 import byui.cit260.gameOfLife.exceptions.ScoringControlException;
 import byui.cit260.gameOfLife.model.AdolescenceSceneType;
 import byui.cit260.gameOfLife.model.AdulthoodSceneType;
@@ -223,7 +224,11 @@ public int scoreAdolescenceSchoolChoice(char choice) throws ScoringControlExcept
             }
     }
     if (giveScholarship) {
-        ItemControl.changeToItemQuantityInStock("Scholarship", 1);
+        try {
+            ItemControl.changeToItemQuantityInStock("Scholarship", 1);
+        } catch (ItemControlException ie) {
+            System.out.println(ie.getMessage());
+        }
     }
     recordChoicePoints(scenes[10 + AdolescenceSceneType.School.ordinal()], choicePoints);
         

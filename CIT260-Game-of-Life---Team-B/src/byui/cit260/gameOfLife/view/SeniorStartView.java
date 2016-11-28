@@ -44,6 +44,7 @@ public class SeniorStartView extends View {
         } catch (NumberFormatException nf) {
             System.out.println("/nYou must enter a valid number."
                 + " Try again or enter Q to quit.");
+            return false;
         }
         
         int choicePoints;
@@ -56,6 +57,7 @@ public class SeniorStartView extends View {
             answer = scoringControl.calcOperation(29400.0F, 500.0F, 0.75F);
         } catch (ScoringControlException se) {
             System.out.println(se.getMessage());
+            return false;
         }
 
         int answerInt = (int) Math.round(answer);

@@ -5,6 +5,7 @@
  */
 package byui.cit260.gameOfLife.control;
 
+import byui.cit260.gameOfLife.exceptions.GameControlException;
 import byui.cit260.gameOfLife.model.Map;
 import byui.cit260.gameOfLife.model.Scene;
 import byui.cit260.gameOfLife.model.ChildhoodSceneType;
@@ -31,7 +32,11 @@ public class MapControl {
         map.setScenes(scenes);
         
         // assigne scenes to locations
-        GameControl.assignScenesToLocations(map, scenes);
+        try {
+            GameControl.assignScenesToLocations(map, scenes);
+        } catch (GameControlException ge) {
+            System.out.println(ge.getMessage());
+        }
         
         return map;
     }

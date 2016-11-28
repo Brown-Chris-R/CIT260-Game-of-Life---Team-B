@@ -6,6 +6,7 @@
 package byui.cit260.gameOfLife.view;
 
 import byui.cit260.gameOfLife.control.GameControl;
+import byui.cit260.gameOfLife.exceptions.GameControlException;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
 
 /**
@@ -75,7 +76,11 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
-        GameControl.createNewGame(CIT260GameOfLifeTeamB.getPlayer());
+        try {
+            GameControl.createNewGame(CIT260GameOfLifeTeamB.getPlayer());
+        } catch (GameControlException ge) {
+            System.out.println(ge.getMessage());
+        }
         
         // display the game menu
         GameMenuView gameMenu = new GameMenuView();

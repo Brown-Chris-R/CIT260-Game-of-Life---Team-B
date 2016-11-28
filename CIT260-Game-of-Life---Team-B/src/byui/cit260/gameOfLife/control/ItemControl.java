@@ -5,6 +5,7 @@
  */
 package byui.cit260.gameOfLife.control;
 
+import byui.cit260.gameOfLife.exceptions.ItemControlException;
 import byui.cit260.gameOfLife.model.Game;
 import byui.cit260.gameOfLife.model.Item;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
@@ -64,7 +65,12 @@ public class ItemControl {
         return items;
     }
 
-  public static void changeToItemQuantityInStock(String inventoryType, int quantity) {
+  public static void changeToItemQuantityInStock(String inventoryType, int quantity)
+                     throws ItemControlException {
+      if (inventoryType == null) {
+          throw new ItemControlException("Inventory Type does not have a value.");
+      }
+      
       Item[] items = game.getItems();
       for (Item item : items) {
         if (item.getInventoryType() == inventoryType) {

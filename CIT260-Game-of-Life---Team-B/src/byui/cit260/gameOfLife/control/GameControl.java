@@ -25,54 +25,7 @@ import java.util.Scanner;
  */
 public class GameControl {
     
-    public static void GameControl(String[]args){
-    Scanner in = new Scanner(System.in);
-    
-  
-    System.out.println("1. New Game");
-    System.out.println("2. Open Map");
-    System.out.println("3. Save Game");
-    System.out.println("4. Select Game");
-    System.out.println("5. New Player");
-    System.out.println("0. Quit");
-    
-    boolean quit = false;
-    int menuItem;
-    
-    do{
-        System.out.println("Choose a menu item:");
-        menuItem = in.nextInt();
-        
-        switch (menuItem){
-                  case 1:
-                          System.out.println("You have chosen New Game ");
-                          break;
-                  case 2:
-                        System.out.println("You have chosen Open Map");
-                       
-                        break;
-                  case 3:
-                        System.out.println("You have chosen Save Game");
-                        
-                        break;
-                  case 4:
-                        System.out.println("You have chosen Select Game");
-                       
-                        break;
-                  case 5:
-                        System.out.println("You have chosen New Player");
-                       
-                        break;
-                  case 0:
-                        quit = true;
-                        break;
-                  default:
-                        System.out.println("Invalid choice.");
-                
-        }
-        
-    }while (!quit);
-      System.out.println("Game ended!");
+    public GameControl(){
     }
 
     public static Player createPlayer(String playersName) throws GameControlException {

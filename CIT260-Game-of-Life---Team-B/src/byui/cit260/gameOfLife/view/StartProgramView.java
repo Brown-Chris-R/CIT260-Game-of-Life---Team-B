@@ -8,26 +8,15 @@ package byui.cit260.gameOfLife.view;
 import byui.cit260.gameOfLife.control.GameControl;
 import byui.cit260.gameOfLife.exceptions.GameControlException;
 import byui.cit260.gameOfLife.model.Player;
-import java.util.Scanner;
 
 /**
  *
  * @author cbrown
  */
-public class StartProgramView {
-
-    private String promptMessage;
+public class StartProgramView extends View {
 
     public StartProgramView() {
-
-        this.promptMessage = "\nPlease enter your name: ";
-        this.displayBanner();
-        
-    }    
-
-    private void displayBanner() {
-        System.out.println(
-                "\n************************************************************"
+        super("\n************************************************************"
               + "\n*                                                          *"
               + "\n* This is the game of Life. In this game you will take on  *"
               + "\n* the role of a son or daughter of God. You have chosen to *"
@@ -50,42 +39,12 @@ public class StartProgramView {
               + "\n* used to gain additional points.                          *"
               + "\n*                                                          *"
               + "\n************************************************************"
-        );
+              + "\n"  
+              + "\nPlease enter your name: ");
     }
 
-    public void displayStartProgramView() {
-        boolean done = false; // set flag to not done
-        do {
-            // prompt for and get players name
-            String playersName = this.getPlayersName();
-            if (playersName.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
-
-            done = this.doAction(playersName);
-        
-        } while (!done);
-    }
-
-    private String getPlayersName() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        String value = ""; // value to be returned
-        boolean valid = false; // set flag to not valid
-        while (!valid) {
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim();
-            
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            break; // end the loop    
-        }
-        return value; // return the value entered
-    }
-
-    private boolean doAction(String playersName) {
+    @Override
+    public boolean doAction(String playersName) {
         Player player;
         
         if (playersName.length() < 2) {

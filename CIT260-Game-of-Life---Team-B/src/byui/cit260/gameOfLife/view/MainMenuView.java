@@ -7,6 +7,7 @@ package byui.cit260.gameOfLife.view;
 
 import byui.cit260.gameOfLife.control.GameControl;
 import byui.cit260.gameOfLife.exceptions.GameControlException;
+import byui.cit260.gameOfLife.exceptions.MapControlException;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
 
 /**
@@ -80,14 +81,18 @@ public class MainMenuView extends View {
             GameControl.createNewGame(CIT260GameOfLifeTeamB.getPlayer());
         } catch (GameControlException ge) {
             System.out.println(ge.getMessage());
+            return;
+        } catch (Throwable te){
+            System.out.println(te.getMessage());
         }
-        
+   
         // display the game menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
-    }
+}
 
-    private void startExistingGame() {
+
+    private void startExistingGame(){
         // display the game menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();

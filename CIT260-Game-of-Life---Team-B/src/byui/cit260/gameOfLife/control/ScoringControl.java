@@ -172,7 +172,7 @@ public int scoreChildhoodHomeChoice(char choice, char location) throws ScoringCo
     * Score the players choice in the Adolescence School scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdolescenceSchoolChoice(char choice) throws ScoringControlException {
+public int scoreAdolescenceSchoolChoice(char choice) throws ScoringControlException, ItemControlException {
     int choicePoints = 0;
     boolean giveScholarship = false;
     String grade = "B+";
@@ -224,9 +224,9 @@ public int scoreAdolescenceSchoolChoice(char choice) throws ScoringControlExcept
             }
     }
     if (giveScholarship) {
-        try {
+        try { 
             ItemControl.changeToItemQuantityInStock("Scholarship", 1);
-        } catch (ItemControlException ie) {
+        }  catch (Exception ie) {
             System.out.println(ie.getMessage());
         }
     }

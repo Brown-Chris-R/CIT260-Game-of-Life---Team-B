@@ -6,6 +6,8 @@
 package byui.cit260.gameOfLife.view;
 
 import static byui.cit260.gameOfLife.control.ScoringControl.summarizeChoicePoints;
+import byui.cit260.gameOfLife.exceptions.MapControlException;
+import byui.cit260.gameOfLife.exceptions.RepentanceControlException;
 import byui.cit260.gameOfLife.model.ChoicePoints;
 import byui.cit260.gameOfLife.model.Game;
 import byui.cit260.gameOfLife.model.Map;
@@ -15,6 +17,8 @@ import byui.cit260.gameOfLife.model.Phase;
 import byui.cit260.gameOfLife.model.Player;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -46,17 +50,41 @@ public class GameMenuView extends View {
             case "V": // view status
                 this.viewStatus();
                 break;
-            case "D": // display map
+            case "D": {
+            try {
+                // display map
                 this.displayMap();
+            } catch (MapControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
-            case "C": // continue current phase
+            case "C": {
+            try {
+                // continue current phase
                 this.continuePhase();
+            } catch (MapControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
-            case "M": // move to next phase
+            case "M": {
+            try {
+                // move to next phase
                 this.moveToNextPhase();
+            } catch (MapControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
-            case "R": // create and start new game
+            case "R": {
+            try {
+                // create and start new game
                 this.repent();
+            } catch (RepentanceControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -132,7 +160,7 @@ public class GameMenuView extends View {
         }
     }
 
-    private void displayMap() {
+    private void displayMap() throws MapControlException{
         Map map = this.game.getMap();
         int rows = map.getNoOfRows();
         int columns = map.getNoOfColumns();
@@ -158,7 +186,7 @@ public class GameMenuView extends View {
         }
     }
 
-    private void continuePhase() {
+    private void continuePhase()throws MapControlException{
         
         switch (this.game.getPhase()) {
             case "Childhood":
@@ -181,12 +209,12 @@ public class GameMenuView extends View {
         System.out.println("\n*** moveToNextLevel function called ***");
     }
 
-    private void moveToNextPhase() {
+    private void moveToNextPhase() throws MapControlException{
         game.nextPhase(game.getPhase());
         System.out.println("\n*** Phase is now: " + game.getPhase() + " ***");
     }
 
-    private void repent() {
+    private void repent() throws RepentanceControlException{
         RepentanceStartView repentance = new RepentanceStartView();
         repentance.display();
     }

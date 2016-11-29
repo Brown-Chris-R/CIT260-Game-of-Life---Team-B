@@ -9,7 +9,6 @@ import byui.cit260.gameOfLife.exceptions.ItemControlException;
 import byui.cit260.gameOfLife.model.Game;
 import byui.cit260.gameOfLife.model.Item;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
-import java.util.ArrayList;
 
 
 /**

@@ -5,7 +5,7 @@
  */
 package byui.cit260.gameOfLife.view;
 
-import byucit260.gameOfLife.exception.RepentanceControlException;
+import byui.cit260.gameOfLife.exceptions.RepentanceControlException;
 import byui.cit260.gameOfLife.control.RepentanceControl;
 import java.util.Scanner;
 import java.util.logging.Level;

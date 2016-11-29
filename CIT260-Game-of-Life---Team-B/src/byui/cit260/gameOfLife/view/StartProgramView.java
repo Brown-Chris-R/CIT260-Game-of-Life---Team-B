@@ -7,6 +7,7 @@ package byui.cit260.gameOfLife.view;
 
 import byui.cit260.gameOfLife.control.GameControl;
 import byui.cit260.gameOfLife.exceptions.GameControlException;
+import byui.cit260.gameOfLife.exceptions.MapControlException;
 import byui.cit260.gameOfLife.model.Player;
 
 /**
@@ -59,6 +60,7 @@ public class StartProgramView extends View {
             System.out.println(ge.getMessage());
             return false;
         }
+         
 
         this.displayNextView(player);
         return true; // success

@@ -6,6 +6,7 @@
 package byui.cit260.gameOfLife.control;
 
 import byui.cit260.gameOfLife.exceptions.GameControlException;
+import byui.cit260.gameOfLife.exceptions.MapControlException;
 import byui.cit260.gameOfLife.model.Map;
 import byui.cit260.gameOfLife.model.Scene;
 import byui.cit260.gameOfLife.model.ChildhoodSceneType;
@@ -21,7 +22,7 @@ public class MapControl {
 
     String errorText = new String();
 
-    public static Map createMap() {
+    public static Map createMap() throws MapControlException {
         // Create the map - 4 columns represent the 4 game phases
         // 10 columns for the maximum number of locations per phase
         // note that not all rows will have a valid location in some phases
@@ -137,6 +138,7 @@ public class MapControl {
     * @author cbrown
     **************************************************************************/
 public String[] getLocations(String phase) {
+    
     String[] validLocations = new String[4];
 
     /* validate that the phase is a valid phase - "Childhood", "Adolescence",

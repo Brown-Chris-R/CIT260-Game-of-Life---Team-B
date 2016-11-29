@@ -6,7 +6,10 @@
 package byui.cit260.gameOfLife.view;
 
 import byui.cit260.gameOfLife.control.ScoringControl;
+import byui.cit260.gameOfLife.exceptions.ItemControlException;
 import byui.cit260.gameOfLife.exceptions.ScoringControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -57,6 +60,8 @@ public class AdolescenceSchoolScenarioView extends View {
                 return true;
             } catch (ScoringControlException se) {
                 System.out.println(se.getMessage());
+            } catch (ItemControlException ex) {
+                Logger.getLogger(AdolescenceSchoolScenarioView.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return false;

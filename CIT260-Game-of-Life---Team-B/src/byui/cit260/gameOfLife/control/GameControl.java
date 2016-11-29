@@ -6,6 +6,7 @@
 package byui.cit260.gameOfLife.control;
 
 import byui.cit260.gameOfLife.exceptions.GameControlException;
+import byui.cit260.gameOfLife.exceptions.MapControlException;
 import byui.cit260.gameOfLife.model.ChildhoodSceneType;
 import byui.cit260.gameOfLife.model.AdolescenceSceneType;
 import byui.cit260.gameOfLife.model.AdulthoodSceneType;
@@ -41,7 +42,7 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) throws GameControlException {
+    public static void createNewGame(Player player) throws GameControlException, MapControlException {
         if (player == null) {
             throw new GameControlException("Player object does not exist.");
         }
@@ -53,7 +54,7 @@ public class GameControl {
         game.setScore(0);
         game.setTotalTurns(0);
         game.nextPhase(null); //will initialize phase to "Childhood"
-
+        
         Item[] items = ItemControl.createItems();
         game.setItems(items);
 
@@ -62,13 +63,15 @@ public class GameControl {
 
     }
 
-    static void assignScenesToLocations(Map map, Scene[] scenes) throws GameControlException {
+    static void assignScenesToLocations(Map map, Scene[] scenes) throws GameControlException, MapControlException {
         if (map == null) {
             throw new GameControlException("Map object does not exist.");
         } else if (scenes == null) {
             throw new GameControlException("Scenes object does not exist.");            
         }
-
+        try {
+            
+        
         Location[][] locations = map.getLocations();
         
         //start point
@@ -80,5 +83,8 @@ public class GameControl {
         locations[4][2].setScene(scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()]);
 
         locations[0][3].setScene(scenes[30 + SeniorSceneType.Hospital.ordinal()]);
+            System.out.println("");   
+        } catch (Exception e) {
+        }
     }
 }

@@ -108,7 +108,7 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        System.out.println("\n*** saveGame function called ***");
+        this.console.println("\n*** saveGame function called ***");
     }
 
     private void test1() {

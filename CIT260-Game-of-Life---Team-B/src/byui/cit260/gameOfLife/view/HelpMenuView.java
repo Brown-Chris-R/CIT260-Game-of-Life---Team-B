@@ -46,15 +46,15 @@ public class HelpMenuView extends View {
     }
 
     private void displayGameGoal() {
-        System.out.println("\n*** displayGameGoal function called ***");
+        this.console.println("\n*** displayGameGoal function called ***");
     }
 
     private void displayAboutGame() {
-        System.out.println("\nGemeOfLife Version: " + CIT260GameOfLifeTeamB.getGAME_VERSION());
+        this.console.println("\nGemeOfLife Version: " + CIT260GameOfLifeTeamB.getGAME_VERSION());
     }
 
     private void displayGamePlayer() {
-        System.out.println("\n*** displayGamePlayer function called ***");
+        this.console.println("\n*** displayGamePlayer function called ***");
     }
     
     

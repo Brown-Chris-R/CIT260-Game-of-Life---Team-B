@@ -7,6 +7,7 @@ package byui.cit260.gameOfLife.view;
 
 import byui.cit260.gameOfLife.exceptions.RepentanceControlException;
 import byui.cit260.gameOfLife.control.RepentanceControl;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,88 +42,96 @@ public class RepentanceStartView extends View {
         
         if  ("Y".equals(choice)) {
             
-                this.SelfAssessment();
+            try {
+                this.keyboard.read();
+            } catch (IOException ex) {
+                Logger.getLogger(RepentanceStartView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
                  
         }
         return false;
     }
 
-    private void SelfAssessment() {
-    //System.out.println("\n*** SelfAssessment() function called ***\"");
-    Scanner SelfAssesmentScanner = new Scanner(System.in);
+    private void SelfAssessment() throws IOException {
+   
+    
     boolean validInput = false;
     int reponse = 0;
     while (!validInput) {
-        System.out.println("\nI firmly believe that through the Atonement of "
+        this.console.println("\nI firmly believe that through the Atonement of "
                          + "\nJesus Christ I can be forgiven of all my sins. "
                          + "\n(Enos 1:5–8)");
         try {
-            reponse = SelfAssesmentScanner.nextInt();
+            reponse = this.keyboard.read();
             validInput = true;
         } 
         catch (Exception e) {
         validInput= false;
-        SelfAssesmentScanner.nextLine();
+            try {
+                this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(RepentanceStartView.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
        }
         validInput = false;
         while (!validInput){
-            System.out.println("Question about sorrowForSin");
+            this.console.println("Question about sorrowForSin");
             try {
-                reponse =SelfAssesmentScanner.nextInt();
+                reponse =this.keyboard.read();
                 validInput = true;          
             } catch (Exception e) {
                 validInput = false;
-                SelfAssesmentScanner.nextLine();
+                this.keyboard.read();
                 
             }
         }
          validInput = false;
          while (!validInput){
-             System.out.println("\nI keep the required commandments to be worthy of"
+             this.console.println("\nI keep the required commandments to be worthy of"
                                +"\na temple recommend. (D&C 97:8)  ");
             try {
-            reponse = SelfAssesmentScanner.nextInt();
+            reponse = this.keyboard.read();
             validInput = true;
         } catch (Exception e) {
             validInput = false;
-            SelfAssesmentScanner.nextLine();
+            this.keyboard.read();
         }
          }
          validInput = false;
          while (!validInput){
-            System.out.println("Question about abandonmentOfSin "); 
+            this.console.println("Question about abandonmentOfSin "); 
          try {
-             reponse = SelfAssesmentScanner.nextInt();
+             reponse = this.keyboard.read();
              validInput = true;
             
         } catch (Exception e) {
             validInput = false;
-            SelfAssesmentScanner.nextLine();
+            this.keyboard.read();
         }
          }
          validInput = false;
          while (!validInput){
-             System.out.println("Question about restitution");
+             this.console.println("Question about restitution");
         try {
-            reponse = SelfAssesmentScanner.nextInt();
+            reponse = this.keyboard.read();
             validInput = true;
         } catch (Exception e) {
              validInput = false;
-             SelfAssesmentScanner.nextLine();
+             this.keyboard.read();
         }
          }
         validInput = false;
         while (!validInput){
-            System.out.println("Question about righteousLiving ");
+            this.console.println("Question about righteousLiving ");
         try {
-            reponse = SelfAssesmentScanner.nextInt();
+            reponse = this.keyboard.read();
             validInput = true;
                        
           } catch (Exception e) {
               validInput = false;
-              SelfAssesmentScanner.nextLine();
+              this.keyboard.read();
         }
         }
     }

@@ -54,7 +54,7 @@ public abstract class View implements ViewInterface {
         String selection = null; // value to be returned
 
         while (!valid) {
-            System.out.println("\n" + this.displayMessage);
+            this.console.println("\n" + this.displayMessage);
             
             try {
                 selection = this.keyboard.readLine(); // get next line typed on keyboard

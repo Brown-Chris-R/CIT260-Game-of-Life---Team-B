@@ -44,11 +44,11 @@ public class SeniorMenuView extends View {
     }
 
     private void displaySeniorChurchMenu() {
-        System.out.println("\n*** displaySeniorChurchMenu() function called ***");
+        this.console.println("\n*** displaySeniorChurchMenu() function called ***");
     }
 
     private void displaySeniorHomeMenu() {
-        System.out.println("\n*** displaySeniorHomeMenu() function called ***");
+        this.console.println("\n*** displaySeniorHomeMenu() function called ***");
     }
     
 }

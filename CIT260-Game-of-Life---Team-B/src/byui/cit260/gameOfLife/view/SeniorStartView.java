@@ -63,15 +63,15 @@ public class SeniorStartView extends View {
         int answerInt = (int) Math.round(answer);
         
         if (userAmount == answer) {
-            System.out.println("\nCongratulations!! You nailed it!");
+            this.console.println("\nCongratulations!! You nailed it!");
             correctChoice = true;
         } else if (userAmount > answer) {
-            System.out.println("\nOH NO!! You OVERPAID!!!");           
+            this.console.println("\nOH NO!! You OVERPAID!!!");           
         } else if (userAmount < answer) {
-            System.out.println("\nSorry, but you owe more than that.");                       
+            this.console.println("\nSorry, but you owe more than that.");                       
         }
         choicePoints = scoringControl.scoreSeniorHospitalChoice(correctChoice);
-        System.out.println("Points Awarded: " + choicePoints); // DEBUG
+        this.console.println("Points Awarded: " + choicePoints); // DEBUG
       
         return true;
     }

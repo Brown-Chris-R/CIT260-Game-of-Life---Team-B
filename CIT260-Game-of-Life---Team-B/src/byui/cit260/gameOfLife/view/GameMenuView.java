@@ -102,22 +102,22 @@ public class GameMenuView extends View {
         
         Player player = this.game.getPlayer();
         Item[] items = this.game.getItems();
-        System.out.println("\n--------------- Game Status ---------------");
-        System.out.println(player.toString());
-        System.out.println(this.game.toString());
-        System.out.println("\n---------------  Item List  ---------------");
+        this.console.println("\n--------------- Game Status ---------------");
+        this.console.println(player.toString());
+        this.console.println(this.game.toString());
+        this.console.println("\n---------------  Item List  ---------------");
         line = new StringBuilder("                                           ");
         line.insert(0, "Type");
         line.insert(20, "Required");
         line.insert(30, "In Stock");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
         for (Item item : items) {
             line = new StringBuilder("                                           ");
             line.insert(0, item.getInventoryType());
             line.insert(23, item.getRequiredAmount());
             line.insert(33, item.getQuantityInStock());
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
         // Show choicePoint stattistics - lowest points, highest points, and average points per scenario
         ArrayList<ChoicePoints> choicePointsList = summarizeChoicePoints();
@@ -137,26 +137,26 @@ public class GameMenuView extends View {
             }
             averageChoicePoints = totalChoicePoints / choicePointsList.size();
 
-            System.out.println("\n----------- Summary of points from choices -----------");
+            this.console.println("\n----------- Summary of points from choices -----------");
             line = new StringBuilder("                                           ");
             line.insert(10, "Scenario");
             line.insert(40, "Points");
-            System.out.println(line.toString());
+            this.console.println(line.toString());
             line = new StringBuilder("                                           ");
             line.insert(0, "Lowest:");
             line.insert(10, minChoicePoints.getName());
             line.insert(43, minChoicePoints.getChoicePoints());
-            System.out.println(line.toString());
+            this.console.println(line.toString());
             line = new StringBuilder("                                           ");
             line.insert(0, "Highest:");
             line.insert(10, maxChoicePoints.getName());
             line.insert(43, maxChoicePoints.getChoicePoints());
-            System.out.println(line.toString());
+            this.console.println(line.toString());
             line = new StringBuilder("                                           ");
             line.insert(0, "Average:");
             line.insert(10, choicePointsList.size() + " scenarios");
             line.insert(43, averageChoicePoints);
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
     }
 
@@ -166,23 +166,23 @@ public class GameMenuView extends View {
         int columns = map.getNoOfColumns();
         Location[][] locations = map.getLocations();
 
-        System.out.println("\n -------------MAP-------------");
+        this.console.println("\n -------------MAP-------------");
 
         for (int i = 0; i< rows; i++){
             if (i < (rows - 1)) {
-                System.out.print(" ");
+                this.console.print(" ");
             }
-            System.out.print((i+1) + " |");
+            this.console.print((i+1) + " |");
             for (int j=0; j<columns; j++){
                 if (locations[i][j].getScene() == null){
-                System.out.print(" ?? ");
+                this.console.print(" ?? ");
                 }
                 else {
-                System.out.print(" "+locations[i][j].getScene().getMapSymbol()+" ");
+                this.console.print(" "+locations[i][j].getScene().getMapSymbol()+" ");
                 }
-                System.out.print("|");
+                this.console.print("|");
             }
-            System.out.print("\n");
+            this.console.print("\n");
         }
     }
 
@@ -206,12 +206,12 @@ public class GameMenuView extends View {
                 seniorMenu.display();
                 break;
         }
-        System.out.println("\n*** moveToNextLevel function called ***");
+        this.console.println("\n*** moveToNextLevel function called ***");
     }
 
     private void moveToNextPhase() throws MapControlException{
         game.nextPhase(game.getPhase());
-        System.out.println("\n*** Phase is now: " + game.getPhase() + " ***");
+        this.console.println("\n*** Phase is now: " + game.getPhase() + " ***");
     }
 
     private void repent() throws RepentanceControlException{

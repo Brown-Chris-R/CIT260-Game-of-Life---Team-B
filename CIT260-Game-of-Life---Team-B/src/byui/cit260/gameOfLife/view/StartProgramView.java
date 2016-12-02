@@ -68,7 +68,7 @@ public class StartProgramView extends View {
 
     private void displayNextView(Player player) {
         // display a custom welcome message
-        System.out.println("\n==================================="
+        this.console.println("\n==================================="
                           + "\n Welcome to Life " + player.getName()
                           + "\n We hope you have a lot of fun!"
                           + "\n=================================="

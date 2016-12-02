@@ -39,7 +39,7 @@ public class AdolescenceMenuView extends View {
                 this.displayAdolescenceHomeMenu();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -56,7 +56,7 @@ public class AdolescenceMenuView extends View {
     }
 
     private void displayAdolescenceHomeMenu() {
-        System.out.println("\n*** displayAdolescenceHomeMenu() function called ***");
+        this.console.println("\n*** displayAdolescenceHomeMenu() function called ***");
     }
 
 }

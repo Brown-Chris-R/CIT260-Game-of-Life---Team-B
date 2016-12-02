@@ -42,10 +42,10 @@ public class AdolescenceChurchSacramentScenarioView extends View {
         } else {
             try {
                 choicePoints = sc.scoreAdolescenceChurchSacramentChoice(choice.charAt(0));
-                System.out.println("Points Awarded: " + choicePoints); // DEBUG
+                this.console.println("Points Awarded: " + choicePoints); // DEBUG
                 return true;
             } catch (ScoringControlException se) {
-                System.out.println(se.getMessage());
+                this.console.println(se.getMessage());
             }
         }
         return false;

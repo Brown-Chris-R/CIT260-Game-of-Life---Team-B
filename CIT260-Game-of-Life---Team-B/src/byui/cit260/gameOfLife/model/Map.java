@@ -5,6 +5,7 @@
  */
 package byui.cit260.gameOfLife.model;
 
+import byui.cit260.gameOfLife.exceptions.MapException;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -23,10 +24,9 @@ public class Map implements Serializable {
     public Map() {
     }
     
-    public Map(int noOfRows, int noOfColumns) {
+    public Map(int noOfRows, int noOfColumns) throws MapException {
         if (noOfRows < 1 || noOfColumns < 1) {
-            System.out.println("The number or rows and columns must be > zero");
-            return;
+            throw new MapException("The number or rows and columns must be > zero");
         }
         this.noOfRows = noOfRows;
         this.noOfColumns = noOfColumns;

@@ -20,17 +20,17 @@ import byui.cit260.gameOfLife.model.Scene;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.ObjectInput;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
-import java.util.Scanner;
 
 /**
  *
  * @author cbrown
  */
 public class GameControl {
+    
+    public GameControl(){
+    }
 
     public static void saveGame(Game game, String filepath) 
             throws GameControlException{
@@ -61,9 +61,6 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
         CIT260GameOfLifeTeamB.setCurrentGame(game);
-    }
-    
-    public GameControl(){
     }
 
     public static Player createPlayer(String playersName) throws GameControlException {
@@ -109,18 +106,17 @@ public class GameControl {
         try {
             
         
-        Location[][] locations = map.getLocations();
-        
-        //start point
-        locations[0][0].setScene(scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()]);
-        locations[0][1].setScene(scenes[10 + AdolescenceSceneType.School.ordinal()]);
+            Location[][] locations = map.getLocations();
 
-        locations[1][1].setScene(scenes[10 + AdolescenceSceneType.ChurchSacrament.ordinal()]);
+            //start point
+            locations[0][0].setScene(scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()]);
+            locations[0][1].setScene(scenes[10 + AdolescenceSceneType.School.ordinal()]);
 
-        locations[4][2].setScene(scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()]);
+            locations[1][1].setScene(scenes[10 + AdolescenceSceneType.ChurchSacrament.ordinal()]);
 
-        locations[0][3].setScene(scenes[30 + SeniorSceneType.Hospital.ordinal()]);
-            System.out.println("");   
+            locations[4][2].setScene(scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()]);
+
+            locations[0][3].setScene(scenes[30 + SeniorSceneType.Hospital.ordinal()]);
         } catch (Exception e) {
         }
     }

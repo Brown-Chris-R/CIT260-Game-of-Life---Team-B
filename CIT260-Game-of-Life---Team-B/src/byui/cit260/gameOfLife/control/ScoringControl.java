@@ -15,6 +15,7 @@ import byui.cit260.gameOfLife.model.Game;
 import byui.cit260.gameOfLife.model.Map;
 import byui.cit260.gameOfLife.model.Scene;
 import byui.cit260.gameOfLife.model.SeniorSceneType;
+import byui.cit260.gameOfLife.view.ErrorView;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
 import java.util.ArrayList;
 
@@ -140,8 +141,6 @@ public int scoreChildhoodChurchChoice(char choice, char location) throws Scoring
                   + "choice. Must be an 'A', 'B', 'C' or 'D'.");
     }
 
-    System.out.println("Points Awarded: " + choicePoints); // DEBUG
-        
     return choicePoints;
 }    
     /**************************************************************************
@@ -163,8 +162,6 @@ public int scoreChildhoodHomeChoice(char choice, char location) throws ScoringCo
                   + "choice. Must be an 'A', 'B', 'C' or 'D'.");
     }
 
-    System.out.println("Points Awarded: " + choicePoints); // DEBUG
-        
     return choicePoints;
 }    
 
@@ -178,8 +175,6 @@ public int scoreAdolescenceSchoolChoice(char choice) throws ScoringControlExcept
     String grade = "B+";
     int die1Roll;
     Die die1 = new Die();
-
-    System.out.println("Incoming Choice is " + choice); // DEBUG
 
     // validate that the choice is a valid choice - A, B or C
     if (choice != 'A' && choice != 'B' && choice != 'C') {
@@ -205,7 +200,6 @@ public int scoreAdolescenceSchoolChoice(char choice) throws ScoringControlExcept
                 grade = "A";
             break;
     }
-    System.out.println("Grade is " + grade); // DEBUG
     
     /* A grade of A means an automatic scholarship, otherwise granting of a 
      * schohlarship will be controlled by the roll of a die. A roll of a 4, 5 
@@ -214,10 +208,8 @@ public int scoreAdolescenceSchoolChoice(char choice) throws ScoringControlExcept
     if ("A".equals(grade)) {
         // some function in the ItemControl class to award scholarship
             giveScholarship = true;
-            System.out.println("Scholarship Awarded!"); // DEBUG
     } else {
             die1Roll = die1.roll();
-            System.out.println("Die roll is " + die1Roll); // DEBUG
             if (die1Roll > 3) {
                 // some function in the ItemControl class to award scholarship
                 giveScholarship = true;
@@ -227,7 +219,7 @@ public int scoreAdolescenceSchoolChoice(char choice) throws ScoringControlExcept
         try { 
             ItemControl.changeToItemQuantityInStock("Scholarship", 1);
         }  catch (Exception ie) {
-            System.out.println(ie.getMessage());
+            ErrorView.display(this.getClass().getName(),ie.getMessage());
         }
     }
     recordChoicePoints(scenes[10 + AdolescenceSceneType.School.ordinal()], choicePoints);
@@ -284,8 +276,6 @@ public int scoreAdolescenceChurchChoice(char choice, char location) throws Scori
                   + "choice. Must be an 'A', 'B' or 'C'.");
     }
 
-    System.out.println("Points Awarded: " + choicePoints); // DEBUG
-        
     return choicePoints;
 }    
     /**************************************************************************
@@ -307,8 +297,6 @@ public int scoreAdolescenceHomeChoice(char choice, char location) throws Scoring
                   + "choice. Must be an 'A', 'B' or 'C'.");
     }
 
-    System.out.println("Points Awarded: " + choicePoints); // DEBUG
-        
     return choicePoints;
 }    
 
@@ -319,8 +307,6 @@ public int scoreAdolescenceHomeChoice(char choice, char location) throws Scoring
 public int scoreAdulthoodMissionChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
-    System.out.println("Points Awarded: " + choicePoints); // DEBUG
-        
     return choicePoints;
 }    
 /**************************************************************************
@@ -362,8 +348,6 @@ public int scoreAdulthoodWorkBreakroomChoice(char choice) throws ScoringControlE
 public int scoreAdulthoodUniversityChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
-    System.out.println("Points Awarded: " + choicePoints); // DEBUG
-        
     return choicePoints;
 }    
 /**************************************************************************
@@ -373,8 +357,6 @@ public int scoreAdulthoodUniversityChoice(char choice) throws ScoringControlExce
 public int scoreAdulthoodFamilyChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
-    System.out.println("Points Awarded: " + choicePoints); // DEBUG
-        
     return choicePoints;
 }    
 
@@ -385,8 +367,6 @@ public int scoreAdulthoodFamilyChoice(char choice) throws ScoringControlExceptio
 public int scoreSeniorChurchChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
-    System.out.println("Points Awarded: " + choicePoints); // DEBUG
-        
     return choicePoints;
 }    
 /**************************************************************************
@@ -396,8 +376,6 @@ public int scoreSeniorChurchChoice(char choice) throws ScoringControlException {
 public int scoreSeniorHomeChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
-    System.out.println("Points Awarded: " + choicePoints); // DEBUG
-        
     return choicePoints;
 }    
 

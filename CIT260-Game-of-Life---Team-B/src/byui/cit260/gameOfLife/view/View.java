@@ -9,7 +9,6 @@ import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -59,12 +58,12 @@ public abstract class View implements ViewInterface {
             try {
                 selection = this.keyboard.readLine(); // get next line typed on keyboard
             } catch (IOException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(), ex.getMessage());
             }
             selection = selection.trim();
             
             if (selection.length() < 1) {
-                System.out.println("\n*** You must enter a value *** Try again");
+                this.console.println("\n*** You must enter a value *** Try again");
                 continue;
             }
             break; // end the loop    

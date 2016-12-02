@@ -36,13 +36,12 @@ public class SeniorStartView extends View {
 
     @Override
     public boolean doAction(String choice) {
-        // System.out.println("\n*** evaluateResponse() function called ***");
         int userAmount = 0;
         
         try {
             userAmount = Integer.parseInt(choice);
         } catch (NumberFormatException nf) {
-            System.out.println("/nYou must enter a valid number."
+            ErrorView.display(this.getClass().getName(), "/nYou must enter a valid number."
                 + " Try again or enter Q to quit.");
             return false;
         }
@@ -56,7 +55,7 @@ public class SeniorStartView extends View {
         try {
             answer = scoringControl.calcOperation(29400.0F, 500.0F, 0.75F);
         } catch (ScoringControlException se) {
-            System.out.println(se.getMessage());
+            ErrorView.display(this.getClass().getName(), se.getMessage());
             return false;
         }
 

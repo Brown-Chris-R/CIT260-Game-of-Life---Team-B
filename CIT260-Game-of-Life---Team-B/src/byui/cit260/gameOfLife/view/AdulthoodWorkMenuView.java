@@ -43,7 +43,7 @@ public class AdulthoodWorkMenuView extends View {
                 this.displayAdulthoodWorkSupervisorsOfficeScenario();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -55,14 +55,14 @@ public class AdulthoodWorkMenuView extends View {
     }
 
     private void displayAdulthoodWorkOfficeScenario() {
-        System.out.println("\n*** displayAdulthoodWorkOfficeScenario() function called ***");
+        this.console.println("\n*** displayAdulthoodWorkOfficeScenario() function called ***");
     }
 
     private void displayAdulthoodWorkParkingLotScenario() {
-        System.out.println("\n*** displayAdulthoodWorkParkingLotScenario() function called ***");
+        this.console.println("\n*** displayAdulthoodWorkParkingLotScenario() function called ***");
     }
      private void displayAdulthoodWorkSupervisorsOfficeScenario() {
-        System.out.println("\n*** displayAdulthoodWorkSupervisorsOfficeScenario() function called ***");
+        this.console.println("\n*** displayAdulthoodWorkSupervisorsOfficeScenario() function called ***");
     }
     
 }

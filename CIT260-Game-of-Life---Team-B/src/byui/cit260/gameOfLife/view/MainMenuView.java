@@ -21,6 +21,7 @@ public class MainMenuView extends View {
                   + "\n| Main Menu                            |"
                   + "\n----------------------------------------"
                   + "\nN - Start new game"
+                  + "\nC - Continue existing game"
                   + "\nG - Get and start saved"
                   + "\nH - Get help on how to play the game"
                   + "\nS - Save game"
@@ -42,8 +43,11 @@ public class MainMenuView extends View {
             case "N": // create and start new game
                 this.startNewGame();
                 break;
+            case "C": // continue game
+                this.continueExistingGame();
+                break;
             case "G": // get and start saved game
-                this.startExistingGame();
+                this.startSavedGame();
                 break;
             case "H": // display the help menu
                 this.displayHelpMenu();
@@ -70,7 +74,7 @@ public class MainMenuView extends View {
                 this.test6();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -80,10 +84,10 @@ public class MainMenuView extends View {
         try {
             GameControl.createNewGame(CIT260GameOfLifeTeamB.getPlayer());
         } catch (GameControlException ge) {
-            System.out.println(ge.getMessage());
+            ErrorView.display(this.getClass().getName(), ge.getMessage());
             return;
         } catch (Throwable te){
-            System.out.println(te.getMessage());
+            ErrorView.display(this.getClass().getName(), te.getMessage());
         }
    
         // display the game menu
@@ -91,16 +95,23 @@ public class MainMenuView extends View {
         gameMenu.display();
 }
 
+    private void continueExistingGame(){
+        // display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+    }
 
-    private void startExistingGame(){
+    private void startSavedGame(){
         // promopt for and get the name of the file to save the game in
         this.console.print("\n\nEnter tne file path for file where the game "
                             +"is to be saved.");
         String filePath = this.getInput();
         try {
+            // start a save game from the specified file
             GameControl.getSavedGame(filePath);
+            this.console.println("Game successfully retrieved!");
         } catch (Exception ex) {
-            ErrorView.display("MainMenuView",ex.getMessage());
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
         }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
@@ -122,8 +133,9 @@ public class MainMenuView extends View {
         try {
             //save the game to the speciried file
             GameControl.saveGame(CIT260GameOfLifeTeamB.getCurrentGame(), filePath);
+            this.console.println("Game successfully saved!");
         } catch (Exception ex) {
-            ErrorView.display("MainMenuView", ex.getMessage());
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
                 
     }

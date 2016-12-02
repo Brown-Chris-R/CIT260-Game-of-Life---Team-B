@@ -46,14 +46,14 @@ public class AdulthoodMenuView extends View{
                 this.displayAdulthoodFamilyScenario();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
     }
 
     private void displayAdulthoodMissionMenu() {
-        System.out.println("\n*** displayAdulthoodMissionMenu() function called ***");
+        this.console.println("\n*** displayAdulthoodMissionMenu() function called ***");
     }
 
     private void displayAdulthoodWorkMenu() {
@@ -62,10 +62,10 @@ public class AdulthoodMenuView extends View{
     }
 
     private void displayAdulthoodUniversityScenario() {
-        System.out.println("\n*** displayAdulthoodUniversityScenario() function called ***");
+        this.console.println("\n*** displayAdulthoodUniversityScenario() function called ***");
     }
      private void displayAdulthoodFamilyScenario() {
-        System.out.println("\n*** displayAdulthoodFamilyScenario() function called ***");
+        this.console.println("\n*** displayAdulthoodFamilyScenario() function called ***");
     }
 
    

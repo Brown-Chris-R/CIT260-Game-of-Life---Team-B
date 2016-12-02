@@ -56,10 +56,10 @@ public class AdolescenceSchoolScenarioView extends View {
         } else {
             try {
                 choicePoints = sc.scoreAdolescenceSchoolChoice(choice.charAt(0));
-                System.out.println("Points Awarded: " + choicePoints); // DEBUG
+                this.console.println("Points Awarded: " + choicePoints); // DEBUG
                 return true;
             } catch (ScoringControlException se) {
-                System.out.println(se.getMessage());
+                this.console.println(se.getMessage());
             } catch (ItemControlException ex) {
                 Logger.getLogger(AdolescenceSchoolScenarioView.class.getName()).log(Level.SEVERE, null, ex);
             }

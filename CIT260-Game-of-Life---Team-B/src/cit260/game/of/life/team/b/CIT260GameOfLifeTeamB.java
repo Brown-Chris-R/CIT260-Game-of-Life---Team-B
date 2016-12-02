@@ -15,6 +15,7 @@ import byui.cit260.gameOfLife.model.Choice;
 import byui.cit260.gameOfLife.model.Item;
 import byui.cit260.gameOfLife.model.Player;
 import byui.cit260.gameOfLife.model.Scene;
+import byui.cit260.gameOfLife.view.ErrorView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -53,7 +54,7 @@ public class CIT260GameOfLifeTeamB {
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.display();
         } catch(Throwable e) {
-            System.out.println("Exception: " + e.toString() +
+            ErrorView.display("CIT260GameOfLifeTeamB", "Exception: " + e.toString() +
                                 "\nCause: " + e.getCause() +
                                 "\nMessage: " + e.getMessage());
             e.printStackTrace();
@@ -67,7 +68,7 @@ public class CIT260GameOfLifeTeamB {
                 if (CIT260GameOfLifeTeamB.logFile != null)
                     CIT260GameOfLifeTeamB.logFile.close();
             } catch (IOException ex) {
-                System.out.println("Error closing files");
+                ErrorView.display("CIT260GameOfLifeTeamB","Error closing files");
                 return;
             }
         }

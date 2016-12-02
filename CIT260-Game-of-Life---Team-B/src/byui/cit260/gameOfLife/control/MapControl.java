@@ -7,12 +7,14 @@ package byui.cit260.gameOfLife.control;
 
 import byui.cit260.gameOfLife.exceptions.GameControlException;
 import byui.cit260.gameOfLife.exceptions.MapControlException;
+import byui.cit260.gameOfLife.exceptions.MapException;
 import byui.cit260.gameOfLife.model.Map;
 import byui.cit260.gameOfLife.model.Scene;
 import byui.cit260.gameOfLife.model.ChildhoodSceneType;
 import byui.cit260.gameOfLife.model.AdolescenceSceneType;
 import byui.cit260.gameOfLife.model.AdulthoodSceneType;
 import byui.cit260.gameOfLife.model.SeniorSceneType;
+import byui.cit260.gameOfLife.view.ErrorView;
 
 /**
  *
@@ -26,7 +28,13 @@ public class MapControl {
         // Create the map - 4 columns represent the 4 game phases
         // 10 columns for the maximum number of locations per phase
         // note that not all rows will have a valid location in some phases
-        Map map = new Map(10,4);
+        Map map = null;
+        
+        try {
+            map = new Map(10,4);
+        } catch(MapException me) {
+            throw new MapControlException(me.getMessage()); 
+        }
         
         // create the scenes for the game
         Scene[] scenes = createScenes();
@@ -36,7 +44,7 @@ public class MapControl {
         try {
             GameControl.assignScenesToLocations(map, scenes);
         } catch (GameControlException ge) {
-            System.out.println(ge.getMessage());
+            ErrorView.display("MapControl", ge.getMessage());
         }
         
         return map;

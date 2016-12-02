@@ -40,7 +40,7 @@ public class AdolescenceChurchMenuView extends View {
                 break;
           
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -52,11 +52,11 @@ public class AdolescenceChurchMenuView extends View {
     }
 
     private void displayAdolescenceChurchPriesthoodScenario() {
-        System.out.println("\n*** displayAdolescenceChurchPriesthoodScenario() function called ***");
+        this.console.println("\n*** displayAdolescenceChurchPriesthoodScenario() function called ***");
     }
 
     private void displayAdolescenceChurchAdditionalScenario() {
-        System.out.println("\n*** displayAdolescenceChurchAdditionalScenario() function called ***");
+        this.console.println("\n*** displayAdolescenceChurchAdditionalScenario() function called ***");
     }
     
     

@@ -49,7 +49,7 @@ public class StartProgramView extends View {
         Player player;
         
         if (playersName.length() < 2) {
-            System.out.println("\nInvalid players name: "
+            this.console.println("\nInvalid players name: "
                     + "The name must be greater than one character in length");
             return false;
         }
@@ -57,7 +57,7 @@ public class StartProgramView extends View {
         try {
             player = GameControl.createPlayer(playersName);
         } catch (GameControlException ge) {
-            System.out.println(ge.getMessage());
+            ErrorView.display(this.getClass().getName(), ge.getMessage());
             return false;
         }
          

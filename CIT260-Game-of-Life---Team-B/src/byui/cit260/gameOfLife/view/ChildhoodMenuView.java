@@ -43,7 +43,7 @@ public class ChildhoodMenuView extends View{
                 break;
           
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -55,11 +55,11 @@ public class ChildhoodMenuView extends View{
     }
 
     private void displayChildhoodChurchMenu() {
-        System.out.println("\n*** displayChildhoodChurchMenu() function called ***");
+        this.console.println("\n*** displayChildhoodChurchMenu() function called ***");
     }
 
     private void displayChildhoodHomeMenu() {
-        System.out.println("\n*** displayChildhoodHomeMenu() function called ***");
+        this.console.println("\n*** displayChildhoodHomeMenu() function called ***");
     }
     
 }

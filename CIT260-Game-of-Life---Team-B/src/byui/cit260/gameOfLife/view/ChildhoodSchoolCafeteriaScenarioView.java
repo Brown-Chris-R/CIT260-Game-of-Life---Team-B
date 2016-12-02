@@ -42,10 +42,10 @@ public class ChildhoodSchoolCafeteriaScenarioView extends View {
         } else {
             try {
                 choicePoints = sc.scoreChildhoodSchoolCafeteriaChoice(choice.charAt(0));
-                System.out.println("Points Awarded: " + choicePoints); // DEBUG
+                this.console.println("Points Awarded: " + choicePoints); // DEBUG
                 return true;
             } catch (ScoringControlException se) {
-                System.out.println(se.getMessage());
+                this.console.println(se.getMessage());
             }
         }
         return false;

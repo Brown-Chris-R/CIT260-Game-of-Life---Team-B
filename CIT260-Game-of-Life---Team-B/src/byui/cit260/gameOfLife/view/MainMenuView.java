@@ -93,7 +93,15 @@ public class MainMenuView extends View {
 
 
     private void startExistingGame(){
-        // display the game menu
+        // promopt for and get the name of the file to save the game in
+        this.console.print("\n\nEnter tne file path for file where the game "
+                            +"is to be saved.");
+        String filePath = this.getInput();
+        try {
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView",ex.getMessage());
+        }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -108,7 +116,16 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        this.console.println("\n*** saveGame function called ***");
+        this.console.println("\n\nEnter the file path for file where the game "
+                             + "is to be saved.");
+        String filePath = this.getInput();
+        try {
+            //save the game to the speciried file
+            GameControl.saveGame(CIT260GameOfLifeTeamB.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+                
     }
 
     private void test1() {

@@ -16,8 +16,13 @@ import byui.cit260.gameOfLife.model.Location;
 import byui.cit260.gameOfLife.model.Phase;
 import byui.cit260.gameOfLife.model.Player;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -206,7 +211,6 @@ public class GameMenuView extends View {
         try {
             //print the game to the speciried file
             outputMap(filePath);
-            this.console.println("Map successfully printed to " + filePath + "!");
         } catch (Exception ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
@@ -218,7 +222,20 @@ public class GameMenuView extends View {
         int columns = map.getNoOfColumns();
         Location[][] locations = map.getLocations();
         PrintWriter mapPrintFile = null;
+        //Path printFilePath = null;
+        //File printFile = null;
+        //String printFilePathString = null;
         
+        //try {
+        //    printFilePath = Paths.get(filepath).toRealPath();
+        //} catch (NoSuchFileException x) {
+        //    System.err.format("%s: no such" + " file or directory%n", filepath);
+            // Logic for case when file doesn't exist.
+        //    printFile = new File(filepath);
+        //} catch (IOException x) {
+        //    System.err.format("%s%n", x);
+            // Logic for other sort of file error.
+        //}
         try {
             mapPrintFile = new PrintWriter(filepath);
             mapPrintFile.println("\n -------------MAP-------------");
@@ -239,6 +256,9 @@ public class GameMenuView extends View {
                 }
                 mapPrintFile.println();
             }
+            this.console.println("Map successfully printed to " + filepath + "!");
+        } catch (FileNotFoundException e) {
+                ErrorView.display(this.getClass().getName(), e.getMessage());    
         } finally {
             if (mapPrintFile != null) {
                 mapPrintFile.close();

@@ -16,6 +16,8 @@ import byui.cit260.gameOfLife.model.Location;
 import byui.cit260.gameOfLife.model.Phase;
 import byui.cit260.gameOfLife.model.Player;
 import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +37,7 @@ public class GameMenuView extends View {
                   + "\n----------------------------------------"
                   + "\nV - View status"
                   + "\nD - Display Map"
+                  + "\nP - Print Map"
                   + "\nC - Continue Current phase"
                   + "\nM - Move to next phase"
                   + "\nR - Repent"
@@ -51,41 +54,50 @@ public class GameMenuView extends View {
                 this.viewStatus();
                 break;
             case "D": {
-            try {
-                // display map
-                this.displayMap();
-            } catch (MapControlException ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    // display map
+                    this.displayMap();
+                } catch (MapControlException ex) {
+                    Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
-                break;
+            break;
+            case "P": {
+                try {
+                    // Print map
+                    this.printMap();
+                } catch (MapControlException ex) {
+                    Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            break;
             case "C": {
-            try {
-                // continue current phase
-                this.continuePhase();
-            } catch (MapControlException ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    // continue current phase
+                    this.continuePhase();
+                } catch (MapControlException ex) {
+                    Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
-                break;
+            break;
             case "M": {
-            try {
-                // move to next phase
-                this.moveToNextPhase();
-            } catch (MapControlException ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    // move to next phase
+                    this.moveToNextPhase();
+                } catch (MapControlException ex) {
+                    Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
-                break;
+            break;
             case "R": {
-            try {
-                // create and start new game
-                this.repent();
-            } catch (RepentanceControlException ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    // create and start new game
+                    this.repent();
+                } catch (RepentanceControlException ex) {
+                    Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
-                break;
+            break;
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
                 break;
@@ -182,7 +194,55 @@ public class GameMenuView extends View {
                 }
                 this.console.print("|");
             }
-            this.console.print("\n");
+            this.console.println();
+        }
+    }
+    
+    private void printMap() throws MapControlException{
+
+        this.console.println("\n\nEnter the file path for file where the map "
+                             + "is to be printed.");
+        String filePath = this.getInput();
+        try {
+            //print the game to the speciried file
+            outputMap(filePath);
+            this.console.println("Map successfully printed to " + filePath + "!");
+        } catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+    }
+
+    private void outputMap(String filepath) throws MapControlException, FileNotFoundException{
+        Map map = this.game.getMap();
+        int rows = map.getNoOfRows();
+        int columns = map.getNoOfColumns();
+        Location[][] locations = map.getLocations();
+        PrintWriter mapPrintFile = null;
+        
+        try {
+            mapPrintFile = new PrintWriter(filepath);
+            mapPrintFile.println("\n -------------MAP-------------");
+
+            for (int i = 0; i< rows; i++){
+                if (i < (rows - 1)) {
+                    mapPrintFile.print(" ");
+                }
+                mapPrintFile.print((i+1) + " |");
+                for (int j=0; j<columns; j++){
+                    if (locations[i][j].getScene() == null){
+                    mapPrintFile.print(" ?? ");
+                    }
+                    else {
+                    mapPrintFile.print(" "+locations[i][j].getScene().getMapSymbol()+" ");
+                    }
+                    mapPrintFile.print("|");
+                }
+                mapPrintFile.println();
+            }
+        } finally {
+            if (mapPrintFile != null) {
+                mapPrintFile.close();
+            }
         }
     }
 

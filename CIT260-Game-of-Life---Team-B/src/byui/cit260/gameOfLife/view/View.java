@@ -9,8 +9,6 @@ import cit260.game.of.life.team.b.CIT260GameOfLifeTeamB;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

@@ -6,6 +6,7 @@
 package byui.cit260.gameOfLife.view;
 
 import static byui.cit260.gameOfLife.control.ScoringControl.summarizeChoicePoints;
+import byui.cit260.gameOfLife.exceptions.ItemControlException;
 import byui.cit260.gameOfLife.exceptions.MapControlException;
 import byui.cit260.gameOfLife.exceptions.RepentanceControlException;
 import byui.cit260.gameOfLife.model.ChoicePoints;
@@ -20,6 +21,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Writer;
+import java.lang.reflect.Array;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -41,6 +44,7 @@ public class GameMenuView extends View {
                   + "\n| Game Menu                            |"
                   + "\n----------------------------------------"
                   + "\nV - View status"
+                  + "\nO - Item report"
                   + "\nD - Display Map"
                   + "\nP - Print Map"
                   + "\nC - Continue Current phase"
@@ -58,6 +62,16 @@ public class GameMenuView extends View {
             case "V": // view status
                 this.viewStatus();
                 break;
+            case "O": {
+           
+            try {
+                this.reportItem();
+            } catch (ItemControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+  
+            }
+            break;
             case "D": {
                 try {
                     // display map
@@ -118,7 +132,9 @@ public class GameMenuView extends View {
         int averageChoicePoints = 0;
         
         Player player = this.game.getPlayer();
+        
         Item[] items = this.game.getItems();
+        
         this.console.println("\n--------------- Game Status ---------------");
         this.console.println(player.toString());
         this.console.println(this.game.toString());
@@ -136,6 +152,7 @@ public class GameMenuView extends View {
             line.insert(33, item.getQuantityInStock());
             this.console.println(line.toString());
         }
+    
         // Show choicePoint stattistics - lowest points, highest points, and average points per scenario
         ArrayList<ChoicePoints> choicePointsList = summarizeChoicePoints();
         if (choicePointsList.size() != 0) {
@@ -256,7 +273,7 @@ public class GameMenuView extends View {
                 }
                 mapPrintFile.println();
             }
-            this.console.println("Map successfully printed to " + filepath + "!");
+            this.console.println("Map successfully printed to" + filepath + "!");
         } catch (FileNotFoundException e) {
                 ErrorView.display(this.getClass().getName(), e.getMessage());    
         } finally {
@@ -299,4 +316,36 @@ public class GameMenuView extends View {
         repentance.display();
     }
 
+    private void reportItem() throws ItemControlException {
+         Item[] items = this.game.getItems();
+         String OuputLocation = null;
+         PrintWriter ItemPrintFile = null;
+          this.console.println("\n\nEnter the file path for file where the items report "
+                             + "is to be printed.");
+        String filePath = this.getInput();
+         
+        try (PrintWriter out = new PrintWriter(OuputLocation)){
+              ItemPrintFile = new PrintWriter(filePath);
+                       
+            ItemPrintFile.println("\n---------------  Item List  ---------------");
+            out.printf("%n%-20s%10s%10s","Type","Required","In Stock");
+            out.printf("%n%-20s%10s%10s","----","---------","-------");
+        
+        for (Item item : items) {
+                 ItemPrintFile.printf("%n%-20s%7s%7d",item.getInventoryType()
+            , item.getRequiredAmount()
+           , item.getQuantityInStock());   
+   
+        }
+        this.console.println("Item Report successfully printed to" + filePath + "!");
+        } catch (Exception e) {
+              ErrorView.display(this.getClass().getName(), e.getMessage());    
+        }finally {
+            if (ItemPrintFile != null) {
+                ItemPrintFile.close();
+            }
+        }       
 }
+}
+
+

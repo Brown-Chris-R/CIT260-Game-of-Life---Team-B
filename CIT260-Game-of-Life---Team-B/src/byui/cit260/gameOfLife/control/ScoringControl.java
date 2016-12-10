@@ -123,45 +123,143 @@ public int scoreChildhoodSchoolPlaygroundChoice(char choice) throws ScoringContr
     return choicePoints;
 }    
     /**************************************************************************
-    * Score the players choice in the Childhood Church scenario
+    * Score the players choice in the Church Sunday School scenario
     * @author cbrown
     **************************************************************************/
-public int scoreChildhoodChurchChoice(char choice, char location) throws ScoringControlException {
+public int scoreChildhoodChurchSundaySchoolChoice(String choice) throws ScoringControlException {
     int choicePoints = 0;
 
-    // validate that the location is a valid choice - S, P or B
-    if (location != 'S' && choice != 'P' && choice != 'B') {
-        throw new ScoringControlException("Location " + location + " is not a valid "
-                  + "location. Must be an 'S', 'P' or 'B'.");
+    // validate that the choice is a valid choice
+    if (choice == "") {
+        throw new ScoringControlException("Choice cannot be blank.");
     }
 
-    // validate that the choice is a valid choice - A, B, C or D
-    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
-        throw new ScoringControlException("Choice " + choice + " is not a valid "
-                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
+    if ("i will go and do".equals(choice.toLowerCase())) {
+        choicePoints = 5;
     }
-
+    
+    recordChoicePoints(scenes[ChildhoodSceneType.ChurchSundaySchool.ordinal()], choicePoints);
+        
     return choicePoints;
 }    
     /**************************************************************************
-    * Score the players choice in the Childhood Home scenario
+    * Score the players choice in the Church Primary scenario
     * @author cbrown
     **************************************************************************/
-public int scoreChildhoodHomeChoice(char choice, char location) throws ScoringControlException {
+public int scoreChildhoodChurchPrimaryChoice(String choice) throws ScoringControlException {
     int choicePoints = 0;
 
-        // validate that the location is a valid choice - A, B or C
-    if (location != 'K' && choice != 'L' && choice != 'Y') {
-        throw new ScoringControlException("Location " + location + " is not a valid "
-                  + "location. Must be an 'K', 'L' or 'Y'.");
+    // validate that the choice is a valid choice
+    if (choice == "") {
+        throw new ScoringControlException("Choice cannot be blank.");
     }
 
-    // validate that the choice is a valid choice - A, B, C or D
-    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
+    if ("what would jesus do".equals(choice.toLowerCase()) || "what would jesus want me to do".equals(choice.toLowerCase())) {
+        choicePoints = 5;
+    }
+    
+    recordChoicePoints(scenes[ChildhoodSceneType.ChurchSundaySchool.ordinal()], choicePoints);
+        
+    return choicePoints;
+}    
+    /**************************************************************************
+    * Score the players choice in the Church Bishop's Office scenario
+    * @author cbrown
+    **************************************************************************/
+public int scoreChildhoodChurchBishopsOfficeChoice(char choice) throws ScoringControlException {
+    int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A or B
+    if (choice != 'A' && choice != 'B') {
         throw new ScoringControlException("Choice " + choice + " is not a valid "
-                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
+                  + "choice. Must be an 'A' or 'B'.");
+    }
+    switch (choice) {
+        case 'A':
+            choicePoints = -2;
+            break;
+        case 'B':
+            choicePoints = 5;
+            break;
+    }
+    
+    recordChoicePoints(this.scenes[ChildhoodSceneType.ChurchBishopsOffice.ordinal()], choicePoints);
+        
+    return choicePoints;
+}    
+    /**************************************************************************
+    * Score the players choice in the Home Kitchen scenario
+    * @author cbrown
+    **************************************************************************/
+public int scoreChildhoodHomeKitchenChoice(String choice) throws ScoringControlException {
+    int choicePoints = 0;
+
+    // validate that the choice is a valid choice
+    if (choice == "") {
+        throw new ScoringControlException("Choice cannot be blank.");
+    } else {
+        try {
+            Float answer = Float.parseFloat(choice);
+        } catch (NumberFormatException e) {
+            throw new ScoringControlException("Choice is not a valid decimal number.");
+        }
     }
 
+    if ("the teachings of the lord jesus christ".equals(choice.toLowerCase())) {
+        choicePoints = 5;
+    }
+    
+    recordChoicePoints(this.scenes[ChildhoodSceneType.HomeKitchen.ordinal()], choicePoints);
+        
+    return choicePoints;
+}    
+    /**************************************************************************
+    * Score the players choice in the Home Living Room scenario
+    * @author cbrown
+    **************************************************************************/
+public int scoreChildhoodHomeLivingRoomChoice(String choice) throws ScoringControlException {
+    int choicePoints = 0;
+
+    // validate that the choice is a valid choice
+    if (choice == "") {
+        throw new ScoringControlException("Choice cannot be blank.");
+    }
+
+    if ("the teachings of the lord jesus christ".equals(choice.toLowerCase())) {
+        choicePoints = 5;
+    }
+    
+    recordChoicePoints(this.scenes[ChildhoodSceneType.HomeLivingRoom.ordinal()], choicePoints);
+        
+    return choicePoints;
+}    
+    /**************************************************************************
+    * Score the players choice in the Home Backyard scenario
+    * @author cbrown
+    **************************************************************************/
+public int scoreChildhoodHomeBackyardChoice(char choice) throws ScoringControlException {
+    int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B or C
+    if (choice != 'A' && choice != 'B' && choice != 'C') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
+    }
+    
+    switch (choice) {
+        case 'A':
+            choicePoints = -2;
+            break;
+        case 'B':
+            choicePoints = 5;
+            break;
+        case 'C':
+            choicePoints = 2;
+            break;
+    }
+    
+    recordChoicePoints(this.scenes[ChildhoodSceneType.ChurchBishopsOffice.ordinal()], choicePoints);
+        
     return choicePoints;
 }    
 

@@ -56,6 +56,7 @@ public class MapControl {
         Scene[] scenes = new Scene[ChildhoodSceneType.values().length + AdolescenceSceneType.values().length + AdulthoodSceneType.values().length + SeniorSceneType.values().length];
         
         // Create Childhood Scenes
+        // Childhood School Cafeteria scene
         Scene childhoodSchoolCafeteriaScene = new Scene();
         childhoodSchoolCafeteriaScene.setName("Childhood | School | Cafeteria");
         childhoodSchoolCafeteriaScene.setDescription(
@@ -66,6 +67,115 @@ public class MapControl {
         childhoodSchoolCafeteriaScene.setMapSymbol("C1");
         childhoodSchoolCafeteriaScene.setBlocked(false);
         scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()] = childhoodSchoolCafeteriaScene;
+        // Childhood School Gymn scene
+        Scene childhoodSchoolGymScene = new Scene();
+        childhoodSchoolGymScene.setName("Childhood | School | Gym");
+        childhoodSchoolGymScene.setDescription(
+            "You are in the gymn with all the other students playing. You notice "
+          + "some boys are bullying a little boy because of the way he is "
+          + "dressed. What would you do?");
+        childhoodSchoolGymScene.setMapSymbol("C2");
+        childhoodSchoolGymScene.setBlocked(false);
+        scenes[ChildhoodSceneType.SchoolGym.ordinal()] = childhoodSchoolGymScene;
+        // Childhood School Playground scene
+        Scene childhoodSchoolPlaygroundScene = new Scene();
+        childhoodSchoolPlaygroundScene.setName("Childhood | School | Playground");
+        childhoodSchoolPlaygroundScene.setDescription(
+            "At the playground you find a backpack that was left behind. You "
+          + "open the backpack and see a cellphone, money and an iPod. You have "
+          + "always wanted those things. You look around and see that no one is "
+          + "looking. What would you do?");
+        childhoodSchoolPlaygroundScene.setMapSymbol("C3");
+        childhoodSchoolPlaygroundScene.setBlocked(false);
+        scenes[ChildhoodSceneType.SchoolPlayground.ordinal()] = childhoodSchoolPlaygroundScene;
+        // Childhood Church Primary scene
+        Scene childhoodChurchPrimaryScene = new Scene();
+        childhoodChurchPrimaryScene.setName("Childhood | Church | Primary");
+        childhoodChurchPrimaryScene.setDescription(
+            "Your teacher tells this story: "
+          + "A young boy named Warren lived near a bird refuge. A refuge is a "
+          + "place where birds are protected. Warren’s father’s job was to help "
+          + "protect the birds. Warren had found a nest in the tall grass near "
+          + "his home, and he loved to look at the eggs in the nest when the "
+          + "mother bird was away. One day when Warren was looking at the eggs, "
+          + "he heard a loud noise. He looked up and saw that two boys from his "
+          + "school had shot a bird with a slingshot.\n" 
+          + "The two boys saw Warren and came up to look at the nest. One of the "
+          + "boys wanted to smash the eggs. Warren convinced the boys not to "
+          + "smash the eggs, and he told them that it was against the law to kill "
+          + "birds in the refuge. The boys told Warren that he had better not "
+          + "tell anyone that they had shot a bird. They did not want to be "
+          + "punished for breaking the law. As Warren went home, he walked very "
+          + "slowly, thinking about what he should do. If he told his father "
+          + "about the boys, they might make fun of him or hurt him."
+          + "What question should Warren ask himself to help him choose the right?");
+        childhoodChurchPrimaryScene.setMapSymbol("C5");
+        childhoodChurchPrimaryScene.setBlocked(false);
+        scenes[ChildhoodSceneType.ChurchPrimary.ordinal()] = childhoodChurchPrimaryScene;
+        // Childhood Church Sunday School scene
+        Scene childhoodChurchSundaySchoolScene = new Scene();
+        childhoodChurchSundaySchoolScene.setName("Childhood | Church | Sunday School");
+        childhoodChurchSundaySchoolScene.setDescription(
+            "And it came to pass, that I, Nephi, said unto my father: _ ____ __ "
+          + "___ __ the things the Lord has commanded, for I know that the Lord "
+          + "giveth no commandment unto the children of men, save he shall "
+          + "prepare a way for them that they may accomplish the thing which "
+          + "he commandeth them."
+          + "Fill in the missing phrase.");
+        childhoodChurchSundaySchoolScene.setMapSymbol("C6");
+        childhoodChurchSundaySchoolScene.setBlocked(false);
+        scenes[ChildhoodSceneType.ChurchSundaySchool.ordinal()] = childhoodChurchSundaySchoolScene;
+        // Childhood Church Bishop's Office scene
+        Scene childhoodChurchBishopsOfficeScene = new Scene();
+        childhoodChurchBishopsOfficeScene.setName("Childhood | Church | Bishop's Office");
+        childhoodChurchBishopsOfficeScene.setDescription(
+            "You are at the bishop’s office for your interview before getting "
+          + "baptized. You are in the middle of you interview when he asked you "
+          + "about for behavior at home. You know you have been saying bad words "
+          + "at home and at school. You don't want to upset the bishop if you "
+          + "tell him about your conduct. What will you do?");
+        childhoodChurchBishopsOfficeScene.setMapSymbol("C7");
+        childhoodChurchBishopsOfficeScene.setBlocked(false);
+        scenes[ChildhoodSceneType.ChurchBishopsOffice.ordinal()] = childhoodChurchBishopsOfficeScene;
+        // Childhood Home Kitchen scene
+        Scene childhoodHomeKitchenScene = new Scene();
+        childhoodHomeKitchenScene.setName("Childhood | Home | Kitchen");
+        childhoodHomeKitchenScene.setDescription(
+            "You have to make 24 cupcakes for a school activity. Your mother has "
+          + "recipe for a dozen cupcakes, as follows: "
+          + "White Flour:    2 cups"
+          + "Sugar:          1 1/2 cups"
+          + "Baking Powder:  2 1/2 cups"
+          + "Salt:           1 tsp."
+          + "Butter:         1/3 cup"
+          + "Milk:           2/3 cup"
+          + "Vanilla:        1 tsp."
+          + "Dark Cocoa:     1 cup"          
+          + "You are mixing the recipe and find that you only have 1 stick of "
+          + " butter. How much more butter will you need to make 24 cupcakes? "
+          + "Enter your answer with 3 decimals (0.xxx):");
+        childhoodHomeKitchenScene.setMapSymbol("C8");
+        childhoodHomeKitchenScene.setBlocked(false);
+        scenes[ChildhoodSceneType.HomeKitchen.ordinal()] = childhoodHomeKitchenScene;
+        // Childhood Home Living Room scene
+        Scene childhoodHomeLivingRoomScene = new Scene();
+        childhoodHomeLivingRoomScene.setName("Childhood | Home | Living Room");
+        childhoodHomeLivingRoomScene.setDescription(
+            "Happiness in family life is most likely to be achieved when founded "
+          + "upon ___ _________ __ ___ ____ _____ ______. " 
+          + "Fill in the missing phrase.");
+        childhoodHomeLivingRoomScene.setMapSymbol("C9");
+        childhoodHomeLivingRoomScene.setBlocked(false);
+        scenes[ChildhoodSceneType.HomeLivingRoom.ordinal()] = childhoodHomeLivingRoomScene;
+        // Childhood Home Backyard scene
+        Scene childhoodHomeBackyardScene = new Scene();
+        childhoodHomeBackyardScene.setName("Childhood | Home | Backyard");
+        childhoodHomeBackyardScene.setDescription(
+            "You are practicing baseball in your backyard and hit the ball into "
+          + "the neigbors window, breaking it. What do you do? ");
+        childhoodHomeBackyardScene.setMapSymbol("C10");
+        childhoodHomeBackyardScene.setBlocked(false);
+        scenes[ChildhoodSceneType.HomeBackyard.ordinal()] = childhoodHomeBackyardScene;
 
         // Create Adolescence Scenes (use 10 + ordinal)
         Scene adolescenceSchoolScene = new Scene();

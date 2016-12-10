@@ -38,7 +38,7 @@ public class ChildhoodMenuView extends View{
             case "C": // Childhood Church Menu
                 this.displayChildhoodChurchMenu();
                 break;
-            case "U": // Childhood Home Menu
+            case "H": // Childhood Home Menu
                 this.displayChildhoodHomeMenu();
                 break;
           
@@ -55,11 +55,13 @@ public class ChildhoodMenuView extends View{
     }
 
     private void displayChildhoodChurchMenu() {
-        this.console.println("\n*** displayChildhoodChurchMenu() function called ***");
+        ChildhoodChurchMenuView churchMenu = new ChildhoodChurchMenuView();
+        churchMenu.display();
     }
 
     private void displayChildhoodHomeMenu() {
-        this.console.println("\n*** displayChildhoodHomeMenu() function called ***");
+        ChildhoodHomeMenuView homeMenu = new ChildhoodHomeMenuView();
+        homeMenu.display();
     }
     
 }

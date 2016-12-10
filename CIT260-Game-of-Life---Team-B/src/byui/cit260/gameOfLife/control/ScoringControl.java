@@ -6,6 +6,7 @@
 package byui.cit260.gameOfLife.control;
 
 import byui.cit260.gameOfLife.exceptions.ItemControlException;
+import byui.cit260.gameOfLife.exceptions.RepentanceControlException;
 import byui.cit260.gameOfLife.exceptions.ScoringControlException;
 import byui.cit260.gameOfLife.model.AdolescenceSceneType;
 import byui.cit260.gameOfLife.model.AdulthoodSceneType;
@@ -13,6 +14,7 @@ import byui.cit260.gameOfLife.model.ChildhoodSceneType;
 import byui.cit260.gameOfLife.model.ChoicePoints;
 import byui.cit260.gameOfLife.model.Game;
 import byui.cit260.gameOfLife.model.Map;
+import byui.cit260.gameOfLife.model.Repentance;
 import byui.cit260.gameOfLife.model.Scene;
 import byui.cit260.gameOfLife.model.SeniorSceneType;
 import byui.cit260.gameOfLife.view.ErrorView;
@@ -27,7 +29,8 @@ public class ScoringControl {
     static Game game = CIT260GameOfLifeTeamB.getCurrentGame();
     static Map map = game.getMap();
     static Scene[] scenes = map.getScenes();
-    
+    private boolean correctChoice;
+
     /**************************************************************************
     * Score the players choice in the Childhood School Cafeteria scenario
     * @author cbrown
@@ -424,7 +427,65 @@ public float calcOperation(float hospitalBillAmt, float insuranceDeductibleAmt, 
         recordChoicePoints(scenes[30 + SeniorSceneType.Hospital.ordinal()], choicePoints);
         return choicePoints;
     }
+   public int repentance(double faith  
+                               , double sorrowForSin 
+                            , double confession 
+                            , double abandonmentOfSin 
+                            , double restitution 
+                              , double righteousLiving 
+                                ) throws RepentanceControlException { 
+     
+      
+         if (faith < 1 || 
+             faith >  5 ) { 
+             throw new RepentanceControlException("Invalid input "
+                     + "because input is range between 1 to 5");
+         } 
+ 
+ 
+         if (sorrowForSin < 1 || 
+             sorrowForSin > 5  ) { 
+              
+      } 
+ 
+         if (confession < 1|| confession > 5) { 
+             
+         } 
+ 
+ 
+         if (abandonmentOfSin < 1 || abandonmentOfSin > 5  ) { 
+             
+         } 
+          
+        if (restitution < 1 || restitution > 5 ) { 
+         
+         }  
+ 
+ 
+        if (righteousLiving < 1 || 
+             righteousLiving > 5) { 
+         
+        } 
+         
+         double receiveForgivness = faith + sorrowForSin + 
+                                     confession + abandonmentOfSin +  
+                                    restitution + righteousLiving; 
 
+         
+         return selfAssessment(); 
+       
+        }
+
+    public int selfAssessment() {
+          
+            int choicePoints = 0;
+    
+        if (correctChoice) {
+            choicePoints = 5;
+        }
+        recordChoicePoints(scenes[30 + Repentance.faith.confession.sorrowForSin.abandonmentOfSin.restitution.righteousLiving.ordinal()], choicePoints);
+        return choicePoints;
+    }
     private void recordChoicePoints(Scene scene, int choicePoints) {
         scene.setScoreFromChoice(choicePoints);
         this.game.addToScore(choicePoints);
@@ -449,4 +510,10 @@ public float calcOperation(float hospitalBillAmt, float insuranceDeductibleAmt, 
         
         return choicePointsList;
     }
+
+  
+ 
+    
+
 }
+

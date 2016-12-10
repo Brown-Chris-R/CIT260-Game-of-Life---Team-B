@@ -7,6 +7,7 @@ package byui.cit260.gameOfLife.view;
 
 import byui.cit260.gameOfLife.exceptions.RepentanceControlException;
 import byui.cit260.gameOfLife.control.RepentanceControl;
+import byui.cit260.gameOfLife.control.ScoringControl;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -53,7 +54,7 @@ public class RepentanceStartView extends View {
         return false;
     }
 
-    private void SelfAssessment() throws IOException {
+    private boolean selfAssessment() throws IOException, RepentanceControlException {
    
     
     boolean validInput = false;
@@ -134,6 +135,14 @@ public class RepentanceStartView extends View {
               this.keyboard.read();
         }
         }
+        ScoringControl  choicePoints = new ScoringControl();
+        try {
+          choicePoints.repentance(reponse, reponse, reponse, reponse, reponse, reponse);   
+        } catch (Exception se) {
+            ErrorView.display(this.getClass().getName(), se.getMessage());
+             return false;
+        
+        } 
+        return true;
     }
-                   
-}
+    }

@@ -203,7 +203,7 @@ public class MapControl {
         adolescenceSchoolScene.setMapSymbol("a1");
         adolescenceSchoolScene.setBlocked(false);
         scenes[10 + AdolescenceSceneType.School.ordinal()] = adolescenceSchoolScene;
-        
+        //Create Adolescence Church Sacrament Scene
         Scene adolescenceChurchSacramentScene = new Scene();
         adolescenceChurchSacramentScene.setName("Adolescence | Church | Sacrament");        
         adolescenceChurchSacramentScene.setDescription(
@@ -214,6 +214,44 @@ public class MapControl {
         adolescenceChurchSacramentScene.setMapSymbol("a2");
         adolescenceChurchSacramentScene.setBlocked(false);
         scenes[10 + AdolescenceSceneType.ChurchSacrament.ordinal()] = adolescenceChurchSacramentScene;
+        //Create Adolescence Church Priesthood Scene
+        Scene adolescenceChurchPriesthoodScene = new Scene();
+        adolescenceChurchPriesthoodScene.setName("Adolescence | Church | Priesthood");        
+        adolescenceChurchPriesthoodScene.setDescription(
+            "You are the Teachers Quorum president. It is Saturday, and you have "
+          + "no specific plans for the day: What do you do?");
+        adolescenceChurchPriesthoodScene.setMapSymbol("a3");
+        adolescenceChurchPriesthoodScene.setBlocked(false);
+        scenes[10 + AdolescenceSceneType.ChurchPriesthood.ordinal()] = adolescenceChurchPriesthoodScene;
+        //Create Adolescence Church Additional Scene
+        Scene adolescenceChurchAdditionalScene = new Scene();
+        adolescenceChurchAdditionalScene.setName("Adolescence | Church | Additional");        
+        adolescenceChurchAdditionalScene.setDescription(
+            "You want to serve a mission, but you have done some things that "
+          + "have bothered you when you think about them. What do you do?");
+        adolescenceChurchAdditionalScene.setMapSymbol("a4");
+        adolescenceChurchAdditionalScene.setBlocked(false);
+        scenes[10 + AdolescenceSceneType.ChurchAdditional.ordinal()] = adolescenceChurchAdditionalScene;
+        //Create Adolescence Home Backyard Scene
+        Scene adolescenceHomeBackyardScene = new Scene();
+        adolescenceHomeBackyardScene.setName("Adolescence | Home | Backyard");        
+        adolescenceHomeBackyardScene.setDescription(
+            "Your little brother borrowed your favorite hat and lost it when a "
+          + "big wind gust blew it away: What do you do?");
+        adolescenceHomeBackyardScene.setMapSymbol("a5");
+        adolescenceHomeBackyardScene.setBlocked(false);
+        scenes[10 + AdolescenceSceneType.HomeBackyard.ordinal()] = adolescenceHomeBackyardScene;
+        //Create Adolescence Home Bedroom Scene
+        Scene adolescenceHomeBedroomScene = new Scene();
+        adolescenceHomeBedroomScene.setName("Adolescence | Home | Bedroom");        
+        adolescenceHomeBedroomScene.setDescription(
+            "You are in your bedroom and you would like to invite more the "
+          + "presence of the spirit in your room. You have some posters that "
+          + "were given to you and sign by your favorite rock band. What things "
+          + "can you do to make your room a place for the Holy Spirit to dwell?");
+        adolescenceHomeBedroomScene.setMapSymbol("a6");
+        adolescenceHomeBedroomScene.setBlocked(false);
+        scenes[10 + AdolescenceSceneType.HomeBedroom.ordinal()] = adolescenceHomeBedroomScene;
         
         // Create Adulthood Scenes (use 20 + ordinal)
         Scene adulthoodWorkBreakroomScene = new Scene();

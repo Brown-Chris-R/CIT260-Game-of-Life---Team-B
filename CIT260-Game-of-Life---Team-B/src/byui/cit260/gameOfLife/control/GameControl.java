@@ -115,11 +115,17 @@ public class GameControl {
             //locations[3][0].setScene(scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()]);
             locations[4][0].setScene(scenes[ChildhoodSceneType.ChurchPrimary.ordinal()]);
             locations[5][0].setScene(scenes[ChildhoodSceneType.ChurchSundaySchool.ordinal()]);
-            locations[6][0].setScene(scenes[ChildhoodSceneType.HomeKitchen.ordinal()]);
-            locations[7][0].setScene(scenes[ChildhoodSceneType.HomeLivingRoom.ordinal()]);
-            locations[0][1].setScene(scenes[10 + AdolescenceSceneType.School.ordinal()]);
+            locations[6][0].setScene(scenes[ChildhoodSceneType.ChurchBishopsOffice.ordinal()]);
+            locations[7][0].setScene(scenes[ChildhoodSceneType.HomeKitchen.ordinal()]);
+            locations[8][0].setScene(scenes[ChildhoodSceneType.HomeLivingRoom.ordinal()]);
+            locations[9][0].setScene(scenes[ChildhoodSceneType.HomeBackyard.ordinal()]);
 
+            locations[0][1].setScene(scenes[10 + AdolescenceSceneType.School.ordinal()]);
             locations[1][1].setScene(scenes[10 + AdolescenceSceneType.ChurchSacrament.ordinal()]);
+            locations[2][1].setScene(scenes[10 + AdolescenceSceneType.ChurchPriesthood.ordinal()]);
+            locations[3][1].setScene(scenes[10 + AdolescenceSceneType.ChurchAdditional.ordinal()]);
+            locations[4][1].setScene(scenes[10 + AdolescenceSceneType.HomeBackyard.ordinal()]);
+            locations[5][1].setScene(scenes[10 + AdolescenceSceneType.HomeBedroom.ordinal()]);
 
             locations[4][2].setScene(scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()]);
 

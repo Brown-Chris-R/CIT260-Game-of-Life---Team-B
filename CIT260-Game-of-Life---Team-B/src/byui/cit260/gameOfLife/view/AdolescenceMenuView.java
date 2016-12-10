@@ -35,7 +35,7 @@ public class AdolescenceMenuView extends View {
             case "C": // Adolescence Church Menu
                 this.displayAdolescenceChurchMenu();
                 break;
-            case "U": // Adolescence Home Menu
+            case "H": // Adolescence Home Menu
                 this.displayAdolescenceHomeMenu();
                 break;
             default:
@@ -56,7 +56,8 @@ public class AdolescenceMenuView extends View {
     }
 
     private void displayAdolescenceHomeMenu() {
-        this.console.println("\n*** displayAdolescenceHomeMenu() function called ***");
+        AdolescenceHomeMenuView homeMenu = new AdolescenceHomeMenuView();
+        homeMenu.display();
     }
 
 }

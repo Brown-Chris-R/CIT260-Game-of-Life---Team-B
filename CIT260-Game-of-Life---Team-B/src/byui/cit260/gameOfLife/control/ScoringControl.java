@@ -356,22 +356,86 @@ public int scoreAdolescenceChurchSacramentChoice(char choice) throws ScoringCont
 }    
 
 /**************************************************************************
-    * Score the players choice in the Adolescence Church scenario
+    * Score the players choice in the Adolescence Church Priesthood scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdolescenceChurchChoice(char choice, char location) throws ScoringControlException {
+public int scoreAdolescenceChurchPriesthoodChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
-    // validate that the location is a valid choice - S, P or A
-    if (location != 'S' && choice != 'P' && choice != 'A') {
-        throw new ScoringControlException("Location " + location + " is not a valid "
-                  + "location. Must be an 'S', 'P' or 'A'.");
+    // validate that the choice is a valid choice - A, B, C 
+    if (choice != 'A' && choice != 'B' && choice != 'C') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
     }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = 5;
+            break;
+        case 'B':
+            choicePoints = 3;
+            break;
+        case 'C':
+            choicePoints = 2;
+            break;
+    }
+    
+    recordChoicePoints(scenes[10 + AdolescenceSceneType.ChurchPriesthood.ordinal()], choicePoints);
+        
+    return choicePoints;
+}    
+/**************************************************************************
+    * Score the players choice in the Adolescence Church Additional scenario
+    * @author cbrown
+    **************************************************************************/
+public int scoreAdolescenceChurchAdditionalChoice(char choice) throws ScoringControlException {
+    int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B, C 
+    if (choice != 'A' && choice != 'B' && choice != 'C') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = -2;
+            break;
+        case 'B':
+            choicePoints = 2;
+            break;
+        case 'C':
+            choicePoints = 5;
+            break;
+    }
+    
+    recordChoicePoints(scenes[10 + AdolescenceSceneType.ChurchAdditional.ordinal()], choicePoints);
+        
+    return choicePoints;
+}    
+    /**************************************************************************
+    * Score the players choice in the Adolescence Home Backyard scenario
+    * @author cbrown
+    **************************************************************************/
+public int scoreAdolescenceHomeBackyardChoice(char choice) throws ScoringControlException {
+    int choicePoints = 0;
 
     // validate that the choice is a valid choice - A, B or C
     if (choice != 'A' && choice != 'B' && choice != 'C') {
         throw new ScoringControlException("Choice " + choice + " is not a valid "
                   + "choice. Must be an 'A', 'B' or 'C'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = -2;
+            break;
+        case 'B':
+            choicePoints = 2;
+            break;
+        case 'C':
+            choicePoints = 5;
+            break;
     }
 
     return choicePoints;
@@ -380,14 +444,8 @@ public int scoreAdolescenceChurchChoice(char choice, char location) throws Scori
     * Score the players choice in the Adolescence Home scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdolescenceHomeChoice(char choice, char location) throws ScoringControlException {
+public int scoreAdolescenceHomeBedroomChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
-
-    // validate that the location is a valid choice - Y or B
-    if (location != 'Y' && choice != 'B') {
-        throw new ScoringControlException("Location " + location + " is not a valid "
-                  + "location. Must be a 'Y' or 'B'.");
-    }
 
     // validate that the choice is a valid choice - A, B or C
     if (choice != 'A' && choice != 'B' && choice != 'C') {
@@ -395,6 +453,17 @@ public int scoreAdolescenceHomeChoice(char choice, char location) throws Scoring
                   + "choice. Must be an 'A', 'B' or 'C'.");
     }
 
+    switch (choice) {
+        case 'A':
+            choicePoints = 5;
+            break;
+        case 'B':
+            choicePoints = 5;
+            break;
+        case 'C':
+            choicePoints = 0;
+            break;
+    }
     return choicePoints;
 }    
 

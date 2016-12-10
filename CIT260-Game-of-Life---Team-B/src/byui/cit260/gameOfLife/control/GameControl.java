@@ -110,6 +110,13 @@ public class GameControl {
 
             //start point
             locations[0][0].setScene(scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()]);
+            locations[1][0].setScene(scenes[ChildhoodSceneType.SchoolGym.ordinal()]);
+            locations[2][0].setScene(scenes[ChildhoodSceneType.SchoolPlayground.ordinal()]);
+            //locations[3][0].setScene(scenes[ChildhoodSceneType.SchoolCafeteria.ordinal()]);
+            locations[4][0].setScene(scenes[ChildhoodSceneType.ChurchPrimary.ordinal()]);
+            locations[5][0].setScene(scenes[ChildhoodSceneType.ChurchSundaySchool.ordinal()]);
+            locations[6][0].setScene(scenes[ChildhoodSceneType.HomeKitchen.ordinal()]);
+            locations[7][0].setScene(scenes[ChildhoodSceneType.HomeLivingRoom.ordinal()]);
             locations[0][1].setScene(scenes[10 + AdolescenceSceneType.School.ordinal()]);
 
             locations[1][1].setScene(scenes[10 + AdolescenceSceneType.ChurchSacrament.ordinal()]);

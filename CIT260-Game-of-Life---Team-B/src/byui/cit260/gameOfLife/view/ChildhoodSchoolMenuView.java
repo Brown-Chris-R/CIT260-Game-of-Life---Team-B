@@ -52,11 +52,13 @@ public class ChildhoodSchoolMenuView extends View {
     }
 
     private void displayChildhoodSchoolGymScenario() {
-        this.console.println("\n*** displayChildhoodSchoolGymScenario() function called ***");
+        ChildhoodSchoolGymScenarioView schoolGym = new ChildhoodSchoolGymScenarioView();
+        schoolGym.display();
     }
 
     private void displayChildhoodSchoolPlaygroundScenario() {
-        this.console.println("\n*** displayChildhoodSchoolPlaygroundScenario() function called ***");
+        ChildhoodSchoolPlaygroundScenarioView schoolPlayground = new ChildhoodSchoolPlaygroundScenarioView();
+        schoolPlayground.display();
     }
     
 }

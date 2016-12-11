@@ -25,12 +25,8 @@ public class MainMenuView extends View {
                   + "\nG - Get and start saved"
                   + "\nH - Get help on how to play the game"
                   + "\nS - Save game"
-                  + "\n1 - Test Adolescence Menu"
-                  + "\n2 - Test Senior Menu"
-                  + "\n3 - Test Childhood Menu"
-                  + "\n4 - Test Adulthood Menu"
-                  + "\n5 - Test SeniorStartView"
-                  + "\n6 - Test RepentanceStartView"
+                  + "\n1 - Test SeniorStartView"
+                  + "\n2 - Test RepentanceStartView"
                   + "\nQ - Quit"
                   + "\n----------------------------------------");
     }
@@ -60,18 +56,6 @@ public class MainMenuView extends View {
                 break;
             case "2": // create and start new game
                 this.test2();
-                break;
-            case "3": // create and start new game
-                this.test3();
-                break;
-            case "4": // create and start new game
-                this.test4();
-                break;
-            case "5": // create and start new game
-                this.test5();
-                break;
-            case "6": // create and start new game
-                this.test6();
                 break;
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
@@ -141,31 +125,11 @@ public class MainMenuView extends View {
     }
 
     private void test1() {
-        AdolescenceMenuView adolescenceMenu = new AdolescenceMenuView();
-        adolescenceMenu.display();
-    }
-
-    private void test2() {
-        SeniorMenuView seniorMenu = new SeniorMenuView();
-        seniorMenu.display();
-    }
-
-    private void test3() {
-        ChildhoodMenuView childhoodMenu = new ChildhoodMenuView();
-        childhoodMenu.display();
-    }
-
-    private void test4() {
-        AdulthoodMenuView adulthoodMenu = new AdulthoodMenuView();
-        adulthoodMenu.display();
-    }
-
-    private void test5() {
         SeniorStartView seniorStart = new SeniorStartView();
         seniorStart.display();
     }
     
-    private void test6() {
+    private void test2() {
         RepentanceStartView repentanceStart = new RepentanceStartView();
         repentanceStart.display();
     }

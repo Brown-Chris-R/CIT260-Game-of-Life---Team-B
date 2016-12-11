@@ -47,16 +47,18 @@ public class AdolescenceChurchMenuView extends View {
     }
 
     private void displayAdolescenceChurchSacramentScenario() {
-        AdolescenceChurchSacramentScenarioView schoolSacrament = new AdolescenceChurchSacramentScenarioView();
-        schoolSacrament.display();
+        AdolescenceChurchSacramentScenarioView churchSacrament = new AdolescenceChurchSacramentScenarioView();
+        churchSacrament.display();
     }
 
     private void displayAdolescenceChurchPriesthoodScenario() {
-        this.console.println("\n*** displayAdolescenceChurchPriesthoodScenario() function called ***");
+        AdolescenceChurchPriesthoodScenarioView churchPriesthood = new AdolescenceChurchPriesthoodScenarioView();
+        churchPriesthood.display();
     }
 
     private void displayAdolescenceChurchAdditionalScenario() {
-        this.console.println("\n*** displayAdolescenceChurchAdditionalScenario() function called ***");
+        AdolescenceChurchAdditionalScenarioView churchAdditional = new AdolescenceChurchAdditionalScenarioView();
+        churchAdditional.display();
     }
     
     

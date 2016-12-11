@@ -405,10 +405,30 @@ public int scoreAdolescenceHomeChoice(char choice, char location) throws Scoring
     * Score the players choice in the Adulthood Mission scenario
     * @author cbrown
     **************************************************************************/
-public int scoreAdulthoodMissionChoice(char choice) throws ScoringControlException {
+public int scoreAdulthoodApartmentChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
-    return choicePoints;
+    // validate that the choice is a valid choice - A, B, C 
+    if (choice != 'A' && choice != 'B' && choice != 'C') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = -2;
+            break;
+        case 'B':
+            choicePoints = 5;
+            break;
+        case 'C':
+            choicePoints = 2;
+            break;
+    }
+    
+    recordChoicePoints(scenes[10 + AdolescenceSceneType.ChurchSacrament.ordinal()], choicePoints);
+        
+    return choicePoints; 
 }    
 /**************************************************************************
     * Score the players choice in the Adulthood Work Breakroom scenario
@@ -449,6 +469,29 @@ public int scoreAdulthoodWorkBreakroomChoice(char choice) throws ScoringControlE
 public int scoreAdulthoodUniversityChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
+    // validate that the choice is a valid choice - A, B, C or D
+    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = -5;
+            break;
+        case 'B':
+            choicePoints = 5;
+            break;
+        case 'C':
+            choicePoints = -5;
+            break;
+        case 'D':
+            choicePoints = -5;
+            break;
+    }
+    
+    recordChoicePoints(scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()], choicePoints);
+        
     return choicePoints;
 }    
 /**************************************************************************
@@ -456,8 +499,28 @@ public int scoreAdulthoodUniversityChoice(char choice) throws ScoringControlExce
     * @author cbrown
     **************************************************************************/
 public int scoreAdulthoodFamilyChoice(char choice) throws ScoringControlException {
-    int choicePoints = 0;
+   int choicePoints = 0;
 
+    // validate that the choice is a valid choice - A, B, C or D
+    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = -5;
+            break;
+        case 'B':
+            choicePoints = 5;
+            break;
+        case 'C':
+            choicePoints = -2;
+            break;
+    }
+    
+    recordChoicePoints(scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()], choicePoints);
+        
     return choicePoints;
 }    
 
@@ -609,9 +672,145 @@ public float calcOperation(float hospitalBillAmt, float insuranceDeductibleAmt, 
         return choicePointsList;
     }
 
-  
- 
-    
+    public int scoreAdulthoodParkinLotChoice(char choice) throws ScoringControlException{
+         int choicePoints = 0;
 
-}
+    // validate that the choice is a valid choice - A, B, C or D
+    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = -5;
+            break;
+        case 'B':
+            choicePoints = 5;
+            break;
+        case 'C':
+            choicePoints = 3;
+            break;
+        case 'D':
+            choicePoints = -5;
+            
+    }
+    
+    recordChoicePoints(scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()], choicePoints);
+        
+    return choicePoints;
+    }
+
+    public int scoreAdulthoodWorkOfficeChoice(char choice)throws ScoringControlException{
+              int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B, C or D
+    if (choice != 'A' && choice != 'B' && choice != 'C') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B', 'C'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = 3;
+            break;
+        case 'B':
+            choicePoints = 5;
+            break;
+        case 'C':
+            choicePoints = -5;
+            break;
+    }
+    
+    recordChoicePoints(scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()], choicePoints);
+        
+    return choicePoints;
+    }
+
+    public int scoreAdulthoodOfficeSupervisorChoice(char choice)throws ScoringControlException{
+              int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B, C or D
+    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = 3;
+            break;
+        case 'B':
+            choicePoints = -5;
+            break;
+        case 'C':
+            choicePoints = 5;
+            break;
+        case 'D':
+            choicePoints = -5;
+            break;
+    }
+    
+    recordChoicePoints(scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()], choicePoints);
+        
+    return choicePoints;
+       
+    }
+
+    public int scoreAdulthoodInvestigadorHouseChoice(char choice)throws ScoringControlException{
+        int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B, C 
+    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = -5;
+            break;
+        case 'B':
+            choicePoints = -5;
+            break;
+        case 'C':
+            choicePoints =  3;
+            break;
+        case 'D':
+            choicePoints =  5;
+            break;
+    }
+    
+    recordChoicePoints(scenes[10 + AdolescenceSceneType.ChurchSacrament.ordinal()], choicePoints);
+        
+    return choicePoints;
+    }
+
+    public int scoreAdulthoodMemberHouseChoice(char choice) throws ScoringControlException{
+         int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B, C 
+    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = -5;
+            break;
+        case 'B':
+            choicePoints =  3;
+            break;
+        case 'C':
+            choicePoints =  5;
+            break;
+    }
+    
+    recordChoicePoints(scenes[10 + AdolescenceSceneType.ChurchSacrament.ordinal()], choicePoints);
+        
+    return choicePoints;
+    }
+    }
+
 

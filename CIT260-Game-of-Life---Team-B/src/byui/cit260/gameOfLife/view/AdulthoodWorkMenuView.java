@@ -55,14 +55,17 @@ public class AdulthoodWorkMenuView extends View {
     }
 
     private void displayAdulthoodWorkOfficeScenario() {
-        this.console.println("\n*** displayAdulthoodWorkOfficeScenario() function called ***");
+         AdulthoodWorkOfficeScenario workOffice = new AdulthoodWorkOfficeScenario();
+         workOffice.display();
     }
 
     private void displayAdulthoodWorkParkingLotScenario() {
-        this.console.println("\n*** displayAdulthoodWorkParkingLotScenario() function called ***");
+        AdulthoodWorkParkingLotScenario workParkingLot = new AdulthoodWorkParkingLotScenario();
+        workParkingLot.display();
     }
      private void displayAdulthoodWorkSupervisorsOfficeScenario() {
-        this.console.println("\n*** displayAdulthoodWorkSupervisorsOfficeScenario() function called ***");
-    }
+         AdulthoodWorkSupervisorsOfficeScenario workSupervisorOffice = new AdulthoodWorkSupervisorsOfficeScenario();
+         workSupervisorOffice.display();
+     }
     
 }

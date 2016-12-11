@@ -308,9 +308,14 @@ public class GameMenuView extends View {
     }
 
     private void moveToNextPhase() throws MapControlException{
+        String phase = game.getPhase();
         boolean canMoveToNextPhase = GameControl.checkRequirementsToMoveToNextPhase(game);
-        if (canMoveToNextPhase) {
-            game.nextPhase(game.getPhase());
+        if ("Senior".equals(phase) && canMoveToNextPhase) {
+            EndOfGameView endView = new EndOfGameView();
+            endView.display();
+        } else if (canMoveToNextPhase) {
+            game.nextPhase(phase);
+            
         } else {
             this.console.println("\nYou do not have enough points to move to the next phase!");
         }

@@ -15,5 +15,9 @@ public enum AdolescenceSceneType {
    ChurchPriesthood,
    ChurchAdditional,
    HomeBackyard,
-   HomeBedroom
+   HomeBedroom,
+   Blank7,
+   Blank8,
+   Blank9,
+   Blank10
 }

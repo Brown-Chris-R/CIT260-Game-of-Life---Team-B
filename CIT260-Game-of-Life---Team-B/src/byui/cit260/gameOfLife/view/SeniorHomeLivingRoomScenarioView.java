@@ -12,19 +12,19 @@ import byui.cit260.gameOfLife.exceptions.ScoringControlException;
  *
  * @author cbrown
  */
-public class AdolescenceHomeBackyardScenarioView extends View {
-    public AdolescenceHomeBackyardScenarioView() {
+public class SeniorHomeLivingRoomScenarioView extends View {
+    public SeniorHomeLivingRoomScenarioView() {
     super("\n"
-        + "\n------------------ Adolescence Home Backyard Scenario ------------------"
-        + "\nYour little brother borrowed your favorite hat and lost it when a " 
-        + "\nbig wind gust blew it away: What do you do?"
+        + "\n------------------ Senior Home Living Room Scenario ------------------"
+        + "\nYour daughter and her family are visiting. One of your grandchildren "
+        + "\nask you to play a game with them. You had planned on reading a book. "
+        + "\nWhat do you do?"    
         + "\n-------------------------------------------------------------------------"
-        + "\nA) Take your little brother’s favorite toy and hide it, hoping that "
-        + "\nyou will get satisfaction when he realizes it is gone."
-        + "\nB) Report your little brother to your Mom and demand that your little "
-        + "\nbrother be made to buy you an exact copy of your hat."
-        + "\nC) Tell your Mom and Dad about what happened and ask for ideas for "
-        + "\nFamily Home Evening to teach about respecting others."
+        + "\nA) Tell your grandchild to pick out the game and play it with them "
+        + "\n   for an hour."
+        + "\nB) Tell your grandchild that you will play if you can pick the game."
+        + "\nC) Tell your grandchild that you love them, but will play with them "
+        + "\n   later."
         + "\n<) Previous Menu"
         + "\n-------------------------------------------------------------------------");
     }
@@ -33,7 +33,7 @@ public class AdolescenceHomeBackyardScenarioView extends View {
     public boolean doAction(String choice) {
         choice = choice.toUpperCase(); // need upper case for comparison
         ScoringControl sc = null;
-        int choicePoints = 0;
+        int choicePoints;
         
         if (sc == null)
             sc = new ScoringControl();
@@ -42,7 +42,7 @@ public class AdolescenceHomeBackyardScenarioView extends View {
             return true;
         } else {
             try {
-                choicePoints = sc.scoreAdolescenceHomeBackyardChoice(choice.charAt(0));
+                choicePoints = sc.scoreSeniorHomeLivingRoomChoice(choice.charAt(0));
                 this.console.println("Points Awarded: " + choicePoints); // DEBUG
                 return true;
             } catch (ScoringControlException se) {

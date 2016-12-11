@@ -12,19 +12,17 @@ import byui.cit260.gameOfLife.exceptions.ScoringControlException;
  *
  * @author cbrown
  */
-public class AdolescenceHomeBackyardScenarioView extends View {
-    public AdolescenceHomeBackyardScenarioView() {
+public class SeniorChurchPriesthoodScenarioView extends View {
+    public SeniorChurchPriesthoodScenarioView() {
     super("\n"
-        + "\n------------------ Adolescence Home Backyard Scenario ------------------"
-        + "\nYour little brother borrowed your favorite hat and lost it when a " 
-        + "\nbig wind gust blew it away: What do you do?"
+        + "\n------------------ Senior Church Priesthood Scenario ------------------"
+        + "\nYou are the Teachers Quorum president. It is Saturday, and you have "
+        + "\nno specific plans for the day: What do you do?"
         + "\n-------------------------------------------------------------------------"
-        + "\nA) Take your little brother’s favorite toy and hide it, hoping that "
-        + "\nyou will get satisfaction when he realizes it is gone."
-        + "\nB) Report your little brother to your Mom and demand that your little "
-        + "\nbrother be made to buy you an exact copy of your hat."
-        + "\nC) Tell your Mom and Dad about what happened and ask for ideas for "
-        + "\nFamily Home Evening to teach about respecting others."
+        + "\nA) Call up your advisor and arrange to go visit several less-active "
+        + "\nmembers of your Quorum."
+        + "\nB) Mow your lawn and do some chores around your home."
+        + "\nC) Hang out with your best friends."
         + "\n<) Previous Menu"
         + "\n-------------------------------------------------------------------------");
     }
@@ -42,7 +40,7 @@ public class AdolescenceHomeBackyardScenarioView extends View {
             return true;
         } else {
             try {
-                choicePoints = sc.scoreAdolescenceHomeBackyardChoice(choice.charAt(0));
+                choicePoints = sc.scoreSeniorChurchPriesthoodChoice(choice.charAt(0));
                 this.console.println("Points Awarded: " + choicePoints); // DEBUG
                 return true;
             } catch (ScoringControlException se) {

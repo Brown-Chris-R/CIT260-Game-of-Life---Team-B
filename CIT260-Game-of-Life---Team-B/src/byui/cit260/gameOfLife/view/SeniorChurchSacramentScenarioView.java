@@ -12,19 +12,18 @@ import byui.cit260.gameOfLife.exceptions.ScoringControlException;
  *
  * @author cbrown
  */
-public class AdolescenceHomeBackyardScenarioView extends View {
-    public AdolescenceHomeBackyardScenarioView() {
+public class SeniorChurchSacramentScenarioView extends View {
+    public SeniorChurchSacramentScenarioView() {
     super("\n"
-        + "\n------------------ Adolescence Home Backyard Scenario ------------------"
-        + "\nYour little brother borrowed your favorite hat and lost it when a " 
-        + "\nbig wind gust blew it away: What do you do?"
+        + "\n------------------ Senior Church Sacrament Scenario ------------------"
+        + "\nYou are running behind schedule. You arrive at church just as the "
+        + "\nsacrament hymn is being sung. You aren’t sure if walking into the "
+        + "\nchapel will be distracting for others. What do you do?"
         + "\n-------------------------------------------------------------------------"
-        + "\nA) Take your little brother’s favorite toy and hide it, hoping that "
-        + "\nyou will get satisfaction when he realizes it is gone."
-        + "\nB) Report your little brother to your Mom and demand that your little "
-        + "\nbrother be made to buy you an exact copy of your hat."
-        + "\nC) Tell your Mom and Dad about what happened and ask for ideas for "
-        + "\nFamily Home Evening to teach about respecting others."
+        + "\nA) Sit in the foyer quietly and hope the sacrament will get passed "
+        + "\n   to you."
+        + "\nB) Walk in to the chapel and sing while you are walking to your seat."
+        + "\nC) Sit in the foyer and visit with others that are also in the foyer."
         + "\n<) Previous Menu"
         + "\n-------------------------------------------------------------------------");
     }
@@ -42,7 +41,7 @@ public class AdolescenceHomeBackyardScenarioView extends View {
             return true;
         } else {
             try {
-                choicePoints = sc.scoreAdolescenceHomeBackyardChoice(choice.charAt(0));
+                choicePoints = sc.scoreSeniorChurchSacramentChoice(choice.charAt(0));
                 this.console.println("Points Awarded: " + choicePoints); // DEBUG
                 return true;
             } catch (ScoringControlException se) {

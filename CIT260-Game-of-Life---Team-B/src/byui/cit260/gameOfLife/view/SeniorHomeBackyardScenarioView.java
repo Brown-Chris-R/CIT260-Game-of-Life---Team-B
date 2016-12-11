@@ -12,19 +12,21 @@ import byui.cit260.gameOfLife.exceptions.ScoringControlException;
  *
  * @author cbrown
  */
-public class AdolescenceHomeBackyardScenarioView extends View {
-    public AdolescenceHomeBackyardScenarioView() {
+public class SeniorHomeBackyardScenarioView extends View {
+    public SeniorHomeBackyardScenarioView() {
     super("\n"
-        + "\n------------------ Adolescence Home Backyard Scenario ------------------"
-        + "\nYour little brother borrowed your favorite hat and lost it when a " 
-        + "\nbig wind gust blew it away: What do you do?"
+        + "\n------------------ Senior Home Backyard Scenario ------------------"
+        + "\nYour wife is wanting to get the yard 'spruced up' after the long "
+        + "\nwinter and needs your help. You had planned to enjoy your time "
+        + "\nwatching some march madness games. What do you do?" 
         + "\n-------------------------------------------------------------------------"
-        + "\nA) Take your little brother’s favorite toy and hide it, hoping that "
-        + "\nyou will get satisfaction when he realizes it is gone."
-        + "\nB) Report your little brother to your Mom and demand that your little "
-        + "\nbrother be made to buy you an exact copy of your hat."
-        + "\nC) Tell your Mom and Dad about what happened and ask for ideas for "
-        + "\nFamily Home Evening to teach about respecting others."
+        + "\nA) Help your wife for an hour, then go inside and watch your games."
+        + "\nB) The yard will still be there next week, but march madness will "
+        + "\n   not. Stay inside and cheer for your favorite team."
+        + "\nC) Help your wife with all the yardwork and ask if she would like "
+        + "\n   to sit down and watch a game with you."
+        + "\nD) Go to Buffalo Wild Wings with a couple of your buddys and watch "
+        + "\n   the games."    
         + "\n<) Previous Menu"
         + "\n-------------------------------------------------------------------------");
     }
@@ -42,7 +44,7 @@ public class AdolescenceHomeBackyardScenarioView extends View {
             return true;
         } else {
             try {
-                choicePoints = sc.scoreAdolescenceHomeBackyardChoice(choice.charAt(0));
+                choicePoints = sc.scoreSeniorHomeBackyardChoice(choice.charAt(0));
                 this.console.println("Points Awarded: " + choicePoints); // DEBUG
                 return true;
             } catch (ScoringControlException se) {

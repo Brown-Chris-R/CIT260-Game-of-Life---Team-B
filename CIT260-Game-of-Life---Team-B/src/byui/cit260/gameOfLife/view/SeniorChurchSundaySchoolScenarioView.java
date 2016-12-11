@@ -12,19 +12,21 @@ import byui.cit260.gameOfLife.exceptions.ScoringControlException;
  *
  * @author cbrown
  */
-public class AdolescenceHomeBackyardScenarioView extends View {
-    public AdolescenceHomeBackyardScenarioView() {
+public class SeniorChurchSundaySchoolScenarioView extends View
+{
+    public SeniorChurchSundaySchoolScenarioView() {
     super("\n"
-        + "\n------------------ Adolescence Home Backyard Scenario ------------------"
-        + "\nYour little brother borrowed your favorite hat and lost it when a " 
-        + "\nbig wind gust blew it away: What do you do?"
+        + "\n------------------ Senior Church Sunday School Scenario ------------------"
+        + "\nYou teach the 14-15 year olds. You wake up Sunday morning feeling "
+        + "\nill. What do you do?"
         + "\n-------------------------------------------------------------------------"
-        + "\nA) Take your little brother’s favorite toy and hide it, hoping that "
-        + "\nyou will get satisfaction when he realizes it is gone."
-        + "\nB) Report your little brother to your Mom and demand that your little "
-        + "\nbrother be made to buy you an exact copy of your hat."
-        + "\nC) Tell your Mom and Dad about what happened and ask for ideas for "
-        + "\nFamily Home Evening to teach about respecting others."
+        + "\nA) Call up your Sunday School President and let him know you won’t "
+        + "\nbe able to be there."
+        + "\nB) Call one of the other youth teachers and ask for your class to "
+        + "\n   be able to combine with their class. Call up your Sunday School "
+        + "\n   President and let him know what the new arrangement is."
+        + "\nC) Go lay down and sleep. You have combined with other classes with "
+        + "\n   little or no notice, now they can do the same for you."
         + "\n<) Previous Menu"
         + "\n-------------------------------------------------------------------------");
     }
@@ -33,7 +35,7 @@ public class AdolescenceHomeBackyardScenarioView extends View {
     public boolean doAction(String choice) {
         choice = choice.toUpperCase(); // need upper case for comparison
         ScoringControl sc = null;
-        int choicePoints = 0;
+        int choicePoints;
         
         if (sc == null)
             sc = new ScoringControl();
@@ -42,7 +44,7 @@ public class AdolescenceHomeBackyardScenarioView extends View {
             return true;
         } else {
             try {
-                choicePoints = sc.scoreAdolescenceHomeBackyardChoice(choice.charAt(0));
+                choicePoints = sc.scoreSeniorChurchSundaySchoolChoice(choice.charAt(0));
                 this.console.println("Points Awarded: " + choicePoints); // DEBUG
                 return true;
             } catch (ScoringControlException se) {
@@ -51,5 +53,5 @@ public class AdolescenceHomeBackyardScenarioView extends View {
         }
         return false;
     }
-    
+
 }

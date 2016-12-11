@@ -28,7 +28,7 @@ import java.io.ObjectOutputStream;
  * @author cbrown
  */
 public class GameControl {
-    
+
     public GameControl(){
     }
 
@@ -130,7 +130,35 @@ public class GameControl {
             locations[4][2].setScene(scenes[20 + AdulthoodSceneType.WorkBreakroom.ordinal()]);
 
             locations[0][3].setScene(scenes[30 + SeniorSceneType.Hospital.ordinal()]);
+            locations[1][3].setScene(scenes[30 + SeniorSceneType.ChurchSacrament.ordinal()]);
+            locations[2][3].setScene(scenes[30 + SeniorSceneType.ChurchSundaySchool.ordinal()]);
+            locations[3][3].setScene(scenes[30 + SeniorSceneType.ChurchPriesthood.ordinal()]);
+            locations[4][3].setScene(scenes[30 + SeniorSceneType.HomeBackyard.ordinal()]);
+            locations[5][3].setScene(scenes[30 + SeniorSceneType.HomeLivingRoom.ordinal()]);
         } catch (Exception e) {
         }
+    }
+    public static boolean checkRequirementsToMoveToNextPhase(Game game) {
+        boolean allow = false;
+        
+        switch (game.getPhase()) {
+            case "Childhood":
+                if (game.getScore() >= 30) 
+                    allow = true;
+                break;
+            case "Adolescence":
+                if (game.getScore() >= 60) 
+                    allow = true;
+                break;
+            case "Adulthood":
+                if (game.getScore() >= 90) 
+                    allow = true;
+                break;
+            case "Senior":
+                if (game.getScore() >= 120) 
+                    allow = true;
+                break;
+        }
+        return allow;        
     }
 }

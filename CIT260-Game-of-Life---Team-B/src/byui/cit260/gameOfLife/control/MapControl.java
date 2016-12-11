@@ -182,7 +182,7 @@ public class MapControl {
         adolescenceSchoolScene.setName("Adolescence | School");        
         adolescenceSchoolScene.setDescription(
             "In this scenario, achieving a college scholarship allows you to pay for " 
-        + "your mission and launch into adulthood. Not achieving it means you have to "
+        + "your mission and launch into senior. Not achieving it means you have to "
         + "go through a few more adolescent scenarios to accumulate enough points to "
         + "launch into adulthood."
         + "-------------------------------------------------------------------------"
@@ -285,6 +285,57 @@ public class MapControl {
         seniorHospitalScene.setMapSymbol("S1");
         seniorHospitalScene.setBlocked(false);
         scenes[30 + SeniorSceneType.Hospital.ordinal()] = seniorHospitalScene;
+        // Create Senior Church Sacrament scene
+        Scene seniorChurchSacramentScene = new Scene();
+        seniorChurchSacramentScene.setName("Senior | Church | Sacrament");
+        seniorChurchSacramentScene.setDescription(
+            "You are running behind schedule. You arrive at church just as the "
+          + "sacrament hymn is being sung. You aren’t sure if walking into the "
+          + "chapel will be distracting for others. What do you do?");
+        seniorChurchSacramentScene.setMapSymbol("S2");
+        seniorChurchSacramentScene.setBlocked(false);
+        scenes[30 + SeniorSceneType.ChurchSacrament.ordinal()] = seniorChurchSacramentScene;
+        // Create Senior Church Sunday School scene
+        Scene seniorChurchSundaySchoolScene = new Scene();
+        seniorChurchSundaySchoolScene.setName("Senior | Church | Sunday School");
+        seniorChurchSundaySchoolScene.setDescription(
+            "You teach the 14-15 year olds. You wake up Sunday morning feeling "
+          + "ill. What do you do?");
+        seniorChurchSundaySchoolScene.setMapSymbol("S3");
+        seniorChurchSundaySchoolScene.setBlocked(false);
+        scenes[30 + SeniorSceneType.ChurchSundaySchool.ordinal()] = seniorChurchSundaySchoolScene;
+        // Create Senior Church Priesthood scene
+        Scene seniorChurchPriesthoodScene = new Scene();
+        seniorChurchPriesthoodScene.setName("Senior | Church | Priesthood");
+        seniorChurchPriesthoodScene.setDescription(
+            "You are the assigned to home teach 3 less-active families. When "
+          + "you have attempted to visit them in the past, they all have been "
+          + "un-friendly and said they did not need home teachers. It is Sunday, "
+          + "and you have no specific plans for the day after church. "
+          + "What do you do?");
+        seniorChurchPriesthoodScene.setMapSymbol("S4");
+        seniorChurchPriesthoodScene.setBlocked(false);
+        scenes[30 + SeniorSceneType.ChurchPriesthood.ordinal()] = seniorChurchPriesthoodScene;
+        // Create Senior Home Backyard scene
+        Scene seniorHomeBackyardScene = new Scene();
+        seniorHomeBackyardScene.setName("Senior | Home | Backyard");
+        seniorHomeBackyardScene.setDescription(
+            "Your wife is wanting to get the yard 'spruced up' after the long "
+          + "winter and needs your help. You had planned to enjoy your time "
+          + "watching some march madness games. What do you do?");
+        seniorHomeBackyardScene.setMapSymbol("S5");
+        seniorHomeBackyardScene.setBlocked(false);
+        scenes[30 + SeniorSceneType.HomeBackyard.ordinal()] = seniorHomeBackyardScene;
+        // Create Senior Home Living Room scene
+        Scene seniorHomeLivingRoomScene = new Scene();
+        seniorHomeLivingRoomScene.setName("Senior | Home | LivingRoom");
+        seniorHomeLivingRoomScene.setDescription(
+            "Your daughter and her family are visiting. One of your grandchildren "
+          + "ask you to play a game with them. You had planned on reading a book. "
+          + "What do you do?");
+        seniorHomeLivingRoomScene.setMapSymbol("S6");
+        seniorHomeLivingRoomScene.setBlocked(false);
+        scenes[30 + SeniorSceneType.HomeLivingRoom.ordinal()] = seniorHomeLivingRoomScene;
                 
         return scenes;
     }
@@ -307,7 +358,7 @@ public String[] getLocations(String phase) {
     }
     switch (phase) {
         case "Childhood":
-            validLocations[0] = "Church";
+            validLocations[0] = "Home";
             validLocations[1] = "School";
             validLocations[2] = "Home";
             break;

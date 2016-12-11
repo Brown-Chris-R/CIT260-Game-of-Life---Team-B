@@ -10,10 +10,14 @@ package byui.cit260.gameOfLife.model;
  * @author cbrown
  */
 public enum SeniorSceneType {
-    Hospital,
-    ChurchSacrament,
-    ChurchSundaySchool,
-    ChurchPriesthood,
-    HomeBackyard,
-    HomeLivingroom
+   Hospital,
+   ChurchSacrament,
+   ChurchSundaySchool,
+   ChurchPriesthood,
+   HomeBackyard,
+   HomeLivingRoom,
+   Blank7,
+   Blank8,
+   Blank9,
+   Blank10
 }

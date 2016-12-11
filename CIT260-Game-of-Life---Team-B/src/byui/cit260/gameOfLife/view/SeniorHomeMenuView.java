@@ -9,15 +9,14 @@ package byui.cit260.gameOfLife.view;
  *
  * @author cbrown
  */
-public class SeniorMenuView extends View {
-    
-    public SeniorMenuView() {
+public class SeniorHomeMenuView extends View {
+    public SeniorHomeMenuView() {
                super( "\n"
                   + "\n----------------------------------------"
-                  + "\n| Senior Menu                       |"
+                  + "\n| Senior Homme Menu               |"
                   + "\n----------------------------------------"
-                  + "\nC - Church "
-                  + "\nH - Home"
+                  + "\nY - Backyard"
+                  + "\nL - Living Room"
                   + "\nQ - Quit"
                   + "\n----------------------------------------");
     }
@@ -29,11 +28,11 @@ public class SeniorMenuView extends View {
         choice = choice.toUpperCase(); // need upper case for comparison
         
         switch (choice) {
-            case "C": // Senior Church Menu
-                this.displaySeniorChurchMenu();
+            case "Y": // Senior Home Backyard Scenario
+                this.displaySeniorHomeBackyardScenario();
                 break;
-            case "H": // Senior Home Menu
-                this.displaySeniorHomeMenu();
+            case "L": // Senior Home Living Room Scenario 
+                this.displaySeniorHomeLivingRoomScenario();
                 break;
           
             default:
@@ -43,14 +42,14 @@ public class SeniorMenuView extends View {
         return false;
     }
 
-    private void displaySeniorChurchMenu() {
-        SeniorChurchMenuView churchMenu = new SeniorChurchMenuView();
-        churchMenu.display();
+    private void displaySeniorHomeBackyardScenario() {
+        SeniorHomeBackyardScenarioView homeBackyard = new SeniorHomeBackyardScenarioView();
+        homeBackyard.display();
     }
 
-    private void displaySeniorHomeMenu() {
-        SeniorHomeMenuView homeMenu = new SeniorHomeMenuView();
-        homeMenu.display();
+    private void displaySeniorHomeLivingRoomScenario() {
+        SeniorHomeLivingRoomScenarioView homeLivingRoom = new SeniorHomeLivingRoomScenarioView();
+        homeLivingRoom.display();
     }
-    
+
 }

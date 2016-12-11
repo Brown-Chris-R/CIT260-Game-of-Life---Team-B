@@ -5,6 +5,7 @@
  */
 package byui.cit260.gameOfLife.view;
 
+import byui.cit260.gameOfLife.control.GameControl;
 import static byui.cit260.gameOfLife.control.ScoringControl.summarizeChoicePoints;
 import byui.cit260.gameOfLife.exceptions.ItemControlException;
 import byui.cit260.gameOfLife.exceptions.MapControlException;
@@ -307,7 +308,13 @@ public class GameMenuView extends View {
     }
 
     private void moveToNextPhase() throws MapControlException{
-        game.nextPhase(game.getPhase());
+        boolean canMoveToNextPhase = GameControl.checkRequirementsToMoveToNextPhase(game);
+        if (canMoveToNextPhase) {
+            game.nextPhase(game.getPhase());
+        } else {
+            this.console.println("\nYou do not have enough points to move to the next phase!");
+        }
+        
         this.console.println("\n*** Phase is now: " + game.getPhase() + " ***");
     }
 

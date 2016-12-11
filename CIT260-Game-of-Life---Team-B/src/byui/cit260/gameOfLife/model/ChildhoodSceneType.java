@@ -18,5 +18,6 @@ public enum ChildhoodSceneType {
    ChurchBishopsOffice,
    HomeKitchen,
    HomeLivingRoom,
-   HomeBackyard
+   HomeBackyard,
+   Blank10
 }

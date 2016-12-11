@@ -13,8 +13,7 @@ import byui.cit260.gameOfLife.exceptions.RepentanceControlException;
  */
 public class RepentanceControl { 
 
-   
-public double repentance(double faith  
+    public double repentance(double faith  
                                , double sorrowForSin 
                             , double confession 
                             , double abandonmentOfSin 

@@ -53,7 +53,8 @@ public class AdulthoodMenuView extends View{
     }
 
     private void displayAdulthoodMissionMenu() {
-        this.console.println("\n*** displayAdulthoodMissionMenu() function called ***");
+         AdulthoodMissionMenu missionMenu = new AdulthoodMissionMenu();
+        missionMenu.display();
     }
 
     private void displayAdulthoodWorkMenu() {
@@ -62,12 +63,14 @@ public class AdulthoodMenuView extends View{
     }
 
     private void displayAdulthoodUniversityScenario() {
-        this.console.println("\n*** displayAdulthoodUniversityScenario() function called ***");
+      AdulthoodUniversityScenario university = new AdulthoodUniversityScenario();
+      university.display();
     }
      private void displayAdulthoodFamilyScenario() {
-        this.console.println("\n*** displayAdulthoodFamilyScenario() function called ***");
+       AdulthoodFamilyScenario family = new AdulthoodFamilyScenario();
+       family.display();
     }
 
-   
+     
     
 }

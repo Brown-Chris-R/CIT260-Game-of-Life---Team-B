@@ -106,15 +106,16 @@ public int scoreChildhoodSchoolPlaygroundChoice(char choice) throws ScoringContr
 
     switch (choice) {
         case 'A':
+            choicePoints = -5;
             break;
         case 'B':
-            choicePoints = -5;
+            choicePoints = 5;
             break;
         case 'C':
             choicePoints = 2;
             break;
         case 'D':
-            choicePoints = 5;
+            choicePoints = -5;
             break;
     }
     
@@ -531,17 +532,144 @@ public int scoreAdulthoodFamilyChoice(char choice) throws ScoringControlExceptio
     * Score the players choice in the Senior Church scenario
     * @author cbrown
     **************************************************************************/
-public int scoreSeniorChurchChoice(char choice) throws ScoringControlException {
+public int scoreSeniorChurchSacramentChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
 
+    // validate that the choice is a valid choice - A, B or C
+    if (choice != 'A' && choice != 'B' && choice != 'C') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = 2;
+            break;
+        case 'B':
+            choicePoints = 5;
+            break;
+        case 'C':
+            choicePoints = -2;
+            break;
+    }
+    
+    recordChoicePoints(scenes[30 + SeniorSceneType.ChurchSacrament.ordinal()], choicePoints);
+        
     return choicePoints;
 }    
 /**************************************************************************
-    * Score the players choice in the Senior Home scenario
+    * Score the players choice in the Senior Church scenario
     * @author cbrown
     **************************************************************************/
-public int scoreSeniorHomeChoice(char choice) throws ScoringControlException {
+public int scoreSeniorChurchSundaySchoolChoice(char choice) throws ScoringControlException {
     int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B or C
+    if (choice != 'A' && choice != 'B' && choice != 'C') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = 2;
+            break;
+        case 'B':
+            choicePoints = 5;
+            break;
+        case 'C':
+            choicePoints = -2;
+            break;
+    }
+    
+    recordChoicePoints(scenes[30 + SeniorSceneType.ChurchSundaySchool.ordinal()], choicePoints);
+        
+    return choicePoints;
+}    
+/**************************************************************************
+    * Score the players choice in the Senior Church scenario
+    * @author cbrown
+    **************************************************************************/
+public int scoreSeniorChurchPriesthoodChoice(char choice) throws ScoringControlException {
+    int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B or C
+    if (choice != 'A' && choice != 'B' && choice != 'C') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = 5;
+            break;
+        case 'B':
+            choicePoints = 2;
+            break;
+        case 'C':
+            choicePoints = -5;
+            break;
+    }
+    
+    recordChoicePoints(scenes[30 + SeniorSceneType.ChurchPriesthood.ordinal()], choicePoints);
+        
+    return choicePoints;
+}    
+/**************************************************************************
+    * Score the players choice in the Senior Home Backyard scenario
+    * @author cbrown
+    **************************************************************************/
+public int scoreSeniorHomeBackyardChoice(char choice) throws ScoringControlException {
+    int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B, C or D
+    if (choice != 'A' && choice != 'B' && choice != 'C' && choice != 'D') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B', 'C' or 'D'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = 2;
+            break;
+        case 'B':
+            choicePoints = -5;
+            break;
+        case 'C':
+            choicePoints = 5;
+            break;
+        case 'D':
+            choicePoints = -5;
+            break;
+    }
+    return choicePoints;
+}    
+/**************************************************************************
+    * Score the players choice in the Senior Home Living Roomg scenario
+    * @author cbrown
+    **************************************************************************/
+public int scoreSeniorHomeLivingRoomChoice(char choice) throws ScoringControlException {
+    int choicePoints = 0;
+
+    // validate that the choice is a valid choice - A, B or C
+    if (choice != 'A' && choice != 'B' && choice != 'C') {
+        throw new ScoringControlException("Choice " + choice + " is not a valid "
+                  + "choice. Must be an 'A', 'B' or 'C'.");
+    }
+
+    switch (choice) {
+        case 'A':
+            choicePoints = 5;
+            break;
+        case 'B':
+            choicePoints = 3;
+            break;
+        case 'C':
+            choicePoints = -2;
+            break;
+    }
+    
+    recordChoicePoints(scenes[30 + SeniorSceneType.HomeLivingRoom.ordinal()], choicePoints);
 
     return choicePoints;
 }    

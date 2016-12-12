@@ -20,13 +20,12 @@ class AdulthoodWorkSupervisorsOfficeScenario extends View{
                 + "\nYou are reporting your status for the week to your supervisor."
                 + "\nHe praises you for an accomplishment on your current project."
                 + "\nThe accomplishment was actually achieved by one of your co-workers. "
-                + "\n\nA – Say thank you. You almost never receive praise"
-                + "\n\nS - Supervisor's Office from your supervisor for all the great"
-                + "\nthings you do, so it’s overdue anyway."
-                + "\n\nB – Ask your supervisor to make a note in his file so that “your”"
-                + "\naccomplishment can be remembered at your annual performance review."
+                + "\n\nA)–Say thank you. You almost never receive praise from your su-"
+                + "\n     pervisor for all the great things you do, so it’s overdue anyway."
+                + "\n\nB)–Ask your supervisor to make a note in his file so that “your”"
+                + "\n     accomplishment can be remembered at your annual performance review."
                 + "\n\nC - Tell your supervisor about your co-worker and what a great "
-                + "\njob they did.."
+                + "\n      job they did.."
                 + "\n\n< - These choices are too hard, let me try a different scenario");
     }
     @Override

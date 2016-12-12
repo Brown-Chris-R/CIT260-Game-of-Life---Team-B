@@ -24,12 +24,13 @@ class AdulthoodWorkOfficeScenario extends View{
                 + "\n you know non-ethical practices and some form of bribery. "
                 + "\n Now that you knowabout the unethical practices you need "
                 + "\nto choose your attitudetowards this challenge:"
-                + "\n\nA – Don’t say anything, because it could ruin your possibilities"
-                + "\nfor a promotion, since you are the project manager for this new employee."
-                + "\n\nB – Report the unethical practices to your supervisor"          
-                + "\nregardless the consequences."
-                + "\n\nC - Work with the new employee to remove any evidence of"
-                + "\nbribery that could harm both of you. "
+                + "\n\nA)–Don’t say anything, because it could ruin your possibi-"
+                + "\n     lities for a promotion, since you are the project mana-"
+                + "\n     ger for this new employee."
+                + "\n\nB)–Report the unethical practices to your supervisor"          
+                + "\n     regardless the consequences."
+                + "\n\nC)-Work with the new employee to remove any evidence of"
+                + "\n     bribery that could harm both of you. "
                 + "\n\n< - These choices are too hard, let me try a different scenario");
 }
 

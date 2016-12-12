@@ -15,7 +15,7 @@ import byui.cit260.gameOfLife.exceptions.ScoringControlException;
 public class AdulthoodWorkBreakroomScenarioView extends View {
     public AdulthoodWorkBreakroomScenarioView() {
     super("\n"
-        + "\n------------------ Childhood School Cafeteria Scenario ------------------"
+        + "\n------------------ Adulthood School Cafeteria Scenario ------------------"
         + "\nYou are thirsty and go to the break room to get a snack from the vending "
         + "\nmachine. You put the required amount of money in for 1 snack. The machine "
         + "\ntakes your money, but spits out two snacks instead of just one."

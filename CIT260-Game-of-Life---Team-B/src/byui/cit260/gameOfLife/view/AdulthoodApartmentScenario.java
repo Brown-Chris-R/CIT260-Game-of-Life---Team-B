@@ -16,20 +16,21 @@ class AdulthoodApartmentScenario extends View{
 
     public AdulthoodApartmentScenario() {
     super(  "\n"
-          + "\n------------------ Adulthood Apartment Scenario --------------"
-          + "You rode your bike around the area all day yesterday,and you are really"
-          + "\ntired. It’s now 6:30am and your alarm just went off What do you do?"
+          + "\n------------------ Adulthood Apartment Scenario ----------------"
+          + "\nYou rode your bike around the area all day yesterday,and you are"
+          + "\nreally tired.It’s now 6:30am and your alarm just  went off "
+          + "\nWhat do you do?"
           + "\n"
-          + "\nA – Decide that you don’t need a shower today.You can use the extra"
-          + "\ntime to sleep just a little bit longer.."
+          + "\nA)–Decide that you don’t need a shower today.You can use the extra"
+          + "\n   time to sleep just a little bit longer.."
           + "\n"
-          + "\nB – Get up and on your knees. Ask Heavenly Father to bless you with "
-          + "\nthe energy that you will need today." 
+          + "\nB)–Get up and on your knees.Ask Heavenly Father to bless you with "
+          + "\n   the energy that you will need today." 
           + "\n" 
-          + "\nC - Get up and take a bath so you can get a little extra rest by " 
-          + "\nrelaxing in the bathtub." 
+          + "\nC)-Get up and take a bath so you can get a little extra rest by " 
+          + "\n   relaxing in the bathtub." 
           + "\n"  
-          + "\nW - These choices are too hard, let me try a different scenario"
+          + "\nW)-These choices are too hard, let me try a different scenario"
           + "\n");
     }
 

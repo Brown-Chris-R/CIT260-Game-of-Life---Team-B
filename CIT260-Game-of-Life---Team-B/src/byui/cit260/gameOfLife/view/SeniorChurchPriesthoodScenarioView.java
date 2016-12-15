@@ -19,10 +19,12 @@ public class SeniorChurchPriesthoodScenarioView extends View {
         + "\nYou are the Teachers Quorum president. It is Saturday, and you have "
         + "\nno specific plans for the day: What do you do?"
         + "\n-------------------------------------------------------------------------"
-        + "\nA) Call up your advisor and arrange to go visit several less-active "
-        + "\nmembers of your Quorum."
-        + "\nB) Mow your lawn and do some chores around your home."
-        + "\nC) Hang out with your best friends."
+        + "\nA) Call up your High Priest Group Leader and ask him to assign the "
+        + "\nfamilies to someone else. You know you can get 100% with your other families."
+        + "\nB) Call up your High Priest Group Leader and ask him if he will visit "
+        + "\n   those 3 families this month because you are not able to."
+        + "\nC) Fast and Pray for those 3 families. Go and visit them with a "
+        + "\n   prayer in your heart."
         + "\n<) Previous Menu"
         + "\n-------------------------------------------------------------------------");
     }

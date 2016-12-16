@@ -50,7 +50,7 @@ public class HelpMenuView extends View {
     }
 
     private void displayAboutGame() {
-        this.console.println("\nGemeOfLife Version: " + CIT260GameOfLifeTeamB.getGAME_VERSION());
+        this.console.println("\nGameOfLife Version: " + CIT260GameOfLifeTeamB.getGAME_VERSION());
     }
 
     private void displayGamePlayer() {

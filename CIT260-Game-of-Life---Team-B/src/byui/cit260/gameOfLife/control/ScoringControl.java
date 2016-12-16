@@ -198,18 +198,20 @@ public int scoreChildhoodChurchBishopsOfficeChoice(char choice) throws ScoringCo
 public int scoreChildhoodHomeKitchenChoice(String choice) throws ScoringControlException {
     int choicePoints = 0;
 
+    Float answer = 0.000f;
+    
     // validate that the choice is a valid choice
     if (choice == "") {
         throw new ScoringControlException("Choice cannot be blank.");
     } else {
         try {
-            Float answer = Float.parseFloat(choice);
+            answer = Float.parseFloat(choice);
         } catch (NumberFormatException e) {
             throw new ScoringControlException("Choice is not a valid decimal number.");
         }
     }
 
-    if ("the teachings of the lord jesus christ".equals(choice.toLowerCase())) {
+    if (answer == 0.167) {
         choicePoints = 5;
     }
     

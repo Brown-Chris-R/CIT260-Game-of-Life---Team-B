@@ -23,6 +23,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
+import static java.lang.System.out;
 import java.lang.reflect.Array;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
@@ -329,27 +330,31 @@ public class GameMenuView extends View {
     }
 
     private void reportItem() throws ItemControlException {
-         Item[] items = this.game.getItems();
-         String OuputLocation = null;
-         PrintWriter ItemPrintFile = null;
-          this.console.println("\n\nEnter the file path for file where the items report "
-                             + "is to be printed.");
-        String filePath = this.getInput();
-         
-        try (PrintWriter out = new PrintWriter(OuputLocation)){
-              ItemPrintFile = new PrintWriter(filePath);
-                       
-            ItemPrintFile.println("\n---------------  Item List  ---------------");
-            out.printf("%n%-20s%10s%10s","Type","Required","In Stock");
-            out.printf("%n%-20s%10s%10s","----","---------","-------");
+        this.console.println("\n\nEnter the file path for file where the items report "
+                             + "is to be printed."); 
+         String filePath = this.getInput();
+         try {
+            outputItem (filePath);
+            
+        } catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+        }
+    private void outputItem(String filepath)throws ItemControlException, FileNotFoundException{
+        Item[] items = this.game.getItems();
         
-        for (Item item : items) {
+         PrintWriter ItemPrintFile = new PrintWriter(filepath);
+                 
+       
+         
+        try {
+          for (Item item : items) {
                  ItemPrintFile.printf("%n%-20s%7s%7d",item.getInventoryType()
-            , item.getRequiredAmount()
-           , item.getQuantityInStock());   
+                , item.getRequiredAmount()
+                , item.getQuantityInStock());   
    
         }
-        this.console.println("Item Report successfully printed to" + filePath + "!");
+        this.console.println("\nItem Report successfully printed to" + filepath + "!");
         } catch (Exception e) {
               ErrorView.display(this.getClass().getName(), e.getMessage());    
         }finally {
